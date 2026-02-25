@@ -1,3 +1,6 @@
+"use client"; // Framer motion এর জন্য এটি প্রয়োজনীয়
+
+import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../../../components/ui/button";
@@ -5,56 +8,108 @@ import Container from "../../../components/ui/container";
 import Section from "../../../components/ui/section";
 
 const Hero = () => {
+  // এনিমেশন ভেরিয়েন্ট
+  const containerVars = {
+    initial: { opacity: 0 },
+    animate: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05, // প্রতিটা শব্দের মাঝখানের গ্যাপ
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const wordVars = {
+    initial: { opacity: 0, y: 10 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4 },
+    },
+  };
+
+  // টেক্সটকে শব্দে ভাগ করার ফাংশন
+  const renderAnimatedText = (text: string) => {
+    return text.split(" ").map((word, index) => (
+      <motion.span
+        key={index}
+        variants={wordVars}
+        className="inline-block mr-[0.25em]"
+      >
+        {word}
+      </motion.span>
+    ));
+  };
+
   return (
     <Section className="relative overflow-hidden bg-background pt-12 md:pt-16 lg:pt-20 pb-12 md:pb-16">
-      {/* Subtle Background Decoration for a Classic, Reliable Swiss Feel */}
       <div className="absolute inset-0 bg-primary/5 pointer-events-none" />
-      <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 opacity-[0.03] pointer-events-none">
-        <svg width="404" height="784" fill="none" viewBox="0 0 404 784">
-          <defs>
-            <pattern
-              id="hero-pattern"
-              x="0"
-              y="0"
-              width="20"
-              height="20"
-              patternUnits="userSpaceOnUse"
-            >
-              <rect x="0" y="0" width="4" height="4" fill="currentColor"></rect>
-            </pattern>
-          </defs>
-          <rect width="404" height="784" fill="url(#hero-pattern)"></rect>
-        </svg>
-      </div>
 
       <Container className="relative z-10">
         <div className="flex flex-col items-center justify-center text-center max-w-5xl mx-auto">
-          <div className="flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary font-medium text-base mb-8 shadow-sm">
+          {/* Badge Animation */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary font-medium text-base mb-8 shadow-sm"
+          >
             <ShieldCheck className="size-6" />
             <span>Swiss Standard Insurance Checking</span>
-          </div>
+          </motion.div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-foreground leading-tight">
-            Are You Optimizing the Value of Your{" "}
-            <span className="text-primary">Insurance</span> Strategy
-          </h1>
+          {/* Heading Word-by-Word */}
+          <motion.h1
+            variants={containerVars}
+            initial="initial"
+            animate="animate"
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-foreground leading-tight"
+          >
+            {renderAnimatedText("Are You Optimizing the Value of Your")}
+            <motion.span
+              variants={wordVars}
+              className="text-primary inline-block"
+            >
+              {" "}
+              Insurance{" "}
+            </motion.span>
+            {renderAnimatedText("Strategy")}
+          </motion.h1>
 
-          <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-4xl leading-relaxed">
-            Transform your insurance from a fixed expense into a strategic
-            financial advantage.
-          </p>
+          {/* Paragraph Word-by-Word */}
+          <motion.p
+            variants={containerVars}
+            initial="initial"
+            animate="animate"
+            className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-4xl leading-relaxed"
+          >
+            {renderAnimatedText(
+              "Transform your insurance from a fixed expense into a strategic financial advantage.",
+            )}
+          </motion.p>
 
-          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5, duration: 1 }}
+            className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed"
+          >
             Share your current insurance details and let our advanced calculator
-            analyze if you are getting the best value. Discover smarter, more
-            profitable alternatives instantly.
-          </p>
+            analyze if you are getting the best value.
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center mb-12">
+          {/* Buttons Animation */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.6, duration: 0.5 }}
+            className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center mb-12"
+          >
             <Link href="/calculate" className="w-full sm:w-auto">
               <Button
                 size="lg"
-                className="w-full sm:w-auto text-base md:text-lg px-8 py-6 rounded-full group shadow-md shadow-primary/20"
+                className="w-full sm:w-auto text-base md:text-lg px-8 py-6 rounded-full group shadow-md"
               >
                 Calculate Your Policy
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -64,28 +119,31 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto text-base md:text-lg px-8 py-6 rounded-full bg-background border-border hover:bg-muted"
+                className="w-full sm:w-auto text-base md:text-lg px-8 py-6 rounded-full"
               >
                 How It Works
               </Button>
             </Link>
-          </div>
+          </motion.div>
 
-          {/* Trust Indicators */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 text-sm md:text-base font-medium text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-green-500" />
-              <span>100% Secure & Confidential</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-green-500" />
-              <span>Instant Free Analysis</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-green-500" />
-              <span>No Obligation Suggestions</span>
-            </div>
-          </div>
+          {/* Trust Indicators Animation */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.8, duration: 1 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 text-sm md:text-base font-medium text-muted-foreground"
+          >
+            {[
+              "100% Secure & Confidential",
+              "Instant Free Analysis",
+              "No Obligation Suggestions",
+            ].map((text, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-green-500" />
+                <span>{text}</span>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </Container>
     </Section>

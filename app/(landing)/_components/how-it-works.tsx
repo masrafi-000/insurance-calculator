@@ -6,7 +6,7 @@ import { ShieldCheck } from "lucide-react";
 
 export default function HowItWorks() {
   return (
-    <Section id="how-it-works" className="bg-muted/30 border-t border-b">
+    <Section id="how-it-works" className="bg-muted/30">
       <Container>
         <div className="flex flex-col items-center justify-center text-center max-w-3xl mx-auto mb-16 md:mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">

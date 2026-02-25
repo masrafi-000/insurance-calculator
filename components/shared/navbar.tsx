@@ -62,7 +62,7 @@ export default function Navbar() {
             })}
           </ul>
           <div className="flex items-center gap-3 border-l pl-6 border-border/60">
-            <Link href="/calculate">
+            <Link href="#calculator">
               <Button
                 size="sm"
                 className="rounded-full px-5 h-9 font-medium shadow-sm"

@@ -35,7 +35,7 @@ export default function OurValues() {
               <h3 className="text-xl font-bold text-foreground mb-3">
                 {value.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed flex-grow">
+              <p className="text-muted-foreground leading-relaxed grow">
                 {value.description}
               </p>
             </div>

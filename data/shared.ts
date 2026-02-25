@@ -10,7 +10,7 @@ import {
 
 export const footerLinks: ITFooterLink[] = [
   { title: "Home", href: "/" },
-  { title: "Calculator", href: "/calculate" },
+  { title: "Calculator", href: "/#calculator" },
   { title: "How It Works", href: "/#how-it-works" },
   { title: "About Us", href: "/about" },
   { title: "Contact", href: "/contact" },

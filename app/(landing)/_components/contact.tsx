@@ -24,7 +24,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-4">
           {contactInfo.map((info: ITContactInfo, index) => (
             <div
               key={index}
@@ -46,7 +46,7 @@ export default function Contact() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center border-t border-border/50 pt-12">
+        {/* <div className="flex flex-col items-center border-t border-border/50 pt-12">
           <h3 className="text-lg font-medium text-foreground mb-6">
             Connect With Us
           </h3>
@@ -62,7 +62,7 @@ export default function Contact() {
               </Link>
             ))}
           </div>
-        </div>
+        </div> */}
       </Container>
     </Section>
   );

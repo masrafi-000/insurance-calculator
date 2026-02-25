@@ -6,7 +6,7 @@ import Section from "../../../components/ui/section";
 
 const Hero = () => {
   return (
-    <Section className="relative overflow-hidden bg-background pt-24 md:pt-32 lg:pt-40 pb-20 md:pb-28">
+    <Section className="relative overflow-hidden bg-background pt-12 md:pt-16 lg:pt-20 pb-12 md:pb-16">
       {/* Subtle Background Decoration for a Classic, Reliable Swiss Feel */}
       <div className="absolute inset-0 bg-primary/5 pointer-events-none" />
       <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 opacity-[0.03] pointer-events-none">

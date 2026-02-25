@@ -1,7 +1,9 @@
-
+import PrimeCalculator from "./__components/primecalculator";
 
 export default function Home() {
   return (
-    <div>hi</div>
+    <div>
+      <PrimeCalculator />
+    </div>
   );
 }

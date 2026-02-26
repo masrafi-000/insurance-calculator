@@ -123,3 +123,43 @@ export const aboutStats: ITStat[] = [
   { value: "99%", label: "Customer Satisfaction" },
   { value: "24/7", label: "Expert Support" },
 ];
+
+
+
+export const CANTONS = [
+  { value: "AG", label: "Argovie (AG)" },
+  { value: "AI", label: "Appenzell Rhodes-Int. (AI)" },
+  { value: "AR", label: "Appenzell Rhodes-Ext. (AR)" },
+  { value: "BE", label: "Berne (BE)" },
+  { value: "BL", label: "Bâle-Campagne (BL)" },
+  { value: "BS", label: "Bâle-Ville (BS)" },
+  { value: "FR", label: "Fribourg (FR)" },
+  { value: "GE", label: "Genève (GE)" },
+  { value: "GL", label: "Glaris (GL)" },
+  { value: "GR", label: "Grisons (GR)" },
+  { value: "JU", label: "Jura (JU)" },
+  { value: "LU", label: "Lucerne (LU)" },
+  { value: "NE", label: "Neuchâtel (NE)" },
+  { value: "NW", label: "Nidwald (NW)" },
+  { value: "OW", label: "Obwald (OW)" },
+  { value: "SG", label: "St-Gall (SG)" },
+  { value: "SH", label: "Schaffhouse (SH)" },
+  { value: "SO", label: "Soleure (SO)" },
+  { value: "SZ", label: "Schwyz (SZ)" },
+  { value: "TG", label: "Thurgovie (TG)" },
+  { value: "TI", label: "Tessin (TI)" },
+  { value: "UR", label: "Uri (UR)" },
+  { value: "VD", label: "Vaud (VD)" },
+  { value: "VS", label: "Valais (VS)" },
+  { value: "ZG", label: "Zoug (ZG)" },
+  { value: "ZH", label: "Zurich (ZH)" },
+];
+
+export const FRANCHISES = [
+  { value: "300", label: "300" },
+  { value: "500", label: "500" },
+  { value: "1000", label: "1'000" },
+  { value: "1500", label: "1'500" },
+  { value: "2000", label: "2'000" },
+  { value: "2500", label: "2'500" },
+];

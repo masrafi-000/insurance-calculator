@@ -1,5 +1,5 @@
-import React from "react";
 import Image from "next/image";
+import React from "react";
 import InsuranceClaculator from "./insurance-claculator";
 
 // Types for our data structures
@@ -18,75 +18,74 @@ interface CompanyContent {
   logo: string;
 }
 
+const sidebarAds: AdContent[] = [
+  {
+    title: "Term Life Insurance",
+    price: "Starts $10/mo",
+    img: "https://images.unsplash.com/photo-1509099836639-18ba1795216d",
+  },
+  {
+    title: "Pet Health Plans",
+    price: "Top Rated 2026",
+    img: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e",
+  },
+  {
+    title: "Travel Protection",
+    price: "Global Coverage",
+    img: "https://images.unsplash.com/photo-1436491865332-7a61a109c0f2",
+  },
+  {
+    title: "Business Liability",
+    price: "Instant Quotes",
+    img: "https://images.unsplash.com/photo-1454165833767-027ff33027ef",
+  },
+  {
+    title: "Renters Insurance",
+    price: "$5/mo Special",
+    img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa",
+  },
+  {
+    title: "Boat & Marine",
+    price: "Bundle & Save",
+    img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5",
+  },
+  {
+    title: "Cyber Liability",
+    price: "For Small Biz",
+    img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b",
+  },
+  {
+    title: "Classic Car Cover",
+    price: "Agreed Value",
+    img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf",
+  },
+];
+
+const partners: CompanyContent[] = [
+  {
+    name: "State Farm",
+    rating: "4.8/5",
+    quote: "Like a good neighbor, State Farm is there.",
+    color: "border-red-600",
+    logo: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=100",
+  },
+  {
+    name: "Progressive",
+    rating: "4.7/5",
+    quote: "Find the best rate with our Name Your Price tool.",
+    color: "border-blue-700",
+    logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=100",
+  },
+  {
+    name: "Geico",
+    rating: "4.9/5",
+    quote: "15 minutes could save you 15% or more.",
+    color: "border-blue-400",
+    logo: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=100",
+  },
+];
+
 const FormSection: React.FC = () => {
-  // Realistic Sidebar Data
-  const sidebarAds: AdContent[] = [
-    {
-      title: "Term Life Insurance",
-      price: "Starts $10/mo",
-      img: "https://images.unsplash.com/photo-1509099836639-18ba1795216d",
-    },
-    {
-      title: "Pet Health Plans",
-      price: "Top Rated 2026",
-      img: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e",
-    },
-    {
-      title: "Travel Protection",
-      price: "Global Coverage",
-      img: "https://images.unsplash.com/photo-1436491865332-7a61a109c0f2",
-    },
-    {
-      title: "Business Liability",
-      price: "Instant Quotes",
-      img: "https://images.unsplash.com/photo-1454165833767-027ff33027ef",
-    },
-    {
-      title: "Renters Insurance",
-      price: "$5/mo Special",
-      img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa",
-    },
-    {
-      title: "Boat & Marine",
-      price: "Bundle & Save",
-      img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5",
-    },
-    {
-      title: "Cyber Liability",
-      price: "For Small Biz",
-      img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b",
-    },
-    {
-      title: "Classic Car Cover",
-      price: "Agreed Value",
-      img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf",
-    },
-  ];
-
-  const partners: CompanyContent[] = [
-    {
-      name: "State Farm",
-      rating: "4.8/5",
-      quote: "Like a good neighbor, State Farm is there.",
-      color: "border-red-600",
-      logo: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=100",
-    },
-    {
-      name: "Progressive",
-      rating: "4.7/5",
-      quote: "Find the best rate with our Name Your Price tool.",
-      color: "border-blue-700",
-      logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=100",
-    },
-    {
-      name: "Geico",
-      rating: "4.9/5",
-      quote: "15 minutes could save you 15% or more.",
-      color: "border-blue-400",
-      logo: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=100",
-    },
-  ];
-
   return (
     <section className="bg-[#f4f7fa] min-h-screen py-10 px-4">
       <div className="max-w-[1500px] mx-auto">
@@ -116,7 +115,7 @@ const FormSection: React.FC = () => {
           </aside>
 
           {/* MAIN CONTENT */}
-          <div className="flex-grow">
+          <div className="grow">
             <div className="bg-white rounded-3xl shadow-xl shadow-blue-900/5 border border-slate-100 overflow-hidden">
               <div className="p-8 md:p-12">
                 <header className="mb-10 border-b border-gray-100 pb-8 text-center md:text-left">
@@ -129,9 +128,7 @@ const FormSection: React.FC = () => {
                   </p>
                 </header>
 
-                <div className="">
-                  <InsuranceClaculator />
-                </div>
+                <InsuranceClaculator />
 
                 {/* BOTTOM SECTION: Company Cards with Images */}
                 <div className="mt-16">

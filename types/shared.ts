@@ -40,3 +40,14 @@ export interface ITSocialMedia {
   icon: LucideIcon;
   href: string;
 }
+
+
+export interface CantonOption {
+  value: string;
+  label: string;
+}
+
+export interface FranchiseOption {
+  value: string;
+  label: string;
+}

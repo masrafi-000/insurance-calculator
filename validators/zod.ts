@@ -7,3 +7,24 @@ export const ZCFooter = z.object({
 });
 
 export type ZTFooter = z.infer<typeof ZCFooter>;
+
+
+export const calculatorSchema = z.object({
+  email: z.string().email("Email invalide"),
+  canton: z.string().min(1, "Sélectionne un canton"),
+  primeMensuelle: z
+    .string()
+    .min(1, "Champ requis")
+    .refine((val) => !isNaN(Number(val)), "Doit être un nombre"),
+  franchise: z.string().min(1, "Choisis une franchise"),
+  loyerMensuel: z
+    .string()
+    .min(1, "Champ requis")
+    .refine((val) => !isNaN(Number(val)), "Doit être un nombre"),
+  revenuMensuel: z
+    .string()
+    .min(1, "Champ requis")
+    .refine((val) => !isNaN(Number(val)), "Doit être un nombre"),
+});
+
+export type CalculatorSchema = z.infer<typeof calculatorSchema>;

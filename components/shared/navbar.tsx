@@ -24,9 +24,9 @@ export default function Navbar() {
     href: string,
   ) => {
     // Only handle hash links on the same page
-    if (href.startsWith("#") && pathname === "/") {
+    if (href.startsWith("/#") && pathname === "/") {
       e.preventDefault();
-      const targetId = href.substring(1);
+      const targetId = href.substring(2);
       const elem = document.getElementById(targetId);
       if (elem) {
         elem.scrollIntoView({ behavior: "smooth" });
@@ -74,8 +74,8 @@ export default function Navbar() {
           </ul>
           <div className="flex items-center gap-3 border-l pl-6 border-border/60">
             <Link
-              href="#calculator"
-              onClick={(e) => handleScroll(e, "#calculator")}
+              href="/#calculator"
+              onClick={(e) => handleScroll(e, "/#calculator")}
             >
               <Button
                 size="sm"
@@ -128,8 +128,8 @@ export default function Navbar() {
 
                   <div className="pt-8">
                     <Link
-                      href="#calculator"
-                      onClick={(e) => handleScroll(e, "#calculator")}
+                      href="/#calculator"
+                      onClick={(e) => handleScroll(e, "/#calculator")}
                     >
                       <Button
                         size="lg"

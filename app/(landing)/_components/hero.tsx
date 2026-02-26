@@ -1,11 +1,11 @@
 "use client";
 
+import Section from "@/components/ui/section";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../../../components/ui/button";
 import Container from "../../../components/ui/container";
-import Section from "@/components/ui/section";
 
 const Hero = () => {
   const containerVars = {
@@ -102,7 +102,7 @@ const Hero = () => {
             transition={{ delay: 1.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center mb-12"
           >
-            <Link href="/calculate" className="w-full sm:w-auto">
+            <Link href="/#calculator" className="w-full sm:w-auto">
               <Button
                 size="lg"
                 className="w-full sm:w-auto text-base md:text-lg px-8 py-6 rounded-full group shadow-md"
@@ -111,7 +111,7 @@ const Hero = () => {
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link href="#how-it-works" className="w-full sm:w-auto">
+            <Link href="/#how-it-works" className="w-full sm:w-auto">
               <Button
                 size="lg"
                 variant="outline"

@@ -19,8 +19,8 @@ export const footerLinks: ITFooterLink[] = [
 
 export const navItems: ITNavItems[] = [
   { name: "Home", href: "/" },
-  { name: "How It Works", href: "#how-it-works" },
-  { name: "Contact", href: "#contact" },
+  { name: "How It Works", href: "/#how-it-works" },
+  { name: "Contact", href: "/#contact" },
   { name: "About Us", href: "/about" },
 ];
 
@@ -123,8 +123,6 @@ export const aboutStats: ITStat[] = [
   { value: "99%", label: "Customer Satisfaction" },
   { value: "24/7", label: "Expert Support" },
 ];
-
-
 
 export const CANTONS = [
   { value: "AG", label: "Argovie (AG)" },

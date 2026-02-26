@@ -21,6 +21,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { CantonOption, FranchiseOption } from "@/types/shared";
+import { calculatorSchema, CalculatorSchema } from "@/validators/zod";
 
 export function PrimeCalculatorForm({
   CANTONS,

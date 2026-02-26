@@ -1,20 +1,58 @@
-const data = [
-  {
-    id: 1,
-    title: "Example 1",
-  },
-  {
-    id: 2,
-    title: "Example 2",
-  },
-  {
-    id: 3,
-    title: "Example 3",
-  },
-];
+import { NextResponse } from "next/server";
 
-import { NextRequest, NextResponse } from "next/server";
+export async function POST(req: Request) {
+  try {
+    const body = await req.json();
+    const { monthlyPremium, deductible, medicalExpenses, copayCap } = body;
 
-export async function GET(request: NextRequest) {
-  return NextResponse.json(data);
+    const mp = parseFloat(monthlyPremium);
+    const d = parseFloat(deductible);
+    const me = parseFloat(medicalExpenses);
+    const cc = parseFloat(copayCap);
+
+    // Annual premium
+    const annualPremium = mp * 12;
+
+    // Out of pocket
+    let outOfPocket = 0;
+    if (me <= d) {
+      outOfPocket = me;
+    } else {
+      const remaining = me - d;
+      const tenPercent = remaining * 0.1;
+      const cappedTenPercent = Math.min(tenPercent, cc);
+      outOfPocket = d + cappedTenPercent;
+    }
+
+    // Reimbursement
+    let reimbursement = me - outOfPocket;
+    if (reimbursement < 0) reimbursement = 0;
+
+    // Insurance gain/loss
+    const insuranceBalance = annualPremium - reimbursement;
+    const insuranceGains = insuranceBalance > 0;
+    const insuranceLoses = insuranceBalance < 0;
+
+    // Ratio
+    const ratio = annualPremium > 0 ? (reimbursement / annualPremium) * 100 : 0;
+
+    return NextResponse.json({
+      success: true,
+      data: {
+        annualPremium,
+        outOfPocket,
+        reimbursement,
+        insuranceBalance,
+        insuranceGains,
+        insuranceLoses,
+        ratio,
+      },
+    });
+  } catch (error) {
+    console.error("Calculate Error:", error);
+    return NextResponse.json(
+      { success: false, error: "Invalid data" },
+      { status: 400 },
+    );
+  }
 }

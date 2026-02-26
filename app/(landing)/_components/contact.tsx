@@ -1,9 +1,8 @@
 import Container from "@/components/ui/container";
 import Section from "@/components/ui/section";
-import { contactInfo, socialMedia } from "@/data/shared";
-import { ITContactInfo, ITSocialMedia } from "@/types/shared";
+import { contactInfo } from "@/data/shared";
+import { ITContactInfo } from "@/types/shared";
 import { HeadphonesIcon } from "lucide-react";
-import Link from "next/link";
 
 export default function Contact() {
   return (

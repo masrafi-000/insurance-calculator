@@ -6,7 +6,7 @@ import Section from "@/components/ui/section";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
-import InsuranceClaculator from "./insurance-claculator";
+import InsuranceCalculator from "./insurance-calculator";
 
 // Types for our data structures
 interface AdContent {
@@ -132,7 +132,7 @@ const FormSection: React.FC = () => {
           {/* MAIN CONTENT: Calculator */}
           <div className="grow order-1 xl:order-2 w-full mx-auto">
             {/* The Calculator Form Component */}
-            <InsuranceClaculator />
+            <InsuranceCalculator />
 
             <div className="h-px bg-slate-200/60 w-full my-12" />
 

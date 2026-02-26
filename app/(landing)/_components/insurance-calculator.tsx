@@ -2,10 +2,14 @@
 
 import { CANTONS, FRANCHISES } from "@/data/shared";
 import { motion } from "framer-motion";
-import { PrimeCalculatorForm } from "./calcForm";
+import { useState } from "react";
+import { CalculationResult, PrimeCalculatorForm } from "./calcForm";
 import { EmptyResponse } from "./emptyResponse";
+import { ResultDisplay } from "./ResultDisplay";
 
-export default function InsuranceClaculator() {
+export default function InsuranceCalculator() {
+  const [result, setResult] = useState<CalculationResult | null>(null);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -23,10 +27,14 @@ export default function InsuranceClaculator() {
       </div>
 
       <div className="relative z-10 w-full mb-8">
-        <PrimeCalculatorForm CANTONS={CANTONS} FRANCHISES={FRANCHISES} />
+        <PrimeCalculatorForm
+          CANTONS={CANTONS}
+          FRANCHISES={FRANCHISES}
+          onResult={setResult}
+        />
       </div>
       <div className="relative z-10 w-full rounded-2xl ">
-        <EmptyResponse />
+        {result ? <ResultDisplay result={result} /> : <EmptyResponse />}
       </div>
     </motion.div>
   );

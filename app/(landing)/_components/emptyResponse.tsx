@@ -18,12 +18,11 @@ export function EmptyResponse() {
           <Calculator className="w-8 h-8" />
         </EmptyMedia>
         <EmptyTitle className="text-[22px] font-extrabold text-slate-900 mt-2">
-          Aucun résultat pour le moment
+          No results yet
         </EmptyTitle>
         <EmptyDescription className="text-[15px] text-slate-500 max-w-md mx-auto mt-2 leading-relaxed">
-          Remplissez le formulaire ci-dessus et cliquez sur &quot;Calculer +
-          Envoyer&quot; pour découvrir votre rentabilité et voir l&apos;analyse
-          détaillée.
+          Fill out the form above and click &quot;Calculate + Send&quot; to
+          discover your profitability and see the detailed analysis.
         </EmptyDescription>
       </EmptyHeader>
     </Empty>

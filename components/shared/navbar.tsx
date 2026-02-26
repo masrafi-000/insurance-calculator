@@ -8,29 +8,50 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { cn } from "@/lib/utils";
+import { navItems } from "@/data/shared";
+import { ITNavItems } from "@/types/shared";
 import { Menu, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { navItems } from "@/data/shared";
-import { ITNavItems } from "@/types/shared";
-
-
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
+  const handleScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    // Only handle hash links on the same page
+    if (href.startsWith("#") && pathname === "/") {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const elem = document.getElementById(targetId);
+      if (elem) {
+        elem.scrollIntoView({ behavior: "smooth" });
+        setIsOpen(false);
+        // Update URL hash without jumping
+        window.history.pushState(null, "", href);
+      }
+    } else if (href === "/" && pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setIsOpen(false);
+      window.history.pushState(null, "", "/");
+    }
+  };
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md transition-all">
       <nav className="mx-auto flex h-16 items-center justify-between px-6 md:px-12 lg:px-18">
         {/* Logo */}
         <Link
           href="/"
           className="flex items-center gap-2 group z-50 text-xl xl:text-2xl font-bold tracking-wide text-foreground"
+          onClick={(e) => handleScroll(e, "/")}
         >
-          <ShieldCheck className="w-6 h-6 text-primary" />
+          <ShieldCheck className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
           Insurance Check
         </Link>
 
@@ -38,34 +59,27 @@ export default function Navbar() {
         <div className="hidden items-center gap-8 lg:flex">
           <ul className="flex gap-4 xl:gap-8">
             {navItems.map((item: ITNavItems) => {
-              const isActive =
-                pathname === item.href ||
-                (item.href !== "/" && pathname.startsWith(item.href));
               return (
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className={cn(
-                      "text-sm font-medium transition-colors hover:text-foreground relative",
-                      isActive
-                        ? "text-foreground font-semibold"
-                        : "text-muted-foreground",
-                    )}
+                    onClick={(e) => handleScroll(e, item.href)}
+                    className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground relative"
                   >
                     {item.name}
-                    {isActive && (
-                      <span className="absolute -bottom-5.25 left-0 h-0.5 w-full bg-primary" />
-                    )}
                   </Link>
                 </li>
               );
             })}
           </ul>
           <div className="flex items-center gap-3 border-l pl-6 border-border/60">
-            <Link href="#calculator">
+            <Link
+              href="#calculator"
+              onClick={(e) => handleScroll(e, "#calculator")}
+            >
               <Button
                 size="sm"
-                className="rounded-full px-5 h-9 font-medium shadow-sm"
+                className="rounded-full px-5 h-9 font-medium shadow-sm hover:scale-105 transition-transform"
               >
                 Calculate Now
               </Button>
@@ -90,7 +104,7 @@ export default function Navbar() {
                   <Link
                     href="/"
                     className="flex items-center gap-2 group z-50 text-xl xl:text-2xl font-bold tracking-wide text-foreground"
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => handleScroll(e, "/")}
                   >
                     <ShieldCheck className="w-6 h-6 text-primary" />
                     Insurance Check
@@ -100,20 +114,12 @@ export default function Navbar() {
                 {/* Nav Links */}
                 <div className="mobile-link flex flex-col space-y-4">
                   {navItems.map((item) => {
-                    const isActive =
-                      pathname === item.href ||
-                      (item.href !== "/" && pathname.startsWith(item.href));
                     return (
                       <Link
                         key={item.name}
                         href={item.href}
-                        onClick={() => setIsOpen(false)}
-                        className={cn(
-                          "mobile-link text-4xl font-light tracking-tighter transition-all duration-300 hover:italic hover:translate-x-2",
-                          isActive
-                            ? "text-primary font-normal translate-x-2 italic"
-                            : "text-foreground/90",
-                        )}
+                        onClick={(e) => handleScroll(e, item.href)}
+                        className="mobile-link text-4xl font-light tracking-tighter text-foreground/90 transition-all duration-300 hover:italic hover:translate-x-2"
                       >
                         {item.name}
                       </Link>
@@ -121,10 +127,13 @@ export default function Navbar() {
                   })}
 
                   <div className="pt-8">
-                    <Link href="/calculate" onClick={() => setIsOpen(false)}>
+                    <Link
+                      href="#calculator"
+                      onClick={(e) => handleScroll(e, "#calculator")}
+                    >
                       <Button
                         size="lg"
-                        className="w-full rounded-full font-medium h-14 text-lg"
+                        className="w-full rounded-full font-medium h-14 text-lg hover:scale-[1.02] transition-transform"
                       >
                         Calculate Now
                       </Button>

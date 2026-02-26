@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Container from "@/components/ui/container";
 import Section from "@/components/ui/section";
 import { steps } from "@/data/shared";
 import { ITSteps } from "@/types/shared";
+import { motion } from "framer-motion";
 import { ShieldCheck } from "lucide-react";
 
 export default function HowItWorks() {
@@ -17,7 +17,7 @@ export default function HowItWorks() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.8, duration: 0.6 }}
+          transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">
             <ShieldCheck className="w-4 h-4" />
@@ -40,7 +40,7 @@ export default function HowItWorks() {
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 1, duration: 0.8 }}
+            transition={{ delay: 1, duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
           />
 
           {steps.map((step: ITSteps, index: number) => (
@@ -50,7 +50,11 @@ export default function HowItWorks() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.9 }} // Staggered delay
+              transition={{
+                delay: index * 0.2,
+                duration: 1.0,
+                ease: [0.22, 1, 0.36, 1],
+              }} // Staggered delay
             >
               {/* Step Number Badge */}
               <div className="absolute top-0 right-1/2 translate-x-12 -translate-y-4 text-6xl font-black text-primary/5 opacity-50 group-hover:text-primary/10 transition-colors pointer-events-none">

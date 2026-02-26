@@ -10,7 +10,10 @@ const Section = ({
   id?: string;
 }) => {
   return (
-    <section id={id} className={cn("py-12 md:py-16 lg:py-24", className)}>
+    <section
+      id={id}
+      className={cn("scroll-mt-20 py-12 md:py-16 lg:py-24", className)}
+    >
       {children}
     </section>
   );

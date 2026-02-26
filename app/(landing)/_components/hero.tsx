@@ -1,20 +1,19 @@
-"use client"; // Framer motion এর জন্য এটি প্রয়োজনীয়
+"use client";
 
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../../../components/ui/button";
 import Container from "../../../components/ui/container";
-import Section from "../../../components/ui/section";
+import Section from "@/components/ui/section";
 
 const Hero = () => {
-  // এনিমেশন ভেরিয়েন্ট
   const containerVars = {
     initial: { opacity: 0 },
     animate: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.05, // প্রতিটা শব্দের মাঝখানের গ্যাপ
+        staggerChildren: 0.05,
         delayChildren: 0.2,
       },
     },
@@ -25,11 +24,10 @@ const Hero = () => {
     animate: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.4 },
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
     },
   };
 
-  // টেক্সটকে শব্দে ভাগ করার ফাংশন
   const renderAnimatedText = (text: string) => {
     return text.split(" ").map((word, index) => (
       <motion.span
@@ -52,7 +50,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary font-medium text-base mb-8 shadow-sm"
           >
             <ShieldCheck className="size-6" />
@@ -69,15 +67,13 @@ const Hero = () => {
             {renderAnimatedText("Are You Optimizing the Value of Your")}
             <motion.span
               variants={wordVars}
-              className="text-primary inline-block"
+              className="text-primary inline-block mr-2"
             >
-              {" "}
-              Insurance{" "}
+              Insurance
             </motion.span>
             {renderAnimatedText("Strategy")}
           </motion.h1>
 
-          {/* Paragraph Word-by-Word */}
           <motion.p
             variants={containerVars}
             initial="initial"
@@ -92,7 +88,7 @@ const Hero = () => {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 1 }}
+            transition={{ delay: 1.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed"
           >
             Share your current insurance details and let our advanced calculator
@@ -103,7 +99,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.6, duration: 0.5 }}
+            transition={{ delay: 1.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center mb-12"
           >
             <Link href="/calculate" className="w-full sm:w-auto">
@@ -130,7 +126,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.8, duration: 1 }}
+            transition={{ delay: 1.8, duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 text-sm md:text-base font-medium text-muted-foreground"
           >
             {[

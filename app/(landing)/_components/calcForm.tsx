@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { HelpCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
 
 import {
@@ -38,48 +39,60 @@ export function PrimeCalculatorForm({
       canton: "",
       primeMensuelle: "",
       franchise: "",
-      loyerMensuel: "",
-      revenuMensuel: "",
+      fraisMedicauxAnnuels: "",
+      plafondQuotePart: "",
     },
   });
 
   const onSubmit = (data: CalculatorSchema) => {
     console.log("Validated Data:", data);
-
-    // এখানে API call, email trigger, calculation logic যাবে
+    // API call, email trigger, calculation logic
   };
 
   return (
-    <div className="bg-white/60 border border-white/70 rounded-[26px] p-8 shadow-[0_20px_50px_rgba(59,130,246,0.12)] backdrop-blur-2xl">
+    <div className="bg-[#fcfdfd] border border-slate-100 rounded-2xl p-6 sm:p-8 shadow-sm max-w-5xl mx-auto">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {/* Header */}
           <div className="flex items-start justify-between gap-4">
             <div>
-              <h1 className="text-4xl font-bold tracking-tight leading-tight">
-                Calculateur « Prime vs Rentabilité »
+              <h1 className="text-[28px] font-extrabold text-slate-900 tracking-tight mb-1.5">
+                Calculateur “Prime vs Rentabilité”
               </h1>
-              <p className="text-[15px] text-slate-500 leading-relaxed">
-                {`  Tu reçois aussi le résultat par email, et il s'affiche immédiatement ici.`}
+              <p className="text-[15px] text-slate-500">
+                {`Tu reçois aussi le résultat par email, et il s'affiche immédiatement ici.`}
               </p>
+            </div>
+            <div className="hidden sm:inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-[13px] font-semibold text-slate-700 shadow-sm whitespace-nowrap">
+              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+              Leads + Résultats
             </div>
           </div>
 
           {/* Section 1 */}
-          <div className="w-full h-auto">
-            <p className="text-[12px] font-black uppercase tracking-widest text-blue-400 mb-3.5">
+          <div>
+            <p className="text-[15px] font-bold text-slate-800 mb-4">
               1) Infos pour recevoir le résultat par email
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full h-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Email *
+                      </FormLabel>
+                      <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50" />
+                    </div>
                     <FormControl>
-                      <Input placeholder="ex: nom@email.com" {...field} />
+                      <Input
+                        placeholder="test@email.ch"
+                        className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -90,17 +103,26 @@ export function PrimeCalculatorForm({
                 control={form.control}
                 name="canton"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Canton</FormLabel>
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Canton *
+                      </FormLabel>
+                      <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50" />
+                    </div>
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
-                        <SelectTrigger className="w-full h-auto">
-                          <SelectValue placeholder="Sélectionner" />
+                        <SelectTrigger className="w-full rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base bg-white">
+                          <SelectValue placeholder="Jura (JU)" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent>
+                      <SelectContent className="rounded-xl">
                         {CANTONS.map((c: CantonOption) => (
-                          <SelectItem key={c.value} value={c.value}>
+                          <SelectItem
+                            key={c.value}
+                            value={c.value}
+                            className="rounded-lg cursor-pointer"
+                          >
                             {c.label}
                           </SelectItem>
                         ))}
@@ -113,21 +135,32 @@ export function PrimeCalculatorForm({
             </div>
           </div>
 
+          <div className="h-px bg-slate-100 w-full" />
+
           {/* Section 2 */}
           <div>
-            <p className="text-[12px] font-black uppercase tracking-widest text-blue-400 mb-3.5">
+            <p className="text-[15px] font-bold text-slate-800 mb-4">
               2) Tes chiffres (calcul immédiat + envoi email)
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <FormField
                 control={form.control}
                 name="primeMensuelle"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Prime mensuelle</FormLabel>
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Prime mensuelle (CHF)
+                      </FormLabel>
+                      <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50" />
+                    </div>
                     <FormControl>
-                      <Input placeholder="ex: 380" {...field} />
+                      <Input
+                        placeholder="380"
+                        className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -138,17 +171,26 @@ export function PrimeCalculatorForm({
                 control={form.control}
                 name="franchise"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Franchise</FormLabel>
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Franchise (CHF)
+                      </FormLabel>
+                      <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50" />
+                    </div>
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
-                        <SelectTrigger className="w-full h-auto">
-                          <SelectValue placeholder="Choisir" />
+                        <SelectTrigger className="w-full rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base bg-white">
+                          <SelectValue placeholder="2'500" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent>
+                      <SelectContent className="rounded-xl">
                         {FRANCHISES.map((f: FranchiseOption) => (
-                          <SelectItem key={f.value} value={f.value}>
+                          <SelectItem
+                            key={f.value}
+                            value={f.value}
+                            className="rounded-lg cursor-pointer"
+                          >
                             {f.label}
                           </SelectItem>
                         ))}
@@ -161,12 +203,21 @@ export function PrimeCalculatorForm({
 
               <FormField
                 control={form.control}
-                name="loyerMensuel"
+                name="fraisMedicauxAnnuels"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Loyer mensuel</FormLabel>
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors flex flex-col h-full">
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Total frais médicaux annuels (CHF)
+                      </FormLabel>
+                      <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50" />
+                    </div>
                     <FormControl>
-                      <Input placeholder="ex: 1200" {...field} />
+                      <Input
+                        placeholder="1200"
+                        className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -175,13 +226,25 @@ export function PrimeCalculatorForm({
 
               <FormField
                 control={form.control}
-                name="revenuMensuel"
+                name="plafondQuotePart"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Revenu mensuel</FormLabel>
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors flex flex-col h-full">
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Plafond quote-part (CHF)
+                      </FormLabel>
+                      <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50" />
+                    </div>
                     <FormControl>
-                      <Input placeholder="ex: 4500" {...field} />
+                      <Input
+                        placeholder="700"
+                        className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
+                        {...field}
+                      />
                     </FormControl>
+                    <div className="mt-2 text-[13px] text-slate-500">
+                      {`Astuce : laisse 700 si tu n'es pas sûr (adulte).`}
+                    </div>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -190,30 +253,40 @@ export function PrimeCalculatorForm({
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-wrap gap-3">
-            <Button type="submit">Calculer</Button>
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <Button
+              type="submit"
+              className="bg-[#4182F9] hover:bg-[#3471e4] text-white rounded-full px-8 py-6 text-[15px] font-bold shadow-md hover:shadow-lg transition-all"
+            >
+              Calculer + Envoyer
+            </Button>
 
             <Button
               type="button"
-              variant="secondary"
+              variant="outline"
+              className="bg-white hover:bg-slate-50 text-slate-900 border-slate-200 rounded-full px-6 py-6 text-[15px] font-bold shadow-sm transition-colors"
+            >
+              Exemple
+            </Button>
+
+            <Button
+              type="button"
+              variant="outline"
               onClick={() =>
                 form.reset({
                   email: "",
                   canton: "",
                   primeMensuelle: "",
                   franchise: "",
-                  loyerMensuel: "",
-                  revenuMensuel: "",
+                  fraisMedicauxAnnuels: "",
+                  plafondQuotePart: "",
                 })
               }
+              className="bg-white hover:bg-slate-50 text-slate-900 border-slate-200 rounded-full px-6 py-6 text-[15px] font-bold shadow-sm transition-colors"
             >
               Reset
             </Button>
           </div>
-
-          <p className="text-center text-xs text-slate-400">
-            {`Outil informatif – ne constitue pas un conseil en assurance.`}
-          </p>
         </form>
       </Form>
     </div>

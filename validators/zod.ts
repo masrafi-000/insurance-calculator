@@ -8,7 +8,6 @@ export const ZCFooter = z.object({
 
 export type ZTFooter = z.infer<typeof ZCFooter>;
 
-
 export const calculatorSchema = z.object({
   email: z.string().email("Email invalide"),
   canton: z.string().min(1, "Sélectionne un canton"),
@@ -17,11 +16,11 @@ export const calculatorSchema = z.object({
     .min(1, "Champ requis")
     .refine((val) => !isNaN(Number(val)), "Doit être un nombre"),
   franchise: z.string().min(1, "Choisis une franchise"),
-  loyerMensuel: z
+  fraisMedicauxAnnuels: z
     .string()
     .min(1, "Champ requis")
     .refine((val) => !isNaN(Number(val)), "Doit être un nombre"),
-  revenuMensuel: z
+  plafondQuotePart: z
     .string()
     .min(1, "Champ requis")
     .refine((val) => !isNaN(Number(val)), "Doit être un nombre"),

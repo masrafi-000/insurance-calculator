@@ -2,7 +2,6 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { HelpCircle, Loader2 } from "lucide-react";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import {
@@ -23,29 +22,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useCalculatorMutation } from "@/hooks/queries/use-calculator-mutation";
+import { useCalculatorStore } from "@/store/use-calculator-store";
 import { CantonOption, FranchiseOption } from "@/types/shared";
 import { calculatorSchema, CalculatorSchema } from "@/validators/zod";
-
-export type CalculationResult = {
-  annualPremium: number;
-  outOfPocket: number;
-  reimbursement: number;
-  insuranceBalance: number;
-  insuranceGains: boolean;
-  insuranceLoses: boolean;
-  ratio: number;
-};
 
 export function PrimeCalculatorForm({
   CANTONS,
   FRANCHISES,
-  onResult,
 }: {
   CANTONS: CantonOption[];
   FRANCHISES: FranchiseOption[];
-  onResult: (result: CalculationResult) => void;
 }) {
-  const [isLoading, setIsLoading] = useState(false);
+  const resetCalculator = useCalculatorStore((state) => state.resetCalculator);
+  const { mutate, isPending } = useCalculatorMutation();
 
   const form = useForm<CalculatorSchema>({
     resolver: zodResolver(calculatorSchema),
@@ -59,24 +49,8 @@ export function PrimeCalculatorForm({
     },
   });
 
-  const onSubmit = async (data: CalculatorSchema) => {
-    setIsLoading(true);
-    try {
-      const response = await fetch("/api/calculate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      const resData = await response.json();
-      if (resData.success) {
-        onResult(resData.data);
-      }
-    } catch (error) {
-      console.error("Calculation failed", error);
-    } finally {
-      setIsLoading(false);
-    }
+  const onSubmit = (data: CalculatorSchema) => {
+    mutate(data);
   };
 
   return (
@@ -287,10 +261,10 @@ export function PrimeCalculatorForm({
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <Button
               type="submit"
-              disabled={isLoading}
+              disabled={isPending}
               className="bg-[#4182F9] hover:bg-[#3471e4] text-white rounded-full px-8 py-6 text-[15px] font-bold shadow-md hover:shadow-lg transition-all"
             >
-              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Calculate + Send
             </Button>
 
@@ -312,7 +286,8 @@ export function PrimeCalculatorForm({
             <Button
               type="button"
               variant="outline"
-              onClick={() =>
+              onClick={() => {
+                resetCalculator();
                 form.reset({
                   email: "",
                   canton: "",
@@ -320,8 +295,8 @@ export function PrimeCalculatorForm({
                   deductible: "",
                   medicalExpenses: "",
                   copayCap: "",
-                })
-              }
+                });
+              }}
               className="bg-white hover:bg-slate-50 text-slate-900 border-slate-200 rounded-full px-6 py-6 text-[15px] font-bold shadow-sm transition-colors"
             >
               Reset

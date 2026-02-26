@@ -1,14 +1,14 @@
 "use client";
 
 import { CANTONS, FRANCHISES } from "@/data/shared";
+import { useCalculatorStore } from "@/store/use-calculator-store";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { CalculationResult, PrimeCalculatorForm } from "./calcForm";
+import { PrimeCalculatorForm } from "./calcForm";
 import { EmptyResponse } from "./emptyResponse";
 import { ResultDisplay } from "./ResultDisplay";
 
 export default function InsuranceCalculator() {
-  const [result, setResult] = useState<CalculationResult | null>(null);
+  const result = useCalculatorStore((state) => state.result);
 
   return (
     <motion.div
@@ -27,11 +27,7 @@ export default function InsuranceCalculator() {
       </div>
 
       <div className="relative z-10 w-full mb-8">
-        <PrimeCalculatorForm
-          CANTONS={CANTONS}
-          FRANCHISES={FRANCHISES}
-          onResult={setResult}
-        />
+        <PrimeCalculatorForm CANTONS={CANTONS} FRANCHISES={FRANCHISES} />
       </div>
       <div className="relative z-10 w-full rounded-2xl ">
         {result ? <ResultDisplay result={result} /> : <EmptyResponse />}

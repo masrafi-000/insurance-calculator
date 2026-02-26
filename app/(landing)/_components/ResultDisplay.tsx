@@ -1,3 +1,4 @@
+import { CalculationResult } from "@/store/use-calculator-store";
 import { motion } from "framer-motion";
 import {
   CheckCircle2,
@@ -7,7 +8,6 @@ import {
   TrendingDown,
   TrendingUp,
 } from "lucide-react";
-import { CalculationResult } from "./calcForm";
 
 export function ResultDisplay({ result }: { result: CalculationResult }) {
   return (

@@ -38,7 +38,7 @@ const sidebarAds: AdContent[] = [
   {
     title: "Travel Protection",
     price: "Global Coverage",
-    img: "https://images.unsplash.com/photo-1436491865332-7a61a109c0f2",
+    img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf",
   },
 ];
 

@@ -47,7 +47,7 @@ export async function POST(req: Request) {
     // Async email sending
     if (email) {
       // Background email sending without blocking response
-      sendInsuranceEmail(email, {
+      await sendInsuranceEmail(email, {
         canton,
         monthlyPremium: mp,
         deductible: d,

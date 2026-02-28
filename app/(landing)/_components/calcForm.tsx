@@ -302,7 +302,7 @@ export function PrimeCalculatorForm({
                   copayCap: "",
                 });
               }}
-              className="bg-white hover:bg-slate-50 text-slate-900 border-slate-200 rounded-full px-6 py-6 text-[15px] font-bold shadow-sm transition-colors"
+              className="bg-red-500 hover:bg-red-600 text-white hover:text-white rounded-full px-6 py-6 text-[15px] font-bold shadow-sm transition-colors"
             >
               Reset
             </Button>

@@ -127,7 +127,7 @@ const FormSection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* TOP SECTION: 2 Advertisement Cards */}
+        {/* TOP SECTION: 3 Advertisement Cards */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
           variants={containerVariants}
@@ -139,21 +139,24 @@ const FormSection: React.FC = () => {
             <TopAdCard
               title="Premium Auto Savings"
               desc="Drivers who switch to our partners save an average of $744/year."
+              price="Up to 30% Off"
               img="https://images.unsplash.com/photo-1494976388531-d1058494cdd8"
             />
           </motion.div>
           <motion.div variants={itemVariants}>
             <TopAdCard
               title="Homeowners Special"
-              desc="Exclusive 2026 rates for new homeowners. Check eligibility."
+              desc="Exclusive 2026 rates for new homeowners. Complete coverage."
+              price="From $49/mo"
               img="https://images.unsplash.com/photo-1568605114967-8130f3a36994"
             />
           </motion.div>
           <motion.div variants={itemVariants}>
             <TopAdCard
-              title="Homeowners Special"
-              desc="Exclusive 2026 rates for new homeowners. Check eligibility."
-              img="https://images.unsplash.com/photo-1568605114967-8130f3a36994"
+              title="Life Insurance Plus"
+              desc="Secure your family's future with our top-rated term life policies."
+              price="Instant Approval"
+              img="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57"
             />
           </motion.div>
         </motion.div>

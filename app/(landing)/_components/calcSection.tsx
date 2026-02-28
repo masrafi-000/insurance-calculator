@@ -24,21 +24,38 @@ interface CompanyContent {
   logo: string;
 }
 
-const sidebarAds: AdContent[] = [
+const leftSidebarAds: AdContent[] = [
   {
     title: "Term Life Insurance",
     price: "Starts $10/mo",
-    img: "https://images.unsplash.com/photo-1509099836639-18ba1795216d",
+    img: "https://images.unsplash.com/photo-1511895426328-dc8714191300",
   },
   {
     title: "Pet Health Plans",
     price: "Top Rated 2026",
-    img: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e",
+    img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b",
   },
   {
     title: "Travel Protection",
     price: "Global Coverage",
-    img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf",
+    img: "https://images.unsplash.com/photo-1556740714-a8395b3bf30f",
+  },
+];
+const rightSidebarAds: AdContent[] = [
+  {
+    title: "Senior Care Giving",
+    price: "Medicare Supplement",
+    img: "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57",
+  },
+  {
+    title: "Dental & Vision",
+    price: "Family Packages",
+    img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95",
+  },
+  {
+    title: "Business Liability",
+    price: "Get Quotes Fast",
+    img: "https://images.unsplash.com/photo-1488646953014-85cb44e25828",
   },
 ];
 
@@ -48,21 +65,21 @@ const partners: CompanyContent[] = [
     rating: "4.8/5",
     quote: "Like a good neighbor, State Farm is there.",
     color: "border-red-600",
-    logo: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=100",
+    logo: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=100",
   },
   {
     name: "Progressive",
     rating: "4.7/5",
     quote: "Find the best rate with our Name Your Price tool.",
     color: "border-blue-700",
-    logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=100",
+    logo: "https://images.unsplash.com/photo-1544256718-3bcf237f3974?q=80&w=100",
   },
   {
     name: "Geico",
     rating: "4.9/5",
     quote: "15 minutes could save you 15% or more.",
     color: "border-blue-400",
-    logo: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=100",
+    logo: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=100",
   },
 ];
 
@@ -186,7 +203,7 @@ const FormSection: React.FC = () => {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
               >
-                {sidebarAds.slice(0, 3).map((ad, idx) => (
+                {leftSidebarAds.slice(0, 3).map((ad, idx) => (
                   <motion.div
                     key={idx}
                     variants={itemVariants}
@@ -305,7 +322,7 @@ const FormSection: React.FC = () => {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
               >
-                {sidebarAds.slice(0, 3).map((ad, idx) => (
+                {rightSidebarAds.slice(0, 3).map((ad, idx) => (
                   <motion.div
                     key={idx}
                     variants={itemVariants}

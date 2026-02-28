@@ -73,7 +73,7 @@ export async function POST(req: Request) {
         insuranceGains,
         insuranceLoses,
         ratio,
-        redirectUrl: process.env.REDIRECT_URL || "/",
+        redirectUrl: "/",
       },
     });
   } catch (error) {

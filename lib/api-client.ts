@@ -2,7 +2,7 @@ import axios from "axios";
 import { handleError } from "./errors/handle-error";
 
 export const apiClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "/api",
+  baseURL: "/api",
   headers: {
     "Content-Type": "application/json",
   },

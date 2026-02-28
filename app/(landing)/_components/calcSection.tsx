@@ -94,7 +94,7 @@ const FormSection: React.FC = () => {
 
   return (
     <Section id="calculator" className="bg-background py-8">
-      <Container>
+      <Container className="w-full">
         {/* Animated Heading Section */}
         <motion.div
           className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto mb-16"
@@ -129,7 +129,7 @@ const FormSection: React.FC = () => {
 
         {/* TOP SECTION: 2 Advertisement Cards */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -149,11 +149,18 @@ const FormSection: React.FC = () => {
               img="https://images.unsplash.com/photo-1568605114967-8130f3a36994"
             />
           </motion.div>
+          <motion.div variants={itemVariants}>
+            <TopAdCard
+              title="Homeowners Special"
+              desc="Exclusive 2026 rates for new homeowners. Check eligibility."
+              img="https://images.unsplash.com/photo-1568605114967-8130f3a36994"
+            />
+          </motion.div>
         </motion.div>
 
-        <div className="flex flex-col xl:flex-row gap-4 lg:gap-12 w-full">
+        <div className="flex flex-col xl:flex-row gap-4 lg:gap-8 w-full">
           {/* LEFT SIDEBAR: Sponsored Picks & Google Ad */}
-          <aside className="xl:w-[320px] flex flex-col gap-4 shrink-0 order-2 xl:order-1">
+          <aside className="xl:w-[280px] flex-col gap-4 shrink-0 order-2 xl:order-1 hidden md:flex">
             <motion.div
               className="bg-slate-50 rounded-3xl p-6 border border-slate-100"
               initial={{ opacity: 0, x: -30 }}
@@ -176,7 +183,7 @@ const FormSection: React.FC = () => {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
               >
-                {sidebarAds.map((ad, idx) => (
+                {sidebarAds.slice(0, 3).map((ad, idx) => (
                   <motion.div
                     key={idx}
                     variants={itemVariants}
@@ -248,7 +255,7 @@ const FormSection: React.FC = () => {
                 <span className="w-2 h-2 rounded-full bg-blue-500"></span>
                 Partner Carriers
               </motion.h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {partners.map((company, idx) => (
                   <motion.div
                     key={idx}
@@ -268,6 +275,70 @@ const FormSection: React.FC = () => {
               </div>
             </motion.div>
           </motion.div>
+
+          {/* RIGHT SIDEBAR (Hidden on small screens) */}
+          <aside className="xl:w-[280px] flex-col gap-4 shrink-0 order-3 hidden xl:flex">
+            <motion.div
+              className="bg-slate-50 rounded-3xl p-6 border border-slate-100"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 20,
+                delay: 0.3,
+              }}
+            >
+              <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">
+                Sponsored Picks
+              </h3>
+              <motion.div
+                className="flex flex-col gap-3"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+              >
+                {sidebarAds.slice(0, 3).map((ad, idx) => (
+                  <motion.div
+                    key={idx}
+                    variants={itemVariants}
+                    whileHover={{
+                      scale: 1.02,
+                      transition: {
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      },
+                    }}
+                  >
+                    <SideAdCard {...ad} />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+
+             {/* Google Ad Component */}
+            <motion.div
+              className="sticky top-24"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 20,
+                delay: 0.5,
+              }}
+            >
+              <GoogleAd
+                client="ca-pub-XXXXXXXXXXXXXXXX"
+                slot="1234567890"
+                className="rounded-2xl"
+              />
+            </motion.div>
+          </aside>
         </div>
       </Container>
     </Section>
@@ -276,7 +347,7 @@ const FormSection: React.FC = () => {
 
 /* --- Optimized Sub-Components --- */
 
-const TopAdCard: React.FC<AdContent> = ({ title, desc, img }) => (
+const TopAdCard: React.FC<AdContent> = ({ title, desc, price, img }) => (
   <div className="relative h-48 md:h-56 rounded-3xl overflow-hidden group cursor-pointer shadow-sm">
     <Image
       src={`${img}?auto=format&fit=crop&q=80&w=800`}
@@ -291,9 +362,14 @@ const TopAdCard: React.FC<AdContent> = ({ title, desc, img }) => (
       <h4 className="text-white text-xl sm:text-2xl font-extrabold mb-1">
         {title}
       </h4>
-      <p className="text-slate-300 text-sm max-w-[280px] leading-relaxed">
+      <p className="text-slate-300 text-sm max-w-[280px] leading-relaxed mb-3">
         {desc}
       </p>
+      {price && (
+        <span className="inline-block bg-blue-600/90 text-white text-xs font-bold px-3 py-1 rounded-full w-max backdrop-blur-md">
+          {price}
+        </span>
+      )}
     </div>
   </div>
 );

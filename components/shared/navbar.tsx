@@ -43,8 +43,8 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md transition-all">
-      <nav className="mx-auto flex h-16 items-center justify-between px-6 md:px-12 lg:px-18">
+    <header className=" sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md transition-all">
+      <nav className="container mx-auto flex h-16 items-center justify-between px-6 md:px-12 lg:px-18">
         {/* Logo */}
         <Link
           href="/"

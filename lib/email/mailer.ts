@@ -27,8 +27,6 @@ export const sendInsuranceEmail = async (
     insuranceLoses: boolean;
   },
 ) => {
-  const isProfitable = data.insuranceGains;
-
   const userMailOptions = {
     from: process.env.SMTP_USER || "noreply@example.com",
     to,
@@ -37,9 +35,12 @@ export const sendInsuranceEmail = async (
       <div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f9fafb; padding: 20px; border-radius: 12px;">
         <div style="background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); border: 1px solid #e5e7eb;">
           <h2 style="color: #111827; margin-top: 0; font-size: 24px; font-weight: 600; text-align: center;">Health Insurance Calculation</h2>
-          <div style="margin: 20px 0; padding: 15px; background-color: ${isProfitable ? "#f0fdf4" : "#fef2f2"}; border-left: 4px solid ${isProfitable ? "#16a34a" : "#dc2626"}; border-radius: 4px;">
-            <p style="margin: 0; color: ${isProfitable ? "#166534" : "#991b1b"}; font-weight: 500;">
-              ${isProfitable ? "✅ Your current insurance plan results in a PROFIT compared to your expenses." : "⚠️ Your current insurance plan results in a LOSS compared to your expenses."}
+          <div style="margin: 20px 0; padding: 15px; background-color: ${data.insuranceGains ? "#fef2f2" : "#f0fdf4"}; border-left: 4px solid ${data.insuranceGains ? "#dc2626" : "#16a34a"}; border-radius: 4px; text-align: center;">
+            <p style="margin: 0; color: ${data.insuranceGains ? "#991b1b" : "#166534"}; font-weight: bold; font-size: 18px; text-transform: uppercase;">
+              ${data.insuranceGains ? "⚠️ YOU LOSE" : "✅ YOU GAIN"}
+            </p>
+            <p style="margin: 8px 0 0 0; color: ${data.insuranceGains ? "#b91c1c" : "#15803d"}; font-size: 24px; font-weight: 800;">
+              ${Math.abs(data.insuranceBalance).toLocaleString("en-CH", { maximumFractionDigits: 0 })} <span style="font-size: 16px; opacity: 0.8;">CHF</span>
             </p>
           </div>
           <p style="color: #4b5563; line-height: 1.6;">Hello,</p>
@@ -77,7 +78,7 @@ export const sendInsuranceEmail = async (
               </tr>
               <tr style="border-bottom: 1px solid #e5e7eb;">
                 <td style="padding: 12px 0; color: #6b7280;">Total Balance</td>
-                <td style="padding: 12px 0; font-weight: 600; color: ${isProfitable ? "#16a34a" : "#dc2626"}; text-align: right;">CHF ${data.insuranceBalance.toFixed(2)}</td>
+                <td style="padding: 12px 0; font-weight: 600; color: ${data.insuranceGains ? "#dc2626" : "#16a34a"}; text-align: right;">CHF ${data.insuranceBalance.toFixed(2)}</td>
               </tr>
               <tr>
                 <td style="padding: 12px 0; color: #6b7280;">Payout Ratio</td>
@@ -140,9 +141,9 @@ export const sendInsuranceEmail = async (
                 <td style="padding: 10px; border: 1px solid #e2e8f0; color: #64748b;">Reimbursement</td>
                 <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: 600; color: #1e293b;">CHF ${data.reimbursement.toFixed(2)}</td>
               </tr>
-              <tr style="background-color: #f8fafc;">
+              <tr style="background-color: ${data.insuranceGains ? "#fef2f2" : "#f0fdf4"};">
                 <td style="padding: 10px; border: 1px solid #e2e8f0; color: #64748b;">Total Balance</td>
-                <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: 600; color: ${isProfitable ? "#16a34a" : "#dc2626"};">CHF ${data.insuranceBalance.toFixed(2)}</td>
+                <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: 600; color: ${data.insuranceGains ? "#dc2626" : "#16a34a"};">CHF ${data.insuranceBalance.toFixed(2)}</td>
               </tr>
               <tr>
                 <td style="padding: 10px; border: 1px solid #e2e8f0; color: #64748b;">Payout Ratio</td>
@@ -151,9 +152,10 @@ export const sendInsuranceEmail = async (
             </tbody>
           </table>
           
-          <div style="margin-top: 25px; padding: 15px; background-color: ${isProfitable ? "#f0fdf4" : "#fef2f2"}; border-left: 4px solid ${isProfitable ? "#16a34a" : "#dc2626"}; border-radius: 4px;">
-            <p style="margin: 0; color: ${isProfitable ? "#166534" : "#991b1b"}; font-size: 14px; font-weight: 500;">
-              System Analysis: This plan results in a ${isProfitable ? "PROFIT" : "LOSS"} for the user.
+          <div style="margin-top: 25px; padding: 15px; background-color: ${data.insuranceGains ? "#fef2f2" : "#f0fdf4"}; border-left: 4px solid ${data.insuranceGains ? "#dc2626" : "#16a34a"}; border-radius: 4px; text-align: center;">
+            <p style="margin: 0; color: ${data.insuranceGains ? "#991b1b" : "#166534"}; font-size: 15px; font-weight: 700;">
+              Verdict: User ${data.insuranceGains ? "LOSES" : "GAINS"} 
+              ${Math.abs(data.insuranceBalance).toLocaleString("en-CH", { maximumFractionDigits: 0 })} CHF
             </p>
           </div>
         </div>

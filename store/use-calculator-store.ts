@@ -8,6 +8,7 @@ export type CalculationResult = {
   insuranceGains: boolean;
   insuranceLoses: boolean;
   ratio: number;
+  redirectUrl?: string;
 };
 
 interface CalculatorState {

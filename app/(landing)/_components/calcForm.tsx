@@ -15,6 +15,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Select,
   SelectContent,
@@ -122,15 +123,17 @@ export function PrimeCalculatorForm({
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="rounded-xl">
-                        {CANTONS.map((c: CantonOption) => (
-                          <SelectItem
-                            key={c.value}
-                            value={c.value}
-                            className="rounded-lg cursor-pointer"
-                          >
-                            {c.label}
-                          </SelectItem>
-                        ))}
+                        <ScrollArea className="h-72 w-full">
+                          {CANTONS.map((c: CantonOption) => (
+                            <SelectItem
+                              key={c.value}
+                              value={c.value}
+                              className="rounded-lg cursor-pointer"
+                            >
+                              {c.label}
+                            </SelectItem>
+                          ))}
+                        </ScrollArea>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -190,15 +193,17 @@ export function PrimeCalculatorForm({
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="rounded-xl">
-                        {FRANCHISES.map((f: FranchiseOption) => (
-                          <SelectItem
-                            key={f.value}
-                            value={f.value}
-                            className="rounded-lg cursor-pointer"
-                          >
-                            {f.label}
-                          </SelectItem>
-                        ))}
+                        <ScrollArea className="h-auto w-full">
+                          {FRANCHISES.map((f: FranchiseOption) => (
+                            <SelectItem
+                              key={f.value}
+                              value={f.value}
+                              className="rounded-lg cursor-pointer"
+                            >
+                              {f.label}
+                            </SelectItem>
+                          ))}
+                        </ScrollArea>
                       </SelectContent>
                     </Select>
                     <FormMessage />

@@ -1,9 +1,17 @@
+import { sendInsuranceEmail } from "@/lib/email/mailer";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { monthlyPremium, deductible, medicalExpenses, copayCap } = body;
+    const {
+      email,
+      canton,
+      monthlyPremium,
+      deductible,
+      medicalExpenses,
+      copayCap,
+    } = body;
 
     const mp = parseFloat(monthlyPremium);
     const d = parseFloat(deductible);
@@ -36,6 +44,25 @@ export async function POST(req: Request) {
     // Ratio
     const ratio = annualPremium > 0 ? (reimbursement / annualPremium) * 100 : 0;
 
+    // Async email sending
+    if (email) {
+      // Background email sending without blocking response
+      sendInsuranceEmail(email, {
+        canton,
+        monthlyPremium: mp,
+        deductible: d,
+        medicalExpenses: me,
+        copayCap: cc,
+        annualPremium,
+        outOfPocket,
+        reimbursement,
+        insuranceBalance,
+        insuranceGains,
+        insuranceLoses,
+        ratio,
+      }).catch((err) => console.error("Failed to send insurance email:", err));
+    }
+
     return NextResponse.json({
       success: true,
       data: {
@@ -46,6 +73,7 @@ export async function POST(req: Request) {
         insuranceGains,
         insuranceLoses,
         ratio,
+        redirectUrl: process.env.REDIRECT_URL || "/",
       },
     });
   } catch (error) {

@@ -216,9 +216,11 @@ const FormSection: React.FC = () => {
               }}
             >
               <GoogleAd
-                client="ca-pub-XXXXXXXXXXXXXXXX"
-                slot="1234567890"
+                // client="ca-pub-XXXXXXXXXXXXXXXX"
+                // slot="1234567890"
                 className="rounded-2xl"
+                fallbackImg="https://images.unsplash.com/photo-1556740714-a8395b3bf30f"
+                fallbackText="Local Family Plans"
               />
             </motion.div>
           </aside>
@@ -319,7 +321,7 @@ const FormSection: React.FC = () => {
               </motion.div>
             </motion.div>
 
-             {/* Google Ad Component */}
+            {/* Google Ad Component */}
             <motion.div
               className="sticky top-24"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -333,9 +335,11 @@ const FormSection: React.FC = () => {
               }}
             >
               <GoogleAd
-                client="ca-pub-XXXXXXXXXXXXXXXX"
-                slot="1234567890"
-                className="rounded-2xl"
+                // client="ca-pub-XXXXXXXXXXXXXXXX"
+                // slot="1234567890"
+                className="rounded-2xl h-[400px]"
+                fallbackImg="https://images.unsplash.com/photo-1544256718-3bcf237f3974"
+                fallbackText="Exclusive Health Benefits"
               />
             </motion.div>
           </aside>

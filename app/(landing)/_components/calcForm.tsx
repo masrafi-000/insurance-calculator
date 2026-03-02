@@ -178,7 +178,9 @@ export function PrimeCalculatorForm({
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          Your current monthly health insurance premium payment.
+                          The amount you pay each month to your health insurance
+                          fund (LAMal). You can find it on your policy or
+                          premium notice.
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
@@ -317,11 +319,22 @@ export function PrimeCalculatorForm({
               type="button"
               variant="outline"
               onClick={() => {
-                form.setValue("canton", "GE");
-                form.setValue("monthlyPremium", "380");
-                form.setValue("deductible", "2500");
-                form.setValue("medicalExpenses", "1200");
-                form.setValue("copayCap", "700");
+                const exampleData = {
+                  email: "example@health.ch",
+                  canton: "GE",
+                  monthlyPremium: "380",
+                  deductible: "2500",
+                  medicalExpenses: "1200",
+                  copayCap: "700",
+                };
+
+                // Fill the form visually
+                Object.entries(exampleData).forEach(([key, value]) => {
+                  form.setValue(key as keyof CalculatorSchema, value);
+                });
+
+                // Trigger the API call immediately
+                onSubmit(exampleData);
               }}
               className="bg-white hover:bg-slate-50 text-slate-900 border-slate-200 rounded-full px-6 py-6 text-[15px] font-bold shadow-sm transition-colors"
             >

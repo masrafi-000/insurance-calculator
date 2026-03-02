@@ -60,7 +60,7 @@ export function ResultDisplay({ result }: { result: CalculationResult }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {/* Metric 1 */}
         <div className="bg-slate-50 rounded-xl p-5 border border-slate-100">
           <div className="flex items-center gap-2 text-slate-600 mb-3">

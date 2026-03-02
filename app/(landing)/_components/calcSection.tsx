@@ -110,7 +110,12 @@ const FormSection: React.FC = () => {
   };
 
   return (
-    <Section id="calculator" className="bg-background py-8">
+    <Section
+      id="calculator"
+      className=" py-8 overflow-clip bg-linear-to-br from-blue-50 via-blue-50/50 to-blue-100/50 dark:from-primary/10 dark:via-background dark:to-primary/10"
+    >
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] mix-blend-multiply pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] mix-blend-multiply pointer-events-none" />
       <Container className="w-full">
         {/* Animated Heading Section */}
         <motion.div
@@ -178,53 +183,11 @@ const FormSection: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        <div className="flex flex-col xl:flex-row gap-4 lg:gap-8 w-full">
+        <div className="flex flex-col xl:flex-row gap-5 lg:gap-8 w-full items-start">
           {/* LEFT SIDEBAR: Sponsored Picks & Google Ad */}
-          <aside className="xl:w-[280px] flex-col gap-4 shrink-0 order-2 xl:order-1 hidden md:flex">
+          <aside className="xl:w-[280px] flex-col gap-5 shrink-0 order-2 xl:order-1 hidden md:flex sticky top-24 h-max">
             <motion.div
-              className="bg-slate-50 rounded-3xl p-6 border border-slate-100"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 20,
-                delay: 0.3,
-              }}
-            >
-              <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">
-                Sponsored Picks
-              </h3>
-              <motion.div
-                className="flex flex-col gap-3"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-              >
-                {leftSidebarAds.slice(0, 3).map((ad, idx) => (
-                  <motion.div
-                    key={idx}
-                    variants={itemVariants}
-                    whileHover={{
-                      scale: 1.02,
-                      transition: {
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 10,
-                      },
-                    }}
-                  >
-                    <SideAdCard {...ad} />
-                  </motion.div>
-                ))}
-              </motion.div>
-            </motion.div>
-
-            {/* Google Ad Component */}
-            <motion.div
-              className="sticky top-24"
+              className="relative w-full"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -236,11 +199,28 @@ const FormSection: React.FC = () => {
               }}
             >
               <GoogleAd
-                // client="ca-pub-XXXXXXXXXXXXXXXX"
-                // slot="1234567890"
+                className="rounded-2xl"
+                fallbackImg="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57"
+                fallbackText="Local Family Plans"
+              />
+            </motion.div>
+
+            <motion.div
+              className="relative w-full"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 20,
+                delay: 0.5,
+              }}
+            >
+              <GoogleAd
                 className="rounded-2xl"
                 fallbackImg="https://images.unsplash.com/photo-1556740714-a8395b3bf30f"
-                fallbackText="Local Family Plans"
+                fallbackText="Travel Protection"
               />
             </motion.div>
           </aside>
@@ -299,51 +279,9 @@ const FormSection: React.FC = () => {
           </motion.div>
 
           {/* RIGHT SIDEBAR (Hidden on small screens) */}
-          <aside className="xl:w-[280px] flex-col gap-4 shrink-0 order-3 hidden xl:flex">
+          <aside className="xl:w-[280px] flex-col gap-5 shrink-0 order-3 hidden xl:flex sticky top-24 h-max">
             <motion.div
-              className="bg-slate-50 rounded-3xl p-6 border border-slate-100"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 20,
-                delay: 0.3,
-              }}
-            >
-              <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">
-                Sponsored Picks
-              </h3>
-              <motion.div
-                className="flex flex-col gap-3"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-              >
-                {rightSidebarAds.slice(0, 3).map((ad, idx) => (
-                  <motion.div
-                    key={idx}
-                    variants={itemVariants}
-                    whileHover={{
-                      scale: 1.02,
-                      transition: {
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 10,
-                      },
-                    }}
-                  >
-                    <SideAdCard {...ad} />
-                  </motion.div>
-                ))}
-              </motion.div>
-            </motion.div>
-
-            {/* Google Ad Component */}
-            <motion.div
-              className="sticky top-24"
+              className="relative w-full"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -355,8 +293,24 @@ const FormSection: React.FC = () => {
               }}
             >
               <GoogleAd
-                // client="ca-pub-XXXXXXXXXXXXXXXX"
-                // slot="1234567890"
+                className="rounded-2xl h-[400px]"
+                fallbackImg="https://images.unsplash.com/photo-1606811841689-23dfddce3e95"
+                fallbackText="Dental & Vision Care"
+              />
+            </motion.div>
+            <motion.div
+              className="relative w-full"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 20,
+                delay: 0.5,
+              }}
+            >
+              <GoogleAd
                 className="rounded-2xl h-[400px]"
                 fallbackImg="https://images.unsplash.com/photo-1544256718-3bcf237f3974"
                 fallbackText="Exclusive Health Benefits"

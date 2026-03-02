@@ -115,7 +115,7 @@ export default function Contact() {
 
               <motion.div
                 className="relative z-10 w-20 h-20 rounded-2xl bg-blue-50 flex items-center justify-center mb-8 shadow-inner"
-                whileHover={{ scale: 1.1, rotate: [-2, 2, 0] }}
+                whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
                 <div className="absolute inset-0 bg-blue-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

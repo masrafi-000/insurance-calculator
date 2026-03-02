@@ -8,7 +8,7 @@ import Image from "next/image";
 import React from "react";
 import InsuranceCalculator from "./insurance-calculator";
 
-// Types for our data structures
+
 interface AdContent {
   title: string;
   desc?: string;
@@ -24,40 +24,7 @@ interface CompanyContent {
   logo: string;
 }
 
-const leftSidebarAds: AdContent[] = [
-  {
-    title: "Term Life Insurance",
-    price: "Starts $10/mo",
-    img: "https://images.unsplash.com/photo-1511895426328-dc8714191300",
-  },
-  {
-    title: "Pet Health Plans",
-    price: "Top Rated 2026",
-    img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b",
-  },
-  {
-    title: "Travel Protection",
-    price: "Global Coverage",
-    img: "https://images.unsplash.com/photo-1556740714-a8395b3bf30f",
-  },
-];
-const rightSidebarAds: AdContent[] = [
-  {
-    title: "Senior Care Giving",
-    price: "Medicare Supplement",
-    img: "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57",
-  },
-  {
-    title: "Dental & Vision",
-    price: "Family Packages",
-    img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95",
-  },
-  {
-    title: "Business Liability",
-    price: "Get Quotes Fast",
-    img: "https://images.unsplash.com/photo-1488646953014-85cb44e25828",
-  },
-];
+
 
 const partners: CompanyContent[] = [
   {
@@ -111,7 +78,6 @@ const FormSection: React.FC = () => {
 
   return (
     <Section
-      id="calculator"
       className=" py-8 overflow-clip bg-linear-to-br from-blue-50 via-blue-50/50 to-blue-100/50 dark:from-primary/10 dark:via-background dark:to-primary/10"
     >
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] mix-blend-multiply pointer-events-none" />
@@ -352,24 +318,7 @@ const TopAdCard: React.FC<AdContent> = ({ title, desc, price, img }) => (
   </div>
 );
 
-const SideAdCard: React.FC<AdContent> = ({ title, price, img }) => (
-  <div className="bg-white p-2.5 rounded-2xl border border-slate-100 flex items-center gap-3 hover:border-blue-200 transition-all cursor-pointer shadow-sm group">
-    <div className="relative w-14 h-14 shrink-0 rounded-xl overflow-hidden bg-slate-100">
-      <Image
-        src={`${img}?auto=format&fit=crop&q=60&w=200`}
-        alt={title}
-        fill
-        className="object-cover group-hover:scale-110 transition-transform duration-500"
-      />
-    </div>
-    <div className="overflow-hidden">
-      <h5 className="text-[13px] font-bold text-slate-800 group-hover:text-blue-600 truncate transition-colors">
-        {title}
-      </h5>
-      <p className="text-[12px] text-slate-500 mt-0.5">{price}</p>
-    </div>
-  </div>
-);
+
 
 const CompanyCard: React.FC<CompanyContent> = ({
   name,

@@ -8,7 +8,6 @@ import Image from "next/image";
 import React from "react";
 import InsuranceCalculator from "./insurance-calculator";
 
-
 interface AdContent {
   title: string;
   desc?: string;
@@ -23,8 +22,6 @@ interface CompanyContent {
   color: string;
   logo: string;
 }
-
-
 
 const partners: CompanyContent[] = [
   {
@@ -77,9 +74,7 @@ const FormSection: React.FC = () => {
   };
 
   return (
-    <Section
-      className=" py-8 overflow-clip bg-linear-to-br from-blue-50 via-blue-50/50 to-blue-100/50 dark:from-primary/10 dark:via-background dark:to-primary/10"
-    >
+    <Section className=" py-8 overflow-clip bg-linear-to-br from-blue-50 via-blue-50/50 to-blue-100/50 dark:from-primary/10 dark:via-background dark:to-primary/10">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] mix-blend-multiply pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] mix-blend-multiply pointer-events-none" />
       <Container className="w-full">
@@ -151,7 +146,7 @@ const FormSection: React.FC = () => {
 
         <div className="flex flex-col xl:flex-row gap-5 lg:gap-8 w-full items-start">
           {/* LEFT SIDEBAR: Sponsored Picks & Google Ad */}
-          <aside className="xl:w-[280px] flex-col gap-5 shrink-0 order-2 xl:order-1 hidden md:flex sticky top-24 h-max">
+          <aside className="xl:w-[280px]  gap-5 shrink-0 order-2 xl:order-1 flex-col  md:flex md:flex-row xl:flex-col sticky top-24 h-max">
             <motion.div
               className="relative w-full"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -317,8 +312,6 @@ const TopAdCard: React.FC<AdContent> = ({ title, desc, price, img }) => (
     </div>
   </div>
 );
-
-
 
 const CompanyCard: React.FC<CompanyContent> = ({
   name,

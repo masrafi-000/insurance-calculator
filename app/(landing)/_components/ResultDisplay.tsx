@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import {
   CheckCircle2,
   HeartPulse,
+  HelpCircle,
   PiggyBank,
   ShieldAlert,
   TrendingDown,
@@ -68,6 +69,13 @@ export function ResultDisplay({ result }: { result: CalculationResult }) {
               <PiggyBank className="w-4 h-4 text-blue-500" />
             </div>
             <span className="font-semibold text-[14px]">Annual Premium</span>
+            <div className="relative group flex items-center">
+              <HelpCircle className="w-[16px] h-[16px] text-blue-400 fill-blue-50/50 cursor-help" />
+              <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none text-center">
+                Total premiums paid over 12 months.
+                <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+              </div>
+            </div>
           </div>
           <div className="text-2xl font-bold text-slate-900">
             {result.annualPremium.toLocaleString("en-CH", {
@@ -83,7 +91,14 @@ export function ResultDisplay({ result }: { result: CalculationResult }) {
             <div className="bg-white p-1.5 rounded-lg shadow-sm">
               <ShieldAlert className="w-4 h-4 text-orange-500" />
             </div>
-            <span className="font-semibold text-[14px]">Out of Pocket</span>
+            <span className="font-semibold text-[14px]">Total participation</span>
+            <div className="relative group flex items-center">
+              <HelpCircle className="w-[16px] h-[16px] text-blue-400 fill-blue-50/50 cursor-help" />
+              <div className="absolute bottom-full mb-2.5 right-0 translate-x-1/4 sm:left-1/2 sm:-translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none text-center">
+                Amount paid by you: deductible + 10% of the costs (max 700 CHF).
+                <div className="absolute -bottom-1.5 right-6 sm:left-1/2 sm:-translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+              </div>
+            </div>
           </div>
           <div className="text-2xl font-bold text-slate-900">
             {result.outOfPocket.toLocaleString("en-CH", {
@@ -99,7 +114,14 @@ export function ResultDisplay({ result }: { result: CalculationResult }) {
             <div className="bg-white p-1.5 rounded-lg shadow-sm">
               <HeartPulse className="w-4 h-4 text-rose-500" />
             </div>
-            <span className="font-semibold text-[14px]">Reimbursement</span>
+            <span className="font-semibold text-[14px]">Refund</span>
+            <div className="relative group flex items-center">
+              <HelpCircle className="w-[16px] h-[16px] text-blue-400 fill-blue-50/50 cursor-help" />
+              <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none text-center">
+                Rebustment Amount by the insurance after participation
+                <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+              </div>
+            </div>
           </div>
           <div className="text-2xl font-bold text-slate-900">
             {result.reimbursement.toLocaleString("en-CH", {
@@ -115,7 +137,14 @@ export function ResultDisplay({ result }: { result: CalculationResult }) {
             <div className="bg-white p-1.5 rounded-lg shadow-sm">
               <TrendingUp className="w-4 h-4 text-indigo-500" />
             </div>
-            <span className="font-semibold text-[14px]">Ratio</span>
+            <span className="font-semibold text-[14px]">Reimbursement/premium ratio</span>
+            <div className="relative group flex items-center">
+              <HelpCircle className="w-[16px] h-[16px] text-blue-400 fill-blue-50/50 cursor-help" />
+              <div className="absolute bottom-full mb-2.5 right-0 translate-x-1/4 sm:left-1/2 sm:-translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none text-center">
+                Percentage of your bonus actually recovered through refunds
+                <div className="absolute -bottom-1.5 right-6 sm:left-1/2 sm:-translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+              </div>
+            </div>
           </div>
           <div className="text-2xl font-bold text-slate-900">
             {result.ratio.toFixed(1)}

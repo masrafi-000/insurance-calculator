@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { HelpCircle, Loader2 } from "lucide-react";
+import { HelpCircle, Loader2, SendHorizonal } from "lucide-react";
 import { useForm } from "react-hook-form";
 
 import {
@@ -124,8 +124,9 @@ export function PrimeCalculatorForm({
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          Allows adapting offers and comparisons (premiums vary
-                          by canton).
+                          {`Allows for the customization of offers
+and comparisons (premiums vary by
+canton).`}
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
@@ -209,8 +210,9 @@ export function PrimeCalculatorForm({
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none text-center">
-                          The annual deductible amount you have chosen for your
-                          health insurance plan.
+                          {`Annual amount you pay out of pocket
+before the insurance starts to reimburse
+(e.g., 300, 2,500).`}
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
@@ -252,7 +254,11 @@ export function PrimeCalculatorForm({
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-60 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none text-center">
-                          Your estimated total annual medical expenses in CHF.
+                          {`Total health bills for the year (doctor,
+medication, tests, etc.). You can find it
+in: 1) your health insurance provider's
+online account, 2) the annual summary.
+3) the sum of your bills/receipts.`}
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
@@ -281,8 +287,10 @@ export function PrimeCalculatorForm({
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 right-0 translate-x-1/4 sm:left-1/2 sm:-translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none text-center">
-                          The maximum amount of co-insurance you have to pay per
-                          year (usually 700 CHF for adults).
+                          {` After the deductible, you generally pay
+10% of the costs (co-payment), capped
+(often 700 CHF/year for an adult). Leave
+it at 700 if you're unsure.`}
                           <div className="absolute -bottom-1.5 right-6 sm:left-1/2 sm:-translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
@@ -309,10 +317,14 @@ export function PrimeCalculatorForm({
             <Button
               type="submit"
               disabled={isPending}
-              className="bg-[#4182F9] hover:bg-[#3471e4] text-white rounded-full px-8 py-6 text-[15px] font-bold shadow-md hover:shadow-lg transition-all"
+              className="bg-primary hover:bg-primary/80 cursor-pointer text-white rounded-full px-8 py-6 text-base font-semibold shadow-md hover:shadow-lg transition-all"
             >
-              {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Calculate + Send
+              {isPending ? (
+                <Loader2 className="ml-2 size-5 animate-spin" />
+              ) : (
+                <SendHorizonal className="ml-2 size-5" />
+              )}
             </Button>
 
             <Button

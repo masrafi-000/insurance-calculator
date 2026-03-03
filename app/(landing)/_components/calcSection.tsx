@@ -3,7 +3,6 @@
 import Container from "@/components/ui/container";
 import GoogleAd from "@/components/ui/google-ad";
 import Section from "@/components/ui/section";
-import { Variants, motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 import InsuranceCalculator from "./insurance-calculator";
@@ -48,59 +47,41 @@ const partners: CompanyContent[] = [
 ];
 
 const FormSection: React.FC = () => {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
-  };
+  // const containerVariants: Variants = {
+  //   hidden: { opacity: 0 },
+  //   visible: {
+  //     opacity: 1,
+  //     transition: {
+  //       staggerChildren: 0.15,
+  //       delayChildren: 0.2,
+  //     },
+  //   },
+  // };
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      },
-    },
-  };
+  // const itemVariants: Variants = {
+  //   hidden: { opacity: 0, y: 30, scale: 0.95 },
+  //   visible: {
+  //     opacity: 1,
+  //     y: 0,
+  //     scale: 1,
+  //     transition: {
+  //       type: "spring",
+  //       stiffness: 100,
+  //       damping: 15,
+  //     },
+  //   },
+  // };
 
   return (
-    <Section className=" py-8 overflow-clip bg-linear-to-br from-blue-50 via-blue-50/50 to-blue-100/50 dark:from-primary/10 dark:via-background dark:to-primary/10">
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] mix-blend-multiply pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] mix-blend-multiply pointer-events-none" />
-      <Container className="w-full">
+    <Section className=" py-8 bg-linear-to-br from-blue-50 via-blue-50/50 to-blue-100/50 dark:from-primary/10 dark:via-background dark:to-primary/10">
+      
+      <Container>
         {/* Animated Heading Section */}
-        <motion.div
-          className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{
-              type: "spring",
-              stiffness: 200,
-              damping: 20,
-              delay: 0.1,
-            }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 font-medium text-sm mb-6"
-          >
+        <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 font-medium text-sm mb-6">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
             <span>Interactive Tool</span>
-          </motion.div>
+          </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 text-slate-900">
             Estimation & Analysis
           </h2>
@@ -108,175 +89,95 @@ const FormSection: React.FC = () => {
             Test your current insurance costs against our profitability
             algorithms and see instant, real-time results.
           </p>
-        </motion.div>
+        </div>
 
         {/* TOP SECTION: 3 Advertisement Cards */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-        >
-          <motion.div variants={itemVariants}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div>
             <TopAdCard
               title="Premium Auto Savings"
               desc="Drivers who switch to our partners save an average of $744/year."
               price="Up to 30% Off"
               img="https://images.unsplash.com/photo-1494976388531-d1058494cdd8"
             />
-          </motion.div>
-          <motion.div variants={itemVariants}>
+          </div>
+          <div>
             <TopAdCard
               title="Homeowners Special"
               desc="Exclusive 2026 rates for new homeowners. Complete coverage."
               price="From $49/mo"
               img="https://images.unsplash.com/photo-1568605114967-8130f3a36994"
             />
-          </motion.div>
-          <motion.div variants={itemVariants}>
+          </div>
+          <div>
             <TopAdCard
               title="Life Insurance Plus"
               desc="Secure your family's future with our top-rated term life policies."
               price="Instant Approval"
               img="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57"
             />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         <div className="flex flex-col xl:flex-row gap-5 lg:gap-8 w-full items-start">
           {/* LEFT SIDEBAR: Sponsored Picks & Google Ad */}
           <aside className="xl:w-[280px]  gap-5 shrink-0 order-2 xl:order-1 flex-col  md:flex md:flex-row xl:flex-col sticky top-24 h-max">
-            <motion.div
-              className="relative w-full"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 20,
-                delay: 0.5,
-              }}
-            >
+            <div className="relative w-full">
               <GoogleAd
                 className="rounded-2xl"
                 fallbackImg="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57"
                 fallbackText="Local Family Plans"
               />
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="relative w-full"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 20,
-                delay: 0.5,
-              }}
-            >
+            <div className="relative w-full">
               <GoogleAd
                 className="rounded-2xl"
                 fallbackImg="https://images.unsplash.com/photo-1556740714-a8395b3bf30f"
                 fallbackText="Travel Protection"
               />
-            </motion.div>
+            </div>
           </aside>
 
           {/* MAIN CONTENT: Calculator */}
-          <motion.div
-            className="grow order-1 xl:order-2 w-full mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{
-              type: "spring",
-              stiffness: 80,
-              damping: 20,
-              delay: 0.2,
-            }}
-          >
+          <div className="grow order-1 xl:order-2 w-full mx-auto">
             {/* The Calculator Form Component */}
             <InsuranceCalculator />
 
             <div className="h-px bg-slate-200/60 w-full my-12" />
 
             {/* BOTTOM SECTION: Company Cards */}
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-            >
-              <motion.h3
-                variants={itemVariants}
-                className="text-[16px] font-black text-slate-800 mb-6 flex items-center gap-2 uppercase tracking-wide"
-              >
+            <div>
+              <h3 className="text-[16px] font-black text-slate-800 mb-6 flex items-center gap-2 uppercase tracking-wide">
                 <span className="w-2 h-2 rounded-full bg-blue-500"></span>
                 Partner Carriers
-              </motion.h3>
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {partners.map((company, idx) => (
-                  <motion.div
-                    key={idx}
-                    variants={itemVariants}
-                    whileHover={{
-                      y: -5,
-                      transition: {
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 15,
-                      },
-                    }}
-                  >
+                  <div key={idx}>
                     <CompanyCard {...company} />
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* RIGHT SIDEBAR (Hidden on small screens) */}
           <aside className="xl:w-[280px] flex-col gap-5 shrink-0 order-3 hidden xl:flex sticky top-24 h-max">
-            <motion.div
-              className="relative w-full"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 20,
-                delay: 0.5,
-              }}
-            >
+            <div className="relative w-full">
               <GoogleAd
                 className="rounded-2xl h-[400px]"
                 fallbackImg="https://images.unsplash.com/photo-1606811841689-23dfddce3e95"
                 fallbackText="Dental & Vision Care"
               />
-            </motion.div>
-            <motion.div
-              className="relative w-full"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 20,
-                delay: 0.5,
-              }}
-            >
+            </div>
+            <div className="relative w-full">
               <GoogleAd
                 className="rounded-2xl h-[400px]"
                 fallbackImg="https://images.unsplash.com/photo-1544256718-3bcf237f3974"
                 fallbackText="Exclusive Health Benefits"
               />
-            </motion.div>
+            </div>
           </aside>
         </div>
       </Container>

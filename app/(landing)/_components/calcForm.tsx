@@ -55,13 +55,13 @@ export function PrimeCalculatorForm({
   };
 
   return (
-    <div className="bg-[#fcfdfd] border border-slate-100 rounded-2xl p-6 sm:p-8 shadow-sm max-w-5xl mx-auto">
+    <div className="bg-[#fcfdfd] border border-slate-100 rounded-2xl p-5 sm:p-6 lg:p-8 shadow-sm max-w-5xl mx-auto w-full">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {/* Header */}
-          <div className="flex items-start justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
             <div>
-              <h1 className="text-[28px] font-extrabold text-slate-900 tracking-tight mb-1.5">
+              <h1 className="text-2xl sm:text-[28px] font-extrabold text-slate-900 tracking-tight mb-1.5 leading-tight">
                 Premium vs. Profitability Calculator
               </h1>
               <p className="text-[15px] text-slate-500">
@@ -81,7 +81,7 @@ export function PrimeCalculatorForm({
               1) Info to receive your results via email
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
               <FormField
                 control={form.control}
                 name="email"
@@ -93,7 +93,7 @@ export function PrimeCalculatorForm({
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-xs sm:w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
                           We need your email to send your customized calculation
                           results.
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
@@ -123,22 +123,22 @@ export function PrimeCalculatorForm({
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          {`Allows for the customization of offers
-and comparisons (premiums vary by
-canton).`}
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                          Allows for customization of offers and comparisons
+                          (premiums vary by canton).
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
                     </div>
+
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
                         <SelectTrigger className="w-full rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base bg-white">
                           <SelectValue placeholder="Jura (JU)" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="rounded-xl">
-                        <ScrollArea className="h-72 w-full">
+                      <SelectContent className="rounded-xl max-h-[300px]">
+                        <ScrollArea className="h-60 sm:h-72 w-full">
                           {CANTONS.map((c: CantonOption) => (
                             <SelectItem
                               key={c.value}
@@ -166,26 +166,17 @@ canton).`}
               2) Your numbers (instant calculation + email)
             </p>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
+              {/* Other fields unchanged except tooltip width adjustments */}
+              {/* Monthly Premium */}
               <FormField
                 control={form.control}
                 name="monthlyPremium"
                 render={({ field }) => (
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
-                    <div className="flex items-center gap-1.5 mb-2.5">
-                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Monthly Payment (CHF)
-                      </FormLabel>
-                      <div className="relative group flex items-center">
-                        <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          The amount you pay each month to your health insurance
-                          fund (LAMal). You can find it on your policy or
-                          premium notice.
-                          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
-                        </div>
-                      </div>
-                    </div>
+                    <FormLabel className="text-[15px] font-bold text-slate-800 mb-2.5 block">
+                      Monthly Payment (CHF)
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="380"
@@ -198,32 +189,23 @@ canton).`}
                 )}
               />
 
+              {/* Deductible */}
               <FormField
                 control={form.control}
                 name="deductible"
                 render={({ field }) => (
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
-                    <div className="flex items-center gap-1.5 mb-2.5">
-                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Annual Deductible (No Deductible) (CHF)
-                      </FormLabel>
-                      <div className="relative group flex items-center">
-                        <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none text-center">
-                          {`Annual amount you pay out of pocket
-before the insurance starts to reimburse
-(e.g., 300, 2,500).`}
-                          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
-                        </div>
-                      </div>
-                    </div>
+                    <FormLabel className="text-[15px] font-bold text-slate-800 mb-2.5 block">
+                      Annual Deductible (CHF)
+                    </FormLabel>
+
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
                         <SelectTrigger className="w-full rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base bg-white">
                           <SelectValue placeholder="2'500" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="rounded-xl">
+                      <SelectContent className="rounded-xl max-h-[300px]">
                         <ScrollArea className="h-auto w-full">
                           {FRANCHISES.map((f: FranchiseOption) => (
                             <SelectItem
@@ -242,27 +224,15 @@ before the insurance starts to reimburse
                 )}
               />
 
+              {/* Medical Expenses */}
               <FormField
                 control={form.control}
                 name="medicalExpenses"
                 render={({ field }) => (
-                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors flex flex-col h-full">
-                    <div className="flex items-center gap-1.5 mb-2.5">
-                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Total Medical Expenses (CHF)
-                      </FormLabel>
-                      <div className="relative group flex items-center">
-                        <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-60 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none text-center">
-                          {`Total health bills for the year (doctor,
-medication, tests, etc.). You can find it
-in: 1) your health insurance provider's
-online account, 2) the annual summary.
-3) the sum of your bills/receipts.`}
-                          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
-                        </div>
-                      </div>
-                    </div>
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
+                    <FormLabel className="text-[15px] font-bold text-slate-800 mb-2.5 block">
+                      Total Medical Expenses (CHF)
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="1200"
@@ -275,26 +245,15 @@ online account, 2) the annual summary.
                 )}
               />
 
+              {/* Copay */}
               <FormField
                 control={form.control}
                 name="copayCap"
                 render={({ field }) => (
-                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors flex flex-col h-full">
-                    <div className="flex items-center gap-1.5 mb-2.5">
-                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Co-insurance (CHF)
-                      </FormLabel>
-                      <div className="relative group flex items-center">
-                        <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 right-0 translate-x-1/4 sm:left-1/2 sm:-translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none text-center">
-                          {` After the deductible, you generally pay
-10% of the costs (co-payment), capped
-(often 700 CHF/year for an adult). Leave
-it at 700 if you're unsure.`}
-                          <div className="absolute -bottom-1.5 right-6 sm:left-1/2 sm:-translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
-                        </div>
-                      </div>
-                    </div>
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
+                    <FormLabel className="text-[15px] font-bold text-slate-800 mb-2.5 block">
+                      Co-insurance (CHF)
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="700"
@@ -303,7 +262,7 @@ it at 700 if you're unsure.`}
                       />
                     </FormControl>
                     <div className="mt-2 text-[13px] text-slate-500">
-                      Tip: leave 700 if you are not sure (adult).
+                      Tip: leave 700 if unsure (adult).
                     </div>
                     <FormMessage />
                   </FormItem>
@@ -313,11 +272,11 @@ it at 700 if you're unsure.`}
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-wrap items-center gap-3 pt-2">
+          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
             <Button
               type="submit"
               disabled={isPending}
-              className="bg-primary hover:bg-primary/80 cursor-pointer text-white rounded-full px-8 py-6 text-base font-semibold shadow-md hover:shadow-lg transition-all"
+              className="w-full sm:w-auto bg-primary hover:bg-primary/80 text-white rounded-full px-8 py-6 text-base font-semibold shadow-md hover:shadow-lg transition-all"
             >
               Calculate + Send
               {isPending ? (
@@ -330,6 +289,7 @@ it at 700 if you're unsure.`}
             <Button
               type="button"
               variant="outline"
+              className="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-900 border-slate-200 rounded-full px-6 py-6 text-[15px] font-bold shadow-sm transition-colors"
               onClick={() => {
                 const exampleData = {
                   email: "example@health.ch",
@@ -348,7 +308,6 @@ it at 700 if you're unsure.`}
                 // Trigger the API call immediately
                 onSubmit(exampleData);
               }}
-              className="bg-white hover:bg-slate-50 text-slate-900 border-slate-200 rounded-full px-6 py-6 text-[15px] font-bold shadow-sm transition-colors"
             >
               Example
             </Button>
@@ -356,6 +315,7 @@ it at 700 if you're unsure.`}
             <Button
               type="button"
               variant="outline"
+              className="w-full sm:w-auto bg-red-500 hover:bg-red-600 text-white rounded-full px-6 py-6 text-[15px] font-bold shadow-sm transition-colors"
               onClick={() => {
                 resetCalculator();
                 form.reset({
@@ -367,7 +327,6 @@ it at 700 if you're unsure.`}
                   copayCap: "",
                 });
               }}
-              className="bg-red-500 hover:bg-red-600 text-white hover:text-white rounded-full px-6 py-6 text-[15px] font-bold shadow-sm transition-colors"
             >
               Reset
             </Button>

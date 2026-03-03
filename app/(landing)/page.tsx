@@ -7,7 +7,9 @@ export default function Home() {
   return (
     <>
       <Hero />
+
       <FormSection />
+
       <HowItWorks />
       <Contact />
     </>

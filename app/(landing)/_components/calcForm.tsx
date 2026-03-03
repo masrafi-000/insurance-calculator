@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion, Variants } from "framer-motion";
 import { HelpCircle, Loader2, SendHorizonal } from "lucide-react";
 import { useForm } from "react-hook-form";
 
@@ -54,12 +55,44 @@ export function PrimeCalculatorForm({
     mutate(data);
   };
 
+  const formContainerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const formItemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 120,
+        damping: 14,
+      },
+    },
+  };
+
   return (
-    <div className="bg-[#fcfdfd] border border-slate-100 rounded-2xl p-5 sm:p-6 lg:p-8 shadow-sm max-w-5xl mx-auto w-full">
+    <motion.div
+      variants={formContainerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      className="bg-[#fcfdfd] border border-slate-100 rounded-2xl p-5 sm:p-6 lg:p-8 shadow-sm max-w-5xl mx-auto w-full"
+    >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {/* Header */}
-          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+          <motion.div
+            variants={formItemVariants}
+            className="flex flex-col sm:flex-row sm:items-start justify-between gap-4"
+          >
             <div>
               <h1 className="text-2xl sm:text-[28px] font-extrabold text-slate-900 tracking-tight mb-1.5 leading-tight">
                 Premium vs. Profitability Calculator
@@ -73,10 +106,10 @@ export function PrimeCalculatorForm({
               <div className="w-2 h-2 rounded-full bg-blue-500"></div>
               Leads + Results
             </div>
-          </div>
+          </motion.div>
 
           {/* Section 1 */}
-          <div>
+          <motion.div variants={formItemVariants}>
             <p className="text-[15px] font-bold text-slate-800 mb-4">
               1) Info to receive your results via email
             </p>
@@ -156,12 +189,15 @@ export function PrimeCalculatorForm({
                 )}
               />
             </div>
-          </div>
+          </motion.div>
 
-          <div className="h-px bg-slate-100 w-full" />
+          <motion.div
+            variants={formItemVariants}
+            className="h-px bg-slate-100 w-full"
+          />
 
           {/* Section 2 */}
-          <div>
+          <motion.div variants={formItemVariants}>
             <p className="text-[15px] font-bold text-slate-800 mb-4">
               2) Your numbers (instant calculation + email)
             </p>
@@ -269,10 +305,13 @@ export function PrimeCalculatorForm({
                 )}
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
+          <motion.div
+            variants={formItemVariants}
+            className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2"
+          >
             <Button
               type="submit"
               disabled={isPending}
@@ -330,9 +369,9 @@ export function PrimeCalculatorForm({
             >
               Reset
             </Button>
-          </div>
+          </motion.div>
         </form>
       </Form>
-    </div>
+    </motion.div>
   );
 }

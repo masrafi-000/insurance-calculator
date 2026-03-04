@@ -34,7 +34,7 @@ export async function POST(req: Request) {
 
     if (data.email) {
       // Don't await perfectly to avoid blocking response on slow SMTP
-      sendInsuranceEmail(data.email, {
+     await sendInsuranceEmail(data.email, {
         canton: data.canton,
         deductible: Number(data.deductible),
         medicalExpenses: Number(data.medicalExpenses),

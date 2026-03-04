@@ -1,7 +1,8 @@
-import { NextResponse } from "next/server";
-import { calculatePremium } from "@/lib/insurance/premiumEngine";
+import { sendInsuranceEmail } from "@/lib/email/mailer";
 import { calculateOutcome } from "@/lib/insurance/outcomeEngine";
+import { calculatePremium } from "@/lib/insurance/premiumEngine";
 import { calculatorSchema } from "@/validators/zod";
+import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
@@ -10,36 +11,67 @@ export async function POST(req: Request) {
     const parsed = calculatorSchema.safeParse(body);
     if (!parsed.success) {
       return NextResponse.json(
-        { success: false, errors: parsed.error.flatten() },
-        { status: 400 }
+        {
+          success: false,
+          message: "Validation Error",
+          errors: parsed.error.flatten().fieldErrors,
+        },
+        { status: 400 },
       );
     }
 
     const data = parsed.data;
 
-    // 1️⃣ Premium simulation
     const premiumResult = calculatePremium(data);
 
-    // 2️⃣ Outcome simulation
     const outcomeResult = calculateOutcome(
       premiumResult.lowestMonthly,
       Number(data.deductible),
       Number(data.medicalExpenses),
-      Number(data.copayCap)
+      Number(data.copayCap),
+      premiumResult.diffYearly || 0,
     );
 
-    return NextResponse.json({
-      success: true,
-      data: {
-        ...premiumResult,
-        ...outcomeResult
-      }
-    });
+    if (data.email) {
+      // Don't await perfectly to avoid blocking response on slow SMTP
+      sendInsuranceEmail(data.email, {
+        canton: data.canton,
+        deductible: Number(data.deductible),
+        medicalExpenses: Number(data.medicalExpenses),
+        copayCap: Number(data.copayCap),
+        currentMonthly: premiumResult.currentMonthly,
+        lowestMonthly: premiumResult.lowestMonthly,
+        diffMonthly: premiumResult.diffMonthly,
+        diffYearly: premiumResult.diffYearly,
+        annualPremium: outcomeResult.annualPremium,
+        outOfPocket: outcomeResult.outOfPocket,
+        reimbursement: outcomeResult.reimbursement,
+        insuranceBalance: outcomeResult.insuranceBalance,
+        ratio: outcomeResult.ratio,
+        insuranceGains: outcomeResult.insuranceGains,
+        insuranceLoses: outcomeResult.insuranceLoses,
+      }).catch((err) => console.error("Email sending failed:", err));
+    }
 
-  } catch (err) {
     return NextResponse.json(
-      { success: false, error: "Calculation failed" },
-      { status: 400 }
+      {
+        success: true,
+        message: "Premium calculated successfully",
+        data: {
+          ...premiumResult,
+          ...outcomeResult,
+        },
+      },
+      { status: 200 },
+    );
+  } catch (err: unknown) {
+    console.error("Calculate Error:", err);
+    return NextResponse.json(
+      {
+        success: false,
+        message: err instanceof Error ? err.message : "Internal Error",
+      },
+      { status: 500 },
     );
   }
 }

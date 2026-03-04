@@ -14,7 +14,10 @@ export const sendInsuranceEmail = async (
   to: string,
   data: {
     canton: string;
-    monthlyPremium: number;
+    currentMonthly: number;
+    lowestMonthly: number;
+    diffMonthly: number;
+    diffYearly: number;
     deductible: number;
     medicalExpenses: number;
     copayCap: number;
@@ -53,8 +56,16 @@ export const sendInsuranceEmail = async (
                 <td style="padding: 12px 0; font-weight: 600; color: #111827; text-align: right;">${data.canton}</td>
               </tr>
               <tr style="border-bottom: 1px solid #e5e7eb;">
-                <td style="padding: 12px 0; color: #6b7280;">Monthly Premium</td>
-                <td style="padding: 12px 0; font-weight: 600; color: #111827; text-align: right;">CHF ${data.monthlyPremium}</td>
+                <td style="padding: 12px 0; color: #6b7280;">Current Premium</td>
+                <td style="padding: 12px 0; font-weight: 600; color: #111827; text-align: right;">CHF ${data.currentMonthly}</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e5e7eb;">
+                <td style="padding: 12px 0; color: #6b7280;">Simulated Premium</td>
+                <td style="padding: 12px 0; font-weight: 600; color: #111827; text-align: right;">CHF ${data.lowestMonthly}</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e5e7eb;">
+                <td style="padding: 12px 0; color: #6b7280;">Savings</td>
+                <td style="padding: 12px 0; font-weight: 600; color: ${data.diffMonthly > 0 ? "#16a34a" : "#dc2626"}; text-align: right;">CHF ${Math.abs(data.diffMonthly)} / month (${data.diffMonthly > 0 ? "Cheaper" : "More Expensive"})</td>
               </tr>
               <tr style="border-bottom: 1px solid #e5e7eb;">
                 <td style="padding: 12px 0; color: #6b7280;">Deductible</td>
@@ -118,8 +129,16 @@ export const sendInsuranceEmail = async (
                 <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: 600; color: #1e293b;">${data.canton}</td>
               </tr>
               <tr style="background-color: #f8fafc;">
-                <td style="padding: 10px; border: 1px solid #e2e8f0; color: #64748b;">Monthly Premium</td>
-                <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: 600; color: #1e293b;">CHF ${data.monthlyPremium}</td>
+                <td style="padding: 10px; border: 1px solid #e2e8f0; color: #64748b;">Current Monthly</td>
+                <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: 600; color: #1e293b;">CHF ${data.currentMonthly}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid #e2e8f0; color: #64748b;">Simulated Monthly</td>
+                <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: 600; color: #1e293b;">CHF ${data.lowestMonthly}</td>
+              </tr>
+              <tr style="background-color: #f8fafc;">
+                <td style="padding: 10px; border: 1px solid #e2e8f0; color: #64748b;">Difference Monthly</td>
+                <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: 600; color: ${data.diffMonthly > 0 ? "#16a34a" : "#dc2626"};">CHF ${data.diffMonthly}</td>
               </tr>
               <tr>
                 <td style="padding: 10px; border: 1px solid #e2e8f0; color: #64748b;">Deductible</td>

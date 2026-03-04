@@ -4,17 +4,18 @@ import { CalculatorSchema } from "@/validators/zod";
 
 interface CalculateResponse {
   success: boolean;
+  message?: string;
   data: CalculationResult;
 }
 
 export const calculatorApi = {
   calculatePremium: async (
     data: CalculatorSchema,
-  ): Promise<CalculationResult> => {
+  ): Promise<CalculateResponse> => {
     const response = await apiClient.post<unknown, CalculateResponse>(
       "/calculate",
       data,
     );
-    return response.data;
+    return response;
   },
 };

@@ -1,4 +1,6 @@
-export function calculatePremium(form: any) {
+import { CalculatorSchema } from "@/validators/zod";
+
+export function calculatePremium(form: CalculatorSchema) {
   const PRIME_ANNUAL: Record<
     string,
     { child: number; young: number; adult: number }
@@ -32,14 +34,14 @@ export function calculatePremium(form: any) {
     CH: { child: 1335, young: 3563, adult: 5081 },
   };
 
-  const MODEL_FACTOR: any = {
+  const MODEL_FACTOR: Record<string, number> = {
     Standard: 1.0,
     "Family Doctor": 0.93,
     Telmod: 0.91,
     "HMO/Network": 0.89,
   };
 
-  const DEDUCTIBLE_FACTOR: any = {
+  const DEDUCTIBLE_FACTOR: Record<number, number> = {
     300: 1.1,
     500: 1.05,
     1000: 0.98,
@@ -48,7 +50,7 @@ export function calculatePremium(form: any) {
     2500: 0.84,
   };
 
-  const ACCIDENT_FACTOR: any = {
+  const ACCIDENT_FACTOR: Record<string, number> = {
     true: 1.04,
     false: 0.97,
   };
@@ -77,7 +79,7 @@ export function calculatePremium(form: any) {
   const lowestMonthly = Math.round(
     baseMonthly *
       MODEL_FACTOR[form.model] *
-      DEDUCTIBLE_FACTOR[form.deductible] *
+      DEDUCTIBLE_FACTOR[Number(form.deductible)] *
       ACCIDENT_FACTOR[String(form.accident)],
   );
 

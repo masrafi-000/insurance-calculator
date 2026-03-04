@@ -2,7 +2,8 @@ export function calculateOutcome(
   monthlyPremium: number,
   deductible: number,
   medicalExpenses: number,
-  copayCap: number
+  copayCap: number,
+  diffYearly: number = 0,
 ) {
   const annualPremium = monthlyPremium * 12;
 
@@ -19,7 +20,10 @@ export function calculateOutcome(
 
   const reimbursement = Math.max(0, medicalExpenses - outOfPocket);
 
-  const insuranceBalance = annualPremium - reimbursement;
+  const baseUserProfit = reimbursement - annualPremium;
+  const totalUserProfit = baseUserProfit + diffYearly;
+
+  const insuranceBalance = -totalUserProfit;
 
   return {
     annualPremium,
@@ -27,10 +31,7 @@ export function calculateOutcome(
     reimbursement,
     insuranceBalance,
     insuranceGains: insuranceBalance > 0,
-    insuranceLoses: insuranceBalance < 0,
-    ratio:
-      annualPremium > 0
-        ? (reimbursement / annualPremium) * 100
-        : 0
+    insuranceLoses: insuranceBalance <= 0,
+    ratio: annualPremium > 0 ? (reimbursement / annualPremium) * 100 : 0,
   };
 }

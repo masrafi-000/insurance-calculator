@@ -71,9 +71,19 @@ export function ResultDisplay({ result }: { result: CalculationResult }) {
                   <Wallet className="w-6 h-6 text-blue-500" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
-                    Simulated Premium
-                  </p>
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
+                      Simulated Premium
+                    </p>
+                    <div className="relative group flex items-center">
+                      <HelpCircle className="w-[14px] h-[14px] text-blue-400 fill-blue-50/50 cursor-help" />
+                      <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none text-center">
+                        The estimated optimal premium based on your selected
+                        canton and model.
+                        <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+                      </div>
+                    </div>
+                  </div>
                   <div className="flex items-baseline gap-2">
                     <span className="text-3xl font-extrabold text-slate-900">
                       {result.lowestMonthly}{" "}

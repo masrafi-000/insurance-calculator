@@ -372,9 +372,18 @@ export function PrimeCalculatorForm({
                 name="monthlyPremium"
                 render={({ field }) => (
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
-                    <FormLabel className="text-[15px] font-bold text-slate-800 mb-2.5 block">
-                      Monthly Payment (CHF)
-                    </FormLabel>
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Monthly Payment (CHF)
+                      </FormLabel>
+                      <div className="relative group flex items-center">
+                        <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                          Your current health insurance monthly base premium.
+                          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+                        </div>
+                      </div>
+                    </div>
                     <FormControl>
                       <Input
                         placeholder="380"
@@ -393,9 +402,19 @@ export function PrimeCalculatorForm({
                 name="deductible"
                 render={({ field }) => (
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
-                    <FormLabel className="text-[15px] font-bold text-slate-800 mb-2.5 block">
-                      Annual Deductible (CHF)
-                    </FormLabel>
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Annual Deductible (CHF)
+                      </FormLabel>
+                      <div className="relative group flex items-center">
+                        <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                          The amount you pay out-of-pocket before insurance
+                          starts covering costs.
+                          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+                        </div>
+                      </div>
+                    </div>
 
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
@@ -428,9 +447,19 @@ export function PrimeCalculatorForm({
                 name="medicalExpenses"
                 render={({ field }) => (
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
-                    <FormLabel className="text-[15px] font-bold text-slate-800 mb-2.5 block">
-                      Total Medical Expenses (CHF)
-                    </FormLabel>
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Total Medical Expenses (CHF)
+                      </FormLabel>
+                      <div className="relative group flex items-center">
+                        <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                          Estimate your total yearly doctor visits, medications,
+                          and treatments.
+                          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+                        </div>
+                      </div>
+                    </div>
                     <FormControl>
                       <Input
                         placeholder="1200"
@@ -449,9 +478,19 @@ export function PrimeCalculatorForm({
                 name="copayCap"
                 render={({ field }) => (
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
-                    <FormLabel className="text-[15px] font-bold text-slate-800 mb-2.5 block">
-                      Co-insurance (CHF)
-                    </FormLabel>
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Co-insurance (CHF)
+                      </FormLabel>
+                      <div className="relative group flex items-center">
+                        <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                          The maximum 10% co-pay you pay per year (usually
+                          capped at 700 CHF for adults).
+                          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+                        </div>
+                      </div>
+                    </div>
                     <FormControl>
                       <Input
                         placeholder="700"
@@ -470,9 +509,19 @@ export function PrimeCalculatorForm({
                 name="model"
                 render={({ field }) => (
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
-                    <FormLabel className="text-[15px] font-bold text-slate-800 mb-2.5 block">
-                      Insurance Model *
-                    </FormLabel>
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Insurance Model *
+                      </FormLabel>
+                      <div className="relative group flex items-center">
+                        <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                          Choose your preferred consultation method (Standard,
+                          Telmed, HMO, etc.) to apply discounts.
+                          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+                        </div>
+                      </div>
+                    </div>
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
                         <SelectTrigger className="w-full rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base bg-white">
@@ -507,9 +556,19 @@ export function PrimeCalculatorForm({
                 name="adults"
                 render={({ field }) => (
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
-                    <FormLabel className="text-[15px] font-bold text-slate-800 mb-2.5 block">
-                      Number of Adults (18+) *
-                    </FormLabel>
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Number of Adults (18+) *
+                      </FormLabel>
+                      <div className="relative group flex items-center">
+                        <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                          Number of people aged 18 and older under this policy
+                          block.
+                          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+                        </div>
+                      </div>
+                    </div>
                     <FormControl>
                       <Input
                         type="number"
@@ -530,9 +589,19 @@ export function PrimeCalculatorForm({
                 name="children"
                 render={({ field }) => (
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
-                    <FormLabel className="text-[15px] font-bold text-slate-800 mb-2.5 block">
-                      Number of Children (0-18) *
-                    </FormLabel>
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Number of Children (0-18) *
+                      </FormLabel>
+                      <div className="relative group flex items-center">
+                        <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                          Number of dependents under the age of 18 (applies
+                          child discount factors).
+                          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+                        </div>
+                      </div>
+                    </div>
                     <FormControl>
                       <Input
                         type="number"
@@ -554,9 +623,19 @@ export function PrimeCalculatorForm({
                 render={({ field }) => (
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors flex flex-row items-center justify-between space-x-3 space-y-0">
                     <div className="space-y-1 leading-none mr-2">
-                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Include Accident Coverage?
-                      </FormLabel>
+                      <div className="flex items-center gap-1.5 mb-2.5">
+                        <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                          Include Accident Coverage?
+                        </FormLabel>
+                        <div className="relative group flex items-center">
+                          <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
+                          <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                            Accident coverage adds around 7% to your premium.
+                            Select No if covered by an employer.
+                            <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+                          </div>
+                        </div>
+                      </div>
                       <p className="text-[13px] text-slate-500 leading-relaxed max-w-[200px] sm:max-w-xs">
                         Usually covered by employer if you work more than
                         8h/week.

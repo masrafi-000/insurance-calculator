@@ -100,7 +100,7 @@ export function PrimeCalculatorForm({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
-      className="bg-[#fcfdfd] border border-slate-100 rounded-2xl p-5 sm:p-6 lg:p-8 shadow-sm max-w-5xl mx-auto w-full"
+      className="bg-[#fcfdfd] border border-slate-100 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-sm max-w-5xl mx-auto w-full overflow-hidden"
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -109,16 +109,16 @@ export function PrimeCalculatorForm({
             variants={formItemVariants}
             className="flex flex-col sm:flex-row sm:items-start justify-between gap-4"
           >
-            <div>
-              <h1 className="text-2xl sm:text-[28px] font-extrabold text-slate-900 tracking-tight mb-1.5 leading-tight">
+            <div className="min-w-0 flex-1">
+              <h1 className="text-xl sm:text-2xl lg:text-[28px] font-extrabold text-slate-900 tracking-tight mb-1.5 leading-tight">
                 Premium vs. Profitability Calculator
               </h1>
-              <p className="text-[15px] text-slate-500">
+              <p className="text-[14px] sm:text-[15px] text-slate-500">
                 You will receive the result by email, and it will also appear
                 immediately here.
               </p>
             </div>
-            <div className="hidden sm:inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-[13px] font-semibold text-slate-700 shadow-sm whitespace-nowrap">
+            <div className="hidden sm:inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-[13px] font-semibold text-slate-700 shadow-sm whitespace-nowrap shrink-0">
               <div className="w-2 h-2 rounded-full bg-blue-500"></div>
               Leads + Results
             </div>
@@ -130,7 +130,7 @@ export function PrimeCalculatorForm({
               1) Info to receive your results via email
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               <FormField
                 control={form.control}
                 name="firstName"
@@ -142,7 +142,7 @@ export function PrimeCalculatorForm({
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-xs sm:w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
                           Just for personalized summary.
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
@@ -170,7 +170,7 @@ export function PrimeCalculatorForm({
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-xs sm:w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
                           Just for personalized summary
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
@@ -198,7 +198,7 @@ export function PrimeCalculatorForm({
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-xs sm:w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
                           We need your email to send your customized calculation
                           results.
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
@@ -227,7 +227,7 @@ export function PrimeCalculatorForm({
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-xs sm:w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
                           Just for personalized summary.
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
@@ -255,7 +255,7 @@ export function PrimeCalculatorForm({
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-xs sm:w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
                           Your birth date helps estimate age-related premiums.
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
@@ -271,18 +271,22 @@ export function PrimeCalculatorForm({
                               !field.value && "text-muted-foreground",
                             )}
                           >
-                            <CalendarIcon className="mr-2 h-4 w-4 opacity-70" />
-                            {field.value ? (
-                              format(new Date(field.value), "PPP")
-                            ) : (
-                              <span>Pick a date</span>
-                            )}
+                            <CalendarIcon className="mr-2 h-4 w-4 opacity-70 shrink-0" />
+                            <span className="truncate">
+                              {field.value ? (
+                                format(new Date(field.value), "PPP")
+                              ) : (
+                                <span>Pick a date</span>
+                              )}
+                            </span>
                           </Button>
                         </FormControl>
                       </PopoverTrigger>
                       <PopoverContent
                         className="w-auto p-0 rounded-xl"
                         align="start"
+                        side="bottom"
+                        avoidCollisions={true}
                       >
                         <Calendar
                           mode="single"
@@ -318,9 +322,8 @@ export function PrimeCalculatorForm({
               2) Your numbers (instant calculation + email)
             </p>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
-              {/* Other fields unchanged except tooltip width adjustments */}
-
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+              {/* Canton */}
               <FormField
                 control={form.control}
                 name="canton"
@@ -332,7 +335,7 @@ export function PrimeCalculatorForm({
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
                           Allows for customization of offers and comparisons
                           (premiums vary by canton).
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
@@ -366,7 +369,6 @@ export function PrimeCalculatorForm({
               />
 
               {/* Monthly Premium */}
-
               <FormField
                 control={form.control}
                 name="monthlyPremium"
@@ -378,7 +380,7 @@ export function PrimeCalculatorForm({
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
                           Your current health insurance monthly base premium.
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
@@ -408,7 +410,7 @@ export function PrimeCalculatorForm({
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
                           The amount you pay out-of-pocket before insurance
                           starts covering costs.
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
@@ -453,7 +455,7 @@ export function PrimeCalculatorForm({
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
                           Estimate your total yearly doctor visits, medications,
                           and treatments.
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
@@ -484,7 +486,7 @@ export function PrimeCalculatorForm({
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
                           The maximum 10% co-pay you pay per year (usually
                           capped at 700 CHF for adults).
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
@@ -515,7 +517,7 @@ export function PrimeCalculatorForm({
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
                           Choose your preferred consultation method (Standard,
                           Telmed, HMO, etc.) to apply discounts.
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
@@ -562,7 +564,7 @@ export function PrimeCalculatorForm({
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
                           Number of people aged 18 and older under this policy
                           block.
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
@@ -595,7 +597,7 @@ export function PrimeCalculatorForm({
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
                           Number of dependents under the age of 18 (applies
                           child discount factors).
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
@@ -621,22 +623,22 @@ export function PrimeCalculatorForm({
                 control={form.control}
                 name="accident"
                 render={({ field }) => (
-                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors flex flex-row items-center justify-between space-x-3 space-y-0">
-                    <div className="space-y-1 leading-none mr-2">
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors flex flex-row items-center justify-between gap-4 space-y-0">
+                    <div className="space-y-1 leading-none min-w-0 flex-1">
                       <div className="flex items-center gap-1.5 mb-2.5">
                         <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
                           Include Accident Coverage?
                         </FormLabel>
-                        <div className="relative group flex items-center">
+                        <div className="relative group flex items-center shrink-0">
                           <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
-                          <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-sm sm:w-64 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                          <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
                             Accident coverage adds around 7% to your premium.
                             Select No if covered by an employer.
                             <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                           </div>
                         </div>
                       </div>
-                      <p className="text-[13px] text-slate-500 leading-relaxed max-w-[200px] sm:max-w-xs">
+                      <p className="text-[13px] text-slate-500 leading-relaxed">
                         Usually covered by employer if you work more than
                         8h/week.
                       </p>
@@ -645,6 +647,7 @@ export function PrimeCalculatorForm({
                       <Switch
                         checked={field.value}
                         onCheckedChange={field.onChange}
+                        className="shrink-0"
                       />
                     </FormControl>
                   </FormItem>

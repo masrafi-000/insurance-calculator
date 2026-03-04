@@ -1,6 +1,7 @@
 import { create } from "zustand";
 
 export type CalculationResult = {
+  // Outcome Engine
   annualPremium: number;
   outOfPocket: number;
   reimbursement: number;
@@ -8,6 +9,18 @@ export type CalculationResult = {
   insuranceGains: boolean;
   insuranceLoses: boolean;
   ratio: number;
+
+  // Premium Engine
+  age?: number | null;
+  ageGroup?: string;
+  baseMonthlyTotal?: number;
+  lowestMonthly?: number;
+  lowestYearly?: number;
+  currentMonthly?: number;
+  currentYearly?: number;
+  diffMonthly?: number;
+  diffYearly?: number;
+
   redirectUrl?: string;
 };
 

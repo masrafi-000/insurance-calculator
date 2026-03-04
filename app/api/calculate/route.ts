@@ -1,86 +1,45 @@
-import { sendInsuranceEmail } from "@/lib/email/mailer";
 import { NextResponse } from "next/server";
+import { calculatePremium } from "@/lib/insurance/premiumEngine";
+import { calculateOutcome } from "@/lib/insurance/outcomeEngine";
+import { calculatorSchema } from "@/validators/zod";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const {
-      email,
-      canton,
-      monthlyPremium,
-      deductible,
-      medicalExpenses,
-      copayCap,
-    } = body;
 
-    const mp = parseFloat(monthlyPremium);
-    const d = parseFloat(deductible);
-    const me = parseFloat(medicalExpenses);
-    const cc = parseFloat(copayCap);
-
-    // Annual premium
-    const annualPremium = mp * 12;
-
-    // Out of pocket
-    let outOfPocket = 0;
-    if (me <= d) {
-      outOfPocket = me;
-    } else {
-      const remaining = me - d;
-      const tenPercent = remaining * 0.1;
-      const cappedTenPercent = Math.min(tenPercent, cc);
-      outOfPocket = d + cappedTenPercent;
+    const parsed = calculatorSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        { success: false, errors: parsed.error.flatten() },
+        { status: 400 }
+      );
     }
 
-    // Reimbursement
-    let reimbursement = me - outOfPocket;
-    if (reimbursement < 0) reimbursement = 0;
+    const data = parsed.data;
 
-    // Insurance gain/loss
-    const insuranceBalance = annualPremium - reimbursement;
-    const insuranceGains = insuranceBalance > 0;
-    const insuranceLoses = insuranceBalance < 0;
+    // 1️⃣ Premium simulation
+    const premiumResult = calculatePremium(data);
 
-    // Ratio
-    const ratio = annualPremium > 0 ? (reimbursement / annualPremium) * 100 : 0;
-
-    // Async email sending
-    if (email) {
-      // Background email sending without blocking response
-      await sendInsuranceEmail(email, {
-        canton,
-        monthlyPremium: mp,
-        deductible: d,
-        medicalExpenses: me,
-        copayCap: cc,
-        annualPremium,
-        outOfPocket,
-        reimbursement,
-        insuranceBalance,
-        insuranceGains,
-        insuranceLoses,
-        ratio,
-      }).catch((err) => console.error("Failed to send insurance email:", err));
-    }
+    // 2️⃣ Outcome simulation
+    const outcomeResult = calculateOutcome(
+      premiumResult.lowestMonthly,
+      Number(data.deductible),
+      Number(data.medicalExpenses),
+      Number(data.copayCap)
+    );
 
     return NextResponse.json({
       success: true,
       data: {
-        annualPremium,
-        outOfPocket,
-        reimbursement,
-        insuranceBalance,
-        insuranceGains,
-        insuranceLoses,
-        ratio,
-        redirectUrl: "/",
-      },
+        ...premiumResult,
+        ...outcomeResult
+      }
     });
-  } catch (error) {
-    console.error("Calculate Error:", error);
+
+  } catch (err) {
     return NextResponse.json(
-      { success: false, error: "Invalid data" },
-      { status: 400 },
+      { success: false, error: "Calculation failed" },
+      { status: 400 }
     );
   }
 }

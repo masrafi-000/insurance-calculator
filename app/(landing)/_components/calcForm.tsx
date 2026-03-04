@@ -1,10 +1,13 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { format } from "date-fns";
 import { motion, Variants } from "framer-motion";
-import { HelpCircle, Loader2, SendHorizonal } from "lucide-react";
+import { CalendarIcon, HelpCircle, Loader2, SendHorizonal } from "lucide-react";
 import { useForm } from "react-hook-form";
 
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import {
   Form,
   FormControl,
@@ -13,9 +16,12 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Select,
@@ -24,7 +30,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
 import { useCalculatorMutation } from "@/hooks/queries/use-calculator-mutation";
+import { cn } from "@/lib/utils";
 import { useCalculatorStore } from "@/store/use-calculator-store";
 import { CantonOption, FranchiseOption } from "@/types/shared";
 import { calculatorSchema, CalculatorSchema } from "@/validators/zod";
@@ -42,12 +50,20 @@ export function PrimeCalculatorForm({
   const form = useForm<CalculatorSchema>({
     resolver: zodResolver(calculatorSchema),
     defaultValues: {
+      firstName: "",
+      lastName: "",
+      phoneNumber: "",
+      dateOfBirth: "",
       email: "",
       canton: "",
       monthlyPremium: "",
       deductible: "",
       medicalExpenses: "",
       copayCap: "",
+      model: "Standard",
+      adults: "1",
+      children: "0",
+      accident: false,
     },
   });
 
@@ -117,6 +133,62 @@ export function PrimeCalculatorForm({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
               <FormField
                 control={form.control}
+                name="firstName"
+                render={({ field }) => (
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        First Name *
+                      </FormLabel>
+                      <div className="relative group flex items-center">
+                        <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-xs sm:w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                          Just for personalized summary.
+                          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <FormControl>
+                      <Input
+                        placeholder="John"
+                        className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="lastName"
+                render={({ field }) => (
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Last Name *
+                      </FormLabel>
+                      <div className="relative group flex items-center">
+                        <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-xs sm:w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                          Just for personalized summary
+                          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <FormControl>
+                      <Input
+                        placeholder="Doe"
+                        className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
                 name="email"
                 render={({ field }) => (
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
@@ -144,6 +216,110 @@ export function PrimeCalculatorForm({
                   </FormItem>
                 )}
               />
+              <FormField
+                control={form.control}
+                name="phoneNumber"
+                render={({ field }) => (
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Phone Number *
+                      </FormLabel>
+                      <div className="relative group flex items-center">
+                        <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-xs sm:w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                          Just for personalized summary.
+                          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <FormControl>
+                      <Input
+                        placeholder="123456789"
+                        className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="dateOfBirth"
+                render={({ field }) => (
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Date of Birth *
+                      </FormLabel>
+                      <div className="relative group flex items-center">
+                        <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
+                        <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[90vw] max-w-xs sm:w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
+                          Your birth date helps estimate age-related premiums.
+                          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <FormControl>
+                          <Button
+                            variant={"outline"}
+                            className={cn(
+                              "w-full rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base font-normal bg-white justify-start text-left",
+                              !field.value && "text-muted-foreground",
+                            )}
+                          >
+                            <CalendarIcon className="mr-2 h-4 w-4 opacity-70" />
+                            {field.value ? (
+                              format(new Date(field.value), "PPP")
+                            ) : (
+                              <span>Pick a date</span>
+                            )}
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent
+                        className="w-auto p-0 rounded-xl"
+                        align="start"
+                      >
+                        <Calendar
+                          mode="single"
+                          selected={
+                            field.value ? new Date(field.value) : undefined
+                          }
+                          onSelect={(date) =>
+                            field.onChange(date ? date.toISOString() : "")
+                          }
+                          disabled={(date) =>
+                            date > new Date() || date < new Date("1900-01-01")
+                          }
+                          captionLayout="dropdown"
+                          className="bg-white rounded-xl w-full"
+                        />
+                      </PopoverContent>
+                    </Popover>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={formItemVariants}
+            className="h-px bg-slate-100 w-full"
+          />
+
+          {/* Section 2 */}
+          <motion.div variants={formItemVariants}>
+            <p className="text-[15px] font-bold text-slate-800 mb-4">
+              2) Your numbers (instant calculation + email)
+            </p>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
+              {/* Other fields unchanged except tooltip width adjustments */}
 
               <FormField
                 control={form.control}
@@ -188,23 +364,9 @@ export function PrimeCalculatorForm({
                   </FormItem>
                 )}
               />
-            </div>
-          </motion.div>
 
-          <motion.div
-            variants={formItemVariants}
-            className="h-px bg-slate-100 w-full"
-          />
-
-          {/* Section 2 */}
-          <motion.div variants={formItemVariants}>
-            <p className="text-[15px] font-bold text-slate-800 mb-4">
-              2) Your numbers (instant calculation + email)
-            </p>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
-              {/* Other fields unchanged except tooltip width adjustments */}
               {/* Monthly Premium */}
+
               <FormField
                 control={form.control}
                 name="monthlyPremium"
@@ -297,10 +459,115 @@ export function PrimeCalculatorForm({
                         {...field}
                       />
                     </FormControl>
-                    <div className="mt-2 text-[13px] text-slate-500">
-                      Tip: leave 700 if unsure (adult).
-                    </div>
                     <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Model Select */}
+              <FormField
+                control={form.control}
+                name="model"
+                render={({ field }) => (
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
+                    <FormLabel className="text-[15px] font-bold text-slate-800 mb-2.5 block">
+                      Insurance Model *
+                    </FormLabel>
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <FormControl>
+                        <SelectTrigger className="w-full rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base bg-white">
+                          <SelectValue placeholder="Standard" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent className="rounded-xl">
+                        {[
+                          "Standard",
+                          "Family Doctor",
+                          "Telmod",
+                          "HMO/Network",
+                        ].map((m) => (
+                          <SelectItem
+                            key={m}
+                            value={m}
+                            className="rounded-lg cursor-pointer"
+                          >
+                            {m}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Number of Adults */}
+              <FormField
+                control={form.control}
+                name="adults"
+                render={({ field }) => (
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
+                    <FormLabel className="text-[15px] font-bold text-slate-800 mb-2.5 block">
+                      Number of Adults (18+) *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="number"
+                        placeholder="1"
+                        min="0"
+                        className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Number of Children */}
+              <FormField
+                control={form.control}
+                name="children"
+                render={({ field }) => (
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
+                    <FormLabel className="text-[15px] font-bold text-slate-800 mb-2.5 block">
+                      Number of Children (0-18) *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="number"
+                        placeholder="0"
+                        min="0"
+                        className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Accident Coverage */}
+              <FormField
+                control={form.control}
+                name="accident"
+                render={({ field }) => (
+                  <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors flex flex-row items-center justify-between space-x-3 space-y-0">
+                    <div className="space-y-1 leading-none mr-2">
+                      <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
+                        Include Accident Coverage?
+                      </FormLabel>
+                      <p className="text-[13px] text-slate-500 leading-relaxed max-w-[200px] sm:max-w-xs">
+                        Usually covered by employer if you work more than
+                        8h/week.
+                      </p>
+                    </div>
+                    <FormControl>
+                      <Switch
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                    </FormControl>
                   </FormItem>
                 )}
               />
@@ -337,6 +604,14 @@ export function PrimeCalculatorForm({
                   deductible: "2500",
                   medicalExpenses: "1200",
                   copayCap: "700",
+                  firstName: "John",
+                  lastName: "Doe",
+                  phoneNumber: "123456789",
+                  dateOfBirth: "1990-01-01T00:00:00.000Z",
+                  model: "Standard" as const,
+                  adults: "1",
+                  children: "0",
+                  accident: false,
                 };
 
                 // Fill the form visually
@@ -358,12 +633,20 @@ export function PrimeCalculatorForm({
               onClick={() => {
                 resetCalculator();
                 form.reset({
+                  firstName: "",
+                  lastName: "",
+                  phoneNumber: "",
+                  dateOfBirth: "",
                   email: "",
                   canton: "",
                   monthlyPremium: "",
                   deductible: "",
                   medicalExpenses: "",
                   copayCap: "",
+                  model: "Standard",
+                  adults: "1",
+                  children: "0",
+                  accident: false,
                 });
               }}
             >

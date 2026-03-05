@@ -1,13 +1,16 @@
 "use client";
 
-import Section from "@/components/ui/section";
-import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
+import Section from "@/components/ui/section";
+import { Link } from "@/i18n/navigation";
+import { motion } from "framer-motion";
+import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const Hero = () => {
+  const t = useTranslations("HomePage.HeroSection");
+
   const containerVars = {
     initial: { opacity: 0 },
     animate: {
@@ -54,7 +57,7 @@ const Hero = () => {
             className="flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary font-medium text-base mb-8 shadow-sm"
           >
             <ShieldCheck className="size-6" />
-            <span>Swiss Standard Insurance Checking</span>
+            <span>{t("badge")}</span>
           </motion.div>
 
           {/* Heading Word-by-Word */}
@@ -64,14 +67,14 @@ const Hero = () => {
             animate="animate"
             className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-foreground leading-tight"
           >
-            {renderAnimatedText("Are You Optimizing the Value of Your")}
+            {renderAnimatedText(t("title"))}
             <motion.span
               variants={wordVars}
               className="text-primary inline-block mr-2"
             >
-              Insurance
+              {t("titleHighlight")}
             </motion.span>
-            {renderAnimatedText("Strategy")}
+            {renderAnimatedText(t("titleEnd"))}
           </motion.h1>
 
           <motion.p
@@ -80,9 +83,7 @@ const Hero = () => {
             animate="animate"
             className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-4xl leading-relaxed"
           >
-            {renderAnimatedText(
-              "Transform your insurance from a fixed expense into a strategic financial advantage.",
-            )}
+            {renderAnimatedText(t("description"))}
           </motion.p>
 
           <motion.p
@@ -91,8 +92,7 @@ const Hero = () => {
             transition={{ delay: 1.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed"
           >
-            Share your current insurance details and let our advanced calculator
-            analyze if you are getting the best value.
+            {t("subDescription.text1")}
           </motion.p>
 
           {/* Buttons Animation */}
@@ -107,7 +107,7 @@ const Hero = () => {
                 size="lg"
                 className="w-full sm:w-auto text-base md:text-lg px-8 py-6 rounded-full group shadow-md"
               >
-                Calculate Your Policy
+                {t("button1")}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
@@ -117,7 +117,7 @@ const Hero = () => {
                 variant="outline"
                 className="w-full sm:w-auto text-base md:text-lg px-8 py-6 rounded-full"
               >
-                How It Works
+                {t("button2")}
               </Button>
             </Link>
           </motion.div>
@@ -129,14 +129,10 @@ const Hero = () => {
             transition={{ delay: 1.8, duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 text-sm md:text-base font-medium text-muted-foreground"
           >
-            {[
-              "100% Secure & Confidential",
-              "Instant Free Analysis",
-              "No Obligation Suggestions",
-            ].map((text, i) => (
-              <div key={i} className="flex items-center gap-2">
+            {(["1", "2", "3"] as const).map((key) => (
+              <div key={key} className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-green-500" />
-                <span>{text}</span>
+                <span>{t(`trustIndicators.${key}`)}</span>
               </div>
             ))}
           </motion.div>

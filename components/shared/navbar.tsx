@@ -10,13 +10,15 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { navItems } from "@/data/shared";
+import { Link } from "@/i18n/navigation";
 import { ITNavItems } from "@/types/shared";
 import { Menu, ShieldCheck } from "lucide-react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export default function Navbar() {
+  const t = useTranslations("Header");
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
@@ -32,14 +34,18 @@ export default function Navbar() {
       if (elem) {
         elem.scrollIntoView({ behavior: "smooth" });
         setIsOpen(false);
-        // Update URL hash without jumping
-        window.history.pushState(null, "", href);
+        // Update URL hash without jumping while preserving locale prefix
+        window.history.pushState(
+          null,
+          "",
+          window.location.pathname + href.substring(1),
+        );
       }
     } else if (href === "/" && pathname === "/") {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
       setIsOpen(false);
-      window.history.pushState(null, "", "/");
+      window.history.pushState(null, "", window.location.pathname);
     }
   };
 
@@ -53,7 +59,7 @@ export default function Navbar() {
           onClick={(e) => handleScroll(e, "/")}
         >
           <ShieldCheck className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-          Insurance Check
+          {t("logo")}
         </Link>
 
         {/* Desktop Navigation */}
@@ -67,7 +73,7 @@ export default function Navbar() {
                     onClick={(e) => handleScroll(e, item.href)}
                     className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground relative"
                   >
-                    {item.name}
+                    {t(`navLinks.${item.name}`)}
                   </Link>
                 </li>
               );
@@ -83,7 +89,7 @@ export default function Navbar() {
                 size="sm"
                 className="rounded-full px-5 h-9 font-medium shadow-sm hover:scale-105 transition-transform"
               >
-                Calculate Now
+                {t("button")}
               </Button>
             </Link>
           </div>
@@ -109,7 +115,7 @@ export default function Navbar() {
                     onClick={(e) => handleScroll(e, "/")}
                   >
                     <ShieldCheck className="w-6 h-6 text-primary" />
-                    Insurance Check
+                    {t("logo")}
                   </Link>
                 </div>
 
@@ -123,7 +129,7 @@ export default function Navbar() {
                         onClick={(e) => handleScroll(e, item.href)}
                         className="mobile-link text-4xl font-light tracking-tighter text-foreground/90 transition-all duration-300 hover:italic hover:translate-x-2"
                       >
-                        {item.name}
+                        {t(`navLinks.${item.name}`)}
                       </Link>
                     );
                   })}
@@ -140,7 +146,7 @@ export default function Navbar() {
                         size="lg"
                         className="w-full rounded-full font-medium h-14 text-lg hover:scale-[1.02] transition-transform"
                       >
-                        Calculate Now
+                        {t("button")}
                       </Button>
                     </Link>
                   </div>

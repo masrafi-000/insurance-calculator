@@ -1,222 +1,211 @@
 {
-    "Header": {
-        "logo": "",
-        "navLinks": [
-            {
-                "title": "",
-                "href": ""
-            },
-            {
-                "title": "",
-                "href": ""
-            },
-            {
-                "title": "",
-                "href": ""
-            },
-            {
-                "title": "",
-                "href": ""
-            }
-        ],
-        "button": ""
+  "Header": {
+    "logo": "Insurance Check",
+    "navLinks": {
+      "Home": "Home",
+      "How It Works": "How It Works",
+      "Contact": "Contact",
+      "About Us": "About Us"
     },
-    "HomePage": {
-        "HeroSection": {
-            "badge": "Swiss Standard Insurance Checking",
-            "title": "",
-            "description": "",
-            "subDescription": {
-                "text1": "",
-                "text2": "",
-                "text3": ""
-            },
-            "button1": "",
-            "button2": ""
-        },
-
-        "ClaculatorSection": {
-            "badge": "",
-            "title": "",
-            "description": "",
-            "Calculateform": {
-                "badge": "",
-                "title": "",
-                "description": "",
-                "formFields": {
-                    "leadSection": {
-                        "title": "",
-                        "form": {
-                           "firstName":{
-                             "label": "",
-                            "placeholder": "",
-                            "value": ""
-                           },
-                           "lastName": {
-                             "label": "",
-                            "placeholder": "",
-                            "value": ""
-                           },
-                           "email": {
-                             "label": "",
-                            "placeholder": "",
-                            "value": ""
-                           },
-                           "phone": {
-                             "label": "",
-                            "placeholder": "",
-                            "value": ""
-                           },
-                           "dateOfBirth": {
-                             "label": "",
-                            "placeholder": "",
-                            "value": ""
-                           }
-
-                        }
-                    },
-                    "claculationSection":{
-                        "title": "",
-                        "canton": {
-                            "label": "",
-                            "placeholder": "",
-                            "value": ""
-                        },
-                        "monthlyPayment": {
-                            "label": "",
-                            "placeholder": "",
-                            "value": ""
-                        },
-                        "annualDeductible": {
-                            "label": "",
-                            "placeholder": "",
-                            "value": ""
-                        },
-                        "totalMedicalExpenses": {
-                            "label": "",
-                            "placeholder": "",
-                            "value": ""
-                        },
-                        "coInsurance": {
-                            "label": "",
-                            "placeholder": "",
-                            "value": ""
-                        },
-                        "insuranceModel": {
-                            "label": "",
-                            "placeholder": "",
-                            "value": ""
-                        },
-                        "adults": {
-                            "label": "",
-                            "placeholder": "",
-                            "value": ""
-                        },
-                        "children": {
-                            "label": "",
-                            "placeholder": "",
-                            "value": ""
-                        },
-                        "accidentCoverage": {
-                            "label": "",
-                            "placeholder": ""
-                        }
-                    
-
-                    }
-                },
-                "button1": {
-                    "text": ""
-                },
-                "button2": {
-                    "text": ""
-                },
-                "button3": {
-                    "text": ""
-                }
-            },
-
-            "ResultSection": {
-                
-            }
-
-        },
-
-        "HowItWorksSection": {
-            "badge": "",
-            "title": "",
-            "description": "",
-            "steps": [
-                {
-                    "title": "",
-                    "description": ""
-                },
-                {
-                    "title": "",
-                    "description": ""
-                },
-                {
-                    "title": "",
-                    "description": ""
-                }
-            ]
-        }, 
-        "ContactUs": {
-            "badge": "",
-            "title": "",
-            "description": "",
-            "phone": {
-                "title": "",
-                "number": "",
-                "description": ""
-            },
-            "email": {
-                "title": "",
-                "emailAddress": "",
-                "description": ""
-            }, 
-            "location": {
-                "title": "",
-                "address": "",
-                "description": ""
-            }
-        }
+    "button": "Calculate Now"
+  },
+  "HomePage": {
+    "HeroSection": {
+      "badge": "Swiss Standard Insurance Checking",
+      "title": "Are You Optimizing the Value of Your",
+      "titleHighlight": "Insurance",
+      "titleEnd": "Strategy",
+      "description": "Transform your insurance from a fixed expense into a strategic financial advantage.",
+      "subDescription": {
+        "text1": "Share your current insurance details and let our advanced calculator analyze if you are getting the best value.",
+        "text2": "",
+        "text3": ""
+      },
+      "trustIndicators": {
+        "1": "100% Secure & Confidential",
+        "2": "Instant Free Analysis",
+        "3": "No Obligation Suggestions"
+      },
+      "button1": "Calculate Your Policy",
+      "button2": "How It Works"
     },
 
-    "Footer": {
-        "logo": "",
+    "ClaculatorSection": {
+      "badge": "",
+      "title": "",
+      "description": "",
+      "Calculateform": {
+        "badge": "",
+        "title": "",
         "description": "",
-        "navigationLinksTitle": "",
-        "navLinks": [
-            {
-                "title": "",
-                "href": ""
-            },
-            {
-                "title": "",
-                "href": ""
-            },
-            {
-                "title": "",
-                "href": ""
-            },
-            {
-                "title": "",
-                "href": ""
-            },
-            {
-                "title": "",
-                "href": ""
+        "formFields": {
+          "leadSection": {
+            "title": "",
+            "form": {
+              "firstName": {
+                "label": "",
+                "placeholder": "",
+                "value": ""
+              },
+              "lastName": {
+                "label": "",
+                "placeholder": "",
+                "value": ""
+              },
+              "email": {
+                "label": "",
+                "placeholder": "",
+                "value": ""
+              },
+              "phone": {
+                "label": "",
+                "placeholder": "",
+                "value": ""
+              },
+              "dateOfBirth": {
+                "label": "",
+                "placeholder": "",
+                "value": ""
+              }
             }
-        ],
-        "protectTitle": "",
-        "protectDescription": "",
-        "subscribeButton": "",
-        "copyright": "",
+          },
+          "claculationSection": {
+            "title": "",
+            "canton": {
+              "label": "",
+              "placeholder": "",
+              "value": ""
+            },
+            "monthlyPayment": {
+              "label": "",
+              "placeholder": "",
+              "value": ""
+            },
+            "annualDeductible": {
+              "label": "",
+              "placeholder": "",
+              "value": ""
+            },
+            "totalMedicalExpenses": {
+              "label": "",
+              "placeholder": "",
+              "value": ""
+            },
+            "coInsurance": {
+              "label": "",
+              "placeholder": "",
+              "value": ""
+            },
+            "insuranceModel": {
+              "label": "",
+              "placeholder": "",
+              "value": ""
+            },
+            "adults": {
+              "label": "",
+              "placeholder": "",
+              "value": ""
+            },
+            "children": {
+              "label": "",
+              "placeholder": "",
+              "value": ""
+            },
+            "accidentCoverage": {
+              "label": "",
+              "placeholder": ""
+            }
+          }
+        },
+        "button1": {
+          "text": ""
+        },
+        "button2": {
+          "text": ""
+        },
+        "button3": {
+          "text": ""
+        }
+      },
 
-        "privacyPolicy": "",
-        "termsOfService": "",
-        "cookiePolicy": "",
-        "disclaimer": ""
+      "ResultSection": {}
+    },
+
+    "HowItWorksSection": {
+      "badge": "Simple & Transparent",
+      "title": "How the Calculator Works",
+      "description": "Uncover the true value of your insurance in three simple steps. No hidden fees, no commitments. Just pure calculation.",
+      "steps": [
+        {
+          "title": "Share Your Policy",
+          "description": "Enter the details of your current insurance securely. We adhere to strict Swiss privacy standards, ensuring your data is fully protected and never shared."
+        },
+        {
+          "title": "Advanced Analysis",
+          "description": "Our calculator compares your premiums and coverage against the market to determine if your current policy is truly profitable for your needs."
+        },
+        {
+          "title": "Get Smart Results",
+          "description": "Receive instant, no-obligation suggestions for better, more cost-effective insurance alternatives tailored just for you."
+        }
+      ]
+    },
+    "ContactUs": {
+      "badge": "",
+      "title": "",
+      "description": "",
+      "phone": {
+        "title": "",
+        "number": "",
+        "description": ""
+      },
+      "email": {
+        "title": "",
+        "emailAddress": "",
+        "description": ""
+      },
+      "location": {
+        "title": "",
+        "address": "",
+        "description": ""
+      }
     }
+  },
+
+  "Footer": {
+    "logo": "",
+    "description": "",
+    "navigationLinksTitle": "",
+    "navLinks": [
+      {
+        "title": "",
+        "href": ""
+      },
+      {
+        "title": "",
+        "href": ""
+      },
+      {
+        "title": "",
+        "href": ""
+      },
+      {
+        "title": "",
+        "href": ""
+      },
+      {
+        "title": "",
+        "href": ""
+      }
+    ],
+    "protectTitle": "",
+    "protectDescription": "",
+    "subscribeButton": "",
+    "copyright": "",
+
+    "privacyPolicy": "",
+    "termsOfService": "",
+    "cookiePolicy": "",
+    "disclaimer": ""
+  }
 }

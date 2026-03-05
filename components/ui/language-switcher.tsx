@@ -13,9 +13,9 @@ import { useLocale } from "next-intl";
 import { useTransition } from "react";
 
 const SUPPORTED_LOCALES = [
+  { code: "fr", label: "Français" },
   { code: "en", label: "English" },
   { code: "de", label: "Deutsch" },
-  { code: "fr", label: "Français" },
   { code: "it", label: "Italiano" },
 ];
 

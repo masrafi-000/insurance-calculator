@@ -6,8 +6,10 @@ import { steps } from "@/data/shared";
 import { ITSteps } from "@/types/shared";
 import { motion } from "framer-motion";
 import { ShieldCheck } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function HowItWorks() {
+  const t = useTranslations("HomePage.HowItWorksSection");
   return (
     <Section id="how-it-works" className="bg-muted/30 overflow-hidden">
       <Container>
@@ -21,14 +23,13 @@ export default function HowItWorks() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">
             <ShieldCheck className="w-4 h-4" />
-            <span>Simple & Transparent</span>
+            <span>{t("badge")}</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-foreground">
-            How the Calculator Works
+            {t("title")}
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Uncover the true value of your insurance in three simple steps. No
-            hidden fees, no commitments. Just pure calculation.
+            {t("description")}
           </p>
         </motion.div>
 
@@ -74,10 +75,10 @@ export default function HowItWorks() {
 
               {/* Content */}
               <h3 className="text-xl font-bold text-foreground mb-3">
-                {step.title}
+                {t(`steps.${index}.title`)}
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                {step.description}
+                {t(`steps.${index}.description`)}
               </p>
             </motion.div>
           ))}

@@ -1,222 +1,211 @@
 {
-    "Header": {
-        "logo": "",
-        "navLinks": [
-            {
-                "title": "",
-                "href": ""
-            },
-            {
-                "title": "",
-                "href": ""
-            },
-            {
-                "title": "",
-                "href": ""
-            },
-            {
-                "title": "",
-                "href": ""
-            }
-        ],
-        "button": ""
+  "Header": {
+    "logo": "Controllo Assicurativo",
+    "navLinks": {
+      "Home": "Home",
+      "How It Works": "Come funziona",
+      "Contact": "Contatti",
+      "About Us": "Chi siamo"
     },
-    "HomePage": {
-        "HeroSection": {
-            "badge": "",
-            "title": "",
-            "description": "",
-            "subDescription": {
-                "text1": "",
-                "text2": "",
-                "text3": ""
-            },
-            "button1": "",
-            "button2": ""
-        },
-
-        "ClaculatorSection": {
-            "badge": "",
-            "title": "",
-            "description": "",
-            "Calculateform": {
-                "badge": "",
-                "title": "",
-                "description": "",
-                "formFields": {
-                    "leadSection": {
-                        "title": "",
-                        "form": {
-                           "firstName":{
-                             "label": "",
-                            "placeholder": "",
-                            "value": ""
-                           },
-                           "lastName": {
-                             "label": "",
-                            "placeholder": "",
-                            "value": ""
-                           },
-                           "email": {
-                             "label": "",
-                            "placeholder": "",
-                            "value": ""
-                           },
-                           "phone": {
-                             "label": "",
-                            "placeholder": "",
-                            "value": ""
-                           },
-                           "dateOfBirth": {
-                             "label": "",
-                            "placeholder": "",
-                            "value": ""
-                           }
-
-                        }
-                    },
-                    "claculationSection":{
-                        "title": "",
-                        "canton": {
-                            "label": "",
-                            "placeholder": "",
-                            "value": ""
-                        },
-                        "monthlyPayment": {
-                            "label": "",
-                            "placeholder": "",
-                            "value": ""
-                        },
-                        "annualDeductible": {
-                            "label": "",
-                            "placeholder": "",
-                            "value": ""
-                        },
-                        "totalMedicalExpenses": {
-                            "label": "",
-                            "placeholder": "",
-                            "value": ""
-                        },
-                        "coInsurance": {
-                            "label": "",
-                            "placeholder": "",
-                            "value": ""
-                        },
-                        "insuranceModel": {
-                            "label": "",
-                            "placeholder": "",
-                            "value": ""
-                        },
-                        "adults": {
-                            "label": "",
-                            "placeholder": "",
-                            "value": ""
-                        },
-                        "children": {
-                            "label": "",
-                            "placeholder": "",
-                            "value": ""
-                        },
-                        "accidentCoverage": {
-                            "label": "",
-                            "placeholder": ""
-                        }
-                    
-
-                    }
-                },
-                "button1": {
-                    "text": ""
-                },
-                "button2": {
-                    "text": ""
-                },
-                "button3": {
-                    "text": ""
-                }
-            },
-
-            "ResultSection": {
-                
-            }
-
-        },
-
-        "HowItWorksSection": {
-            "badge": "",
-            "title": "",
-            "description": "",
-            "steps": [
-                {
-                    "title": "",
-                    "description": ""
-                },
-                {
-                    "title": "",
-                    "description": ""
-                },
-                {
-                    "title": "",
-                    "description": ""
-                }
-            ]
-        }, 
-        "ContactUs": {
-            "badge": "",
-            "title": "",
-            "description": "",
-            "phone": {
-                "title": "",
-                "number": "",
-                "description": ""
-            },
-            "email": {
-                "title": "",
-                "emailAddress": "",
-                "description": ""
-            }, 
-            "location": {
-                "title": "",
-                "address": "",
-                "description": ""
-            }
-        }
+    "button": "Calcola ora"
+  },
+  "HomePage": {
+    "HeroSection": {
+      "badge": "Controllo dell'assicurazione standard svizzera",
+      "title": "Stai ottimizzando il valore della tua strategia",
+      "titleHighlight": "assicurativa",
+      "titleEnd": "?",
+      "description": "Trasforma la tua assicurazione da una spesa fissa in un vantaggio finanziario strategico.",
+      "subDescription": {
+        "text1": "Condividi i dettagli attuali della tua assicurazione e lascia che il nostro calcolatore avanzato analizzi se stai ottenendo il miglior valore.",
+        "text2": "",
+        "text3": ""
+      },
+      "trustIndicators": {
+        "1": "Sicuro e riservato al 100%",
+        "2": "Analisi gratuita istantanea",
+        "3": "Suggerimenti senza impegno"
+      },
+      "button1": "Calcola la tua polizza",
+      "button2": "Come funziona"
     },
 
-    "Footer": {
-        "logo": "",
+    "ClaculatorSection": {
+      "badge": "",
+      "title": "",
+      "description": "",
+      "Calculateform": {
+        "badge": "",
+        "title": "",
         "description": "",
-        "navigationLinksTitle": "",
-        "navLinks": [
-            {
-                "title": "",
-                "href": ""
-            },
-            {
-                "title": "",
-                "href": ""
-            },
-            {
-                "title": "",
-                "href": ""
-            },
-            {
-                "title": "",
-                "href": ""
-            },
-            {
-                "title": "",
-                "href": ""
+        "formFields": {
+          "leadSection": {
+            "title": "",
+            "form": {
+              "firstName": {
+                "label": "",
+                "placeholder": "",
+                "value": ""
+              },
+              "lastName": {
+                "label": "",
+                "placeholder": "",
+                "value": ""
+              },
+              "email": {
+                "label": "",
+                "placeholder": "",
+                "value": ""
+              },
+              "phone": {
+                "label": "",
+                "placeholder": "",
+                "value": ""
+              },
+              "dateOfBirth": {
+                "label": "",
+                "placeholder": "",
+                "value": ""
+              }
             }
-        ],
-        "protectTitle": "",
-        "protectDescription": "",
-        "subscribeButton": "",
-        "copyright": "",
+          },
+          "claculationSection": {
+            "title": "",
+            "canton": {
+              "label": "",
+              "placeholder": "",
+              "value": ""
+            },
+            "monthlyPayment": {
+              "label": "",
+              "placeholder": "",
+              "value": ""
+            },
+            "annualDeductible": {
+              "label": "",
+              "placeholder": "",
+              "value": ""
+            },
+            "totalMedicalExpenses": {
+              "label": "",
+              "placeholder": "",
+              "value": ""
+            },
+            "coInsurance": {
+              "label": "",
+              "placeholder": "",
+              "value": ""
+            },
+            "insuranceModel": {
+              "label": "",
+              "placeholder": "",
+              "value": ""
+            },
+            "adults": {
+              "label": "",
+              "placeholder": "",
+              "value": ""
+            },
+            "children": {
+              "label": "",
+              "placeholder": "",
+              "value": ""
+            },
+            "accidentCoverage": {
+              "label": "",
+              "placeholder": ""
+            }
+          }
+        },
+        "button1": {
+          "text": ""
+        },
+        "button2": {
+          "text": ""
+        },
+        "button3": {
+          "text": ""
+        }
+      },
 
-        "privacyPolicy": "",
-        "termsOfService": "",
-        "cookiePolicy": "",
-        "disclaimer": ""
+      "ResultSection": {}
+    },
+
+    "HowItWorksSection": {
+      "badge": "Semplice e Trasparente",
+      "title": "Come funziona il calcolatore",
+      "description": "Scopri il vero valore della tua assicurazione in tre semplici passaggi. Nessun costo nascosto, nessun impegno. Solo puro calcolo.",
+      "steps": [
+        {
+          "title": "Condividi la tua polizza",
+          "description": "Inserisci i dettagli della tua assicurazione attuale in modo sicuro. Aderiamo a rigidi standard di privacy svizzeri, garantendo che i tuoi dati siano protetti e mai condivisi."
+        },
+        {
+          "title": "Analisi Avanzata",
+          "description": "Il nostro calcolatore confronta i tuoi premi e la tua copertura con il mercato per determinare se la tua polizza attuale è veramente redditizia per le tue esigenze."
+        },
+        {
+          "title": "Ottieni risultati intelligenti",
+          "description": "Ricevi suggerimenti istantanei e senza impegno per alternative assicurative migliori e più convenienti su misura per te."
+        }
+      ]
+    },
+    "ContactUs": {
+      "badge": "",
+      "title": "",
+      "description": "",
+      "phone": {
+        "title": "",
+        "number": "",
+        "description": ""
+      },
+      "email": {
+        "title": "",
+        "emailAddress": "",
+        "description": ""
+      },
+      "location": {
+        "title": "",
+        "address": "",
+        "description": ""
+      }
     }
+  },
+
+  "Footer": {
+    "logo": "",
+    "description": "",
+    "navigationLinksTitle": "",
+    "navLinks": [
+      {
+        "title": "",
+        "href": ""
+      },
+      {
+        "title": "",
+        "href": ""
+      },
+      {
+        "title": "",
+        "href": ""
+      },
+      {
+        "title": "",
+        "href": ""
+      },
+      {
+        "title": "",
+        "href": ""
+      }
+    ],
+    "protectTitle": "",
+    "protectDescription": "",
+    "subscribeButton": "",
+    "copyright": "",
+
+    "privacyPolicy": "",
+    "termsOfService": "",
+    "cookiePolicy": "",
+    "disclaimer": ""
+  }
 }

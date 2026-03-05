@@ -97,6 +97,7 @@ export default function Navbar() {
 
         {/* Mobile Controls */}
         <div className="flex items-center gap-2 lg:hidden">
+          <LanguageSwitcher />
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="h-9 w-9">
@@ -136,7 +137,7 @@ export default function Navbar() {
 
                   <div className="pt-8 flex flex-col gap-4">
                     <div className="flex justify-start">
-                      <LanguageSwitcher />
+                    
                     </div>
                     <Link
                       href="/#calculator"

@@ -151,61 +151,51 @@
       ]
     },
     "ContactUs": {
-      "badge": "",
-      "title": "",
-      "description": "",
-      "phone": {
-        "title": "",
-        "number": "",
-        "description": ""
-      },
-      "email": {
-        "title": "",
-        "emailAddress": "",
-        "description": ""
-      },
-      "location": {
-        "title": "",
-        "address": "",
-        "description": ""
-      }
+      "badge": "Siamo qui per aiutarti",
+      "title": "Come possiamo",
+      "titleHighlight": "aiutarti",
+      "titleEnd": "?",
+      "description": "Hai domande sul nostro calcolatore o hai bisogno di assistenza con la tua polizza assicurativa? Il nostro team di supporto svizzero esperto è pronto ad aiutarti a navigare tra le tue opzioni.",
+      "contactInfo": [
+        {
+          "title": "Supporto Telefonico",
+          "details": "+41 (0) 44 123 45 67",
+          "description": "Lun-Ven dalle 8:00 alle 17:00 CET"
+        },
+        {
+          "title": "Supporto via E-mail",
+          "details": "support@insurancecalc.ch",
+          "description": "Rispondiamo in genere entro 24 ore"
+        },
+        {
+          "title": "Sede Centrale",
+          "details": "Zurigo, Svizzera",
+          "description": "Bahnhofstrasse 100, 8001 Zurigo"
+        }
+      ]
     }
   },
 
   "Footer": {
-    "logo": "",
-    "description": "",
-    "navigationLinksTitle": "",
-    "navLinks": [
-      {
-        "title": "",
-        "href": ""
-      },
-      {
-        "title": "",
-        "href": ""
-      },
-      {
-        "title": "",
-        "href": ""
-      },
-      {
-        "title": "",
-        "href": ""
-      },
-      {
-        "title": "",
-        "href": ""
-      }
-    ],
-    "protectTitle": "",
-    "protectDescription": "",
-    "subscribeButton": "",
-    "copyright": "",
-
-    "privacyPolicy": "",
-    "termsOfService": "",
-    "cookiePolicy": "",
-    "disclaimer": ""
+    "logo": "Controllo Assicurativo",
+    "description": "Aiutiamo le persone a prendere decisioni trasparenti, semplici e redditizie in materia di assicurazioni attraverso analisi avanzate e standard di sicurezza svizzeri.",
+    "navigationLinksTitle": "Navigazione",
+    "navLinks": {
+      "Home": "Home",
+      "Calculator": "Calcolatore",
+      "How It Works": "Come funziona",
+      "About Us": "Chi siamo",
+      "Contact": "Contatti",
+      "FAQ": "FAQ"
+    },
+    "protectTitle": "Resta protetto",
+    "protectDescription": "Iscriviti alla nostra newsletter per ricevere gli ultimi aggiornamenti sull'ottimizzazione delle assicurazioni.",
+    "emailPlaceholder": "Il tuo indirizzo email",
+    "subscribeButton": "Iscriviti",
+    "copyright": "Tutti i diritti riservati.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Termini di servizio",
+    "cookiePolicy": "Cookie Policy",
+    "disclaimer": "Materiale puramente illustrativo."
   }
 }

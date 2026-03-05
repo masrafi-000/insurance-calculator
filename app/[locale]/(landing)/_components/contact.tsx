@@ -5,8 +5,10 @@ import { contactInfo } from "@/data/shared";
 import { ITContactInfo } from "@/types/shared";
 import { Variants, motion } from "framer-motion";
 import { HeadphonesIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function Contact() {
+  const t = useTranslations("HomePage.ContactUs");
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -76,20 +78,18 @@ export default function Contact() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white shadow-sm border border-slate-100 text-blue-600 font-bold text-sm mb-6 uppercase tracking-wider"
           >
             <HeadphonesIcon className="w-4 h-4" />
-            <span>We&apos;re Here to Help</span>
+            <span>{t("badge")}</span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-slate-900 leading-tight">
-            How can we{" "}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6 text-slate-900 leading-tight">
+            {t("title")}{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-600">
-              assist
+              {t("titleHighlight")}
             </span>{" "}
-            you?
+            {t("titleEnd")}
           </h2>
           <p className="text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto">
-            Have questions about our calculator or need assistance with your
-            insurance policy? Our expert Swiss support team is ready to help you
-            navigate your options.
+            {t("description")}
           </p>
         </motion.div>
 
@@ -123,13 +123,13 @@ export default function Contact() {
               </motion.div>
 
               <h3 className="relative z-10 text-2xl font-bold text-slate-900 mb-3 tracking-tight group-hover:text-blue-600 transition-colors duration-300">
-                {info.title}
+                {t(`contactInfo.${index}.title` )}
               </h3>
               <p className="relative z-10 text-[17px] font-semibold text-blue-600 mb-2">
-                {info.details}
+                {t(`contactInfo.${index}.details`)}
               </p>
               <p className="relative z-10 text-[15px] text-slate-500 leading-relaxed group-hover:text-slate-600 transition-colors duration-300">
-                {info.description}
+                {t(`contactInfo.${index}.description`)}
               </p>
             </motion.div>
           ))}

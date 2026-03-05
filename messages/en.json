@@ -151,61 +151,51 @@
       ]
     },
     "ContactUs": {
-      "badge": "",
-      "title": "",
-      "description": "",
-      "phone": {
-        "title": "",
-        "number": "",
-        "description": ""
-      },
-      "email": {
-        "title": "",
-        "emailAddress": "",
-        "description": ""
-      },
-      "location": {
-        "title": "",
-        "address": "",
-        "description": ""
-      }
+      "badge": "We're Here to Help",
+      "title": "How can we",
+      "titleHighlight": "assist",
+      "titleEnd": "you?",
+      "description": "Have questions about our calculator or need assistance with your insurance policy? Our expert Swiss support team is ready to help you navigate your options.",
+      "contactInfo": [
+        {
+          "title": "Phone Support",
+          "details": "+41 (0) 44 123 45 67",
+          "description": "Mon-Fri from 8am to 5pm CET"
+        },
+        {
+          "title": "Email Support",
+          "details": "support@insurancecalc.ch",
+          "description": "We'll typically reply within 24 hours"
+        },
+        {
+          "title": "Headquarters",
+          "details": "Zurich, Switzerland",
+          "description": "Bahnhofstrasse 100, 8001 Zurich"
+        }
+      ]
     }
   },
 
   "Footer": {
-    "logo": "",
-    "description": "",
-    "navigationLinksTitle": "",
-    "navLinks": [
-      {
-        "title": "",
-        "href": ""
-      },
-      {
-        "title": "",
-        "href": ""
-      },
-      {
-        "title": "",
-        "href": ""
-      },
-      {
-        "title": "",
-        "href": ""
-      },
-      {
-        "title": "",
-        "href": ""
-      }
-    ],
-    "protectTitle": "",
-    "protectDescription": "",
-    "subscribeButton": "",
-    "copyright": "",
-
-    "privacyPolicy": "",
-    "termsOfService": "",
-    "cookiePolicy": "",
-    "disclaimer": ""
+    "logo": "Insurance Check",
+    "description": "Empowering individuals with transparent, simple, and profitable insurance decisions through advanced analytics and Swiss-standard security.",
+    "navigationLinksTitle": "Navigation",
+    "navLinks": {
+      "Home": "Home",
+      "Calculator": "Calculator",
+      "How It Works": "How It Works",
+      "About Us": "About Us",
+      "Contact": "Contact",
+      "FAQ": "FAQ"
+    },
+    "protectTitle": "Stay Protected",
+    "protectDescription": "Join our newsletter to get the latest insights on insurance optimization.",
+    "emailPlaceholder": "Your email address",
+    "subscribeButton": "Subscribe",
+    "copyright": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy",
+    "disclaimer": "This is entirely illustrative material."
   }
 }

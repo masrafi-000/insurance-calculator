@@ -151,61 +151,51 @@
       ]
     },
     "ContactUs": {
-      "badge": "",
-      "title": "",
-      "description": "",
-      "phone": {
-        "title": "",
-        "number": "",
-        "description": ""
-      },
-      "email": {
-        "title": "",
-        "emailAddress": "",
-        "description": ""
-      },
-      "location": {
-        "title": "",
-        "address": "",
-        "description": ""
-      }
+      "badge": "Wir sind hier, um zu helfen",
+      "title": "Wie können wir Ihnen",
+      "titleHighlight": "helfen",
+      "titleEnd": "?",
+      "description": "Haben Sie Fragen zu unserem Rechner oder benötigen Sie Hilfe bei Ihrer Versicherungspolice? Unser fachkundiges Schweizer Support-Team steht bereit, um Ihnen bei Ihren Optionen zu helfen.",
+      "contactInfo": [
+        {
+          "title": "Telefon-Support",
+          "details": "+41 (0) 44 123 45 67",
+          "description": "Mo-Fr von 8 bis 17 Uhr MEZ"
+        },
+        {
+          "title": "E-Mail-Support",
+          "details": "support@insurancecalc.ch",
+          "description": "Wir antworten in der Regel innerhalb von 24 Stunden"
+        },
+        {
+          "title": "Hauptsitz",
+          "details": "Zürich, Schweiz",
+          "description": "Bahnhofstrasse 100, 8001 Zürich"
+        }
+      ]
     }
   },
 
   "Footer": {
-    "logo": "",
-    "description": "",
-    "navigationLinksTitle": "",
-    "navLinks": [
-      {
-        "title": "",
-        "href": ""
-      },
-      {
-        "title": "",
-        "href": ""
-      },
-      {
-        "title": "",
-        "href": ""
-      },
-      {
-        "title": "",
-        "href": ""
-      },
-      {
-        "title": "",
-        "href": ""
-      }
-    ],
-    "protectTitle": "",
-    "protectDescription": "",
-    "subscribeButton": "",
-    "copyright": "",
-
-    "privacyPolicy": "",
-    "termsOfService": "",
-    "cookiePolicy": "",
-    "disclaimer": ""
+    "logo": "Versicherungs-Check",
+    "description": "Befähigung von Einzelpersonen zu transparenten, einfachen und rentablen Versicherungsentscheidungen durch fortschrittliche Analysen und Sicherheit auf Schweizer Standard.",
+    "navigationLinksTitle": "Navigation",
+    "navLinks": {
+      "Home": "Startseite",
+      "Calculator": "Rechner",
+      "How It Works": "Wie es funktioniert",
+      "About Us": "Über uns",
+      "Contact": "Kontakt",
+      "FAQ": "FAQ"
+    },
+    "protectTitle": "Bleiben Sie geschützt",
+    "protectDescription": "Abonnieren Sie unseren Newsletter, um die neuesten Erkenntnisse zur Versicherungsoptimierung zu erhalten.",
+    "emailPlaceholder": "Ihre E-Mail-Adresse",
+    "subscribeButton": "Abonnieren",
+    "copyright": "Alle Rechte vorbehalten.",
+    "privacyPolicy": "Datenschutz",
+    "termsOfService": "Nutzungsbedingungen",
+    "cookiePolicy": "Cookie-Richtlinie",
+    "disclaimer": "Dies ist rein illustratives Material."
   }
 }

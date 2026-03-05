@@ -1,9 +1,10 @@
 "use client";
 
+import { Link } from "@/i18n/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Variants, motion } from "framer-motion";
 import { Facebook, Github, ShieldCheck, Twitter } from "lucide-react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import Balancer from "react-wrap-balancer";
 
@@ -24,6 +25,7 @@ import Container from "../ui/container";
 import Section from "../ui/section";
 
 const Footer: React.FC = () => {
+  const t = useTranslations("Footer");
   const form = useForm<ZTFooter>({
     resolver: zodResolver(ZCFooter),
     defaultValues: {
@@ -81,14 +83,10 @@ const Footer: React.FC = () => {
                 <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 group-hover:bg-primary transition-colors duration-300">
                   <ShieldCheck className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" />
                 </div>
-                <span>Insurance Check</span>
+                <span>{t("logo")}</span>
               </Link>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
-                <Balancer>
-                  Empowering individuals with transparent, simple, and
-                  profitable insurance decisions through advanced analytics and
-                  Swiss-standard security.
-                </Balancer>
+                <Balancer>{t("description")}</Balancer>
               </p>
               <div className="flex gap-2 text-muted-foreground">
                 <Button
@@ -121,7 +119,7 @@ const Footer: React.FC = () => {
               className="lg:col-span-3 lg:col-start-6 flex flex-col gap-6"
             >
               <h3 className="text-lg font-semibold text-foreground tracking-tight">
-                Navigation
+                {t("navigationLinksTitle")}
               </h3>
               <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
                 {footerLinks.map((link: ITFooterLink) => (
@@ -134,7 +132,7 @@ const Footer: React.FC = () => {
                       ›
                     </span>
                     <span className="group-hover:translate-x-3 transition-transform duration-300">
-                      {link.title}
+                      {t(`navLinks.${link.title}`)}
                     </span>
                   </Link>
                 ))}
@@ -146,10 +144,11 @@ const Footer: React.FC = () => {
               variants={itemVariants}
               className="lg:col-span-4 flex flex-col gap-4"
             >
-              <h3 className="font-semibold text-foreground">Stay Protected</h3>
+              <h3 className="font-semibold text-foreground">
+                {t("protectTitle")}
+              </h3>
               <p className="text-sm text-muted-foreground">
-                Join our newsletter to get the latest insights on insurance
-                optimization.
+                {t("protectDescription")}
               </p>
               <Form {...form}>
                 <form
@@ -163,7 +162,7 @@ const Footer: React.FC = () => {
                       <FormItem>
                         <FormControl>
                           <Input
-                            placeholder="Your email address"
+                            placeholder={t("emailPlaceholder")}
                             {...field}
                             className="bg-muted/50 border-border focus-visible:ring-primary rounded-xl px-4 h-12 transition-all hover:bg-muted"
                           />
@@ -176,7 +175,7 @@ const Footer: React.FC = () => {
                     type="submit"
                     className="w-full rounded-xl h-12 shadow-sm hover:shadow-md transition-all active:scale-[0.98]"
                   >
-                    Subscribe
+                    {t("subscribeButton")}
                   </Button>
                 </form>
               </Form>
@@ -191,28 +190,28 @@ const Footer: React.FC = () => {
                   href="/"
                   className="hover:text-primary font-medium text-foreground transition-colors"
                 >
-                  Insurance Check
+                  {t("logo")}
                 </Link>
-                . All rights reserved.
+                . {t("copyright")}
               </p>
               <div className="flex flex-wrap items-center justify-center gap-6">
                 <Link
                   href="/privacy"
                   className="hover:text-foreground transition-colors"
                 >
-                  Privacy Policy
+                  {t("privacyPolicy")}
                 </Link>
                 <Link
                   href="/terms"
                   className="hover:text-foreground transition-colors"
                 >
-                  Terms of Service
+                  {t("termsOfService")}
                 </Link>
                 <Link
                   href="/cookies"
                   className="hover:text-foreground transition-colors"
                 >
-                  Cookie Policy
+                  {t("cookiePolicy")}
                 </Link>
               </div>
             </Container>

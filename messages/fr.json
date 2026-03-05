@@ -151,61 +151,51 @@
       ]
     },
     "ContactUs": {
-      "badge": "",
-      "title": "",
-      "description": "",
-      "phone": {
-        "title": "",
-        "number": "",
-        "description": ""
-      },
-      "email": {
-        "title": "",
-        "emailAddress": "",
-        "description": ""
-      },
-      "location": {
-        "title": "",
-        "address": "",
-        "description": ""
-      }
+      "badge": "Nous sommes là pour vous aider",
+      "title": "Comment pouvons-nous vous",
+      "titleHighlight": "aider",
+      "titleEnd": "?",
+      "description": "Vous avez des questions sur notre calculateur ou avez besoin d'aide pour votre police d'assurance ? Notre équipe d'assistance suisse experte est prête à vous aider à explorer vos options.",
+      "contactInfo": [
+        {
+          "title": "Assistance Téléphonique",
+          "details": "+41 (0) 44 123 45 67",
+          "description": "Lun-Ven de 8h à 17h HEC"
+        },
+        {
+          "title": "Assistance par E-mail",
+          "details": "support@insurancecalc.ch",
+          "description": "Nous répondons généralement dans les 24 heures"
+        },
+        {
+          "title": "Siège Social",
+          "details": "Zurich, Suisse",
+          "description": "Bahnhofstrasse 100, 8001 Zurich"
+        }
+      ]
     }
   },
 
   "Footer": {
-    "logo": "",
-    "description": "",
-    "navigationLinksTitle": "",
-    "navLinks": [
-      {
-        "title": "",
-        "href": ""
-      },
-      {
-        "title": "",
-        "href": ""
-      },
-      {
-        "title": "",
-        "href": ""
-      },
-      {
-        "title": "",
-        "href": ""
-      },
-      {
-        "title": "",
-        "href": ""
-      }
-    ],
-    "protectTitle": "",
-    "protectDescription": "",
-    "subscribeButton": "",
-    "copyright": "",
-
-    "privacyPolicy": "",
-    "termsOfService": "",
-    "cookiePolicy": "",
-    "disclaimer": ""
+    "logo": "Bilan d'Assurance",
+    "description": "Permettre aux individus de prendre des décisions d'assurance transparentes, simples et rentables grâce à des analyses avancées et à la sécurité aux normes suisses.",
+    "navigationLinksTitle": "Navigation",
+    "navLinks": {
+      "Home": "Accueil",
+      "Calculator": "Calculateur",
+      "How It Works": "Comment ça marche",
+      "About Us": "À propos",
+      "Contact": "Contact",
+      "FAQ": "FAQ"
+    },
+    "protectTitle": "Restez protégé",
+    "protectDescription": "Inscrivez-vous à notre newsletter pour obtenir les dernières informations sur l'optimisation des assurances.",
+    "emailPlaceholder": "Votre adresse e-mail",
+    "subscribeButton": "S'abonner",
+    "copyright": "Tous droits réservés.",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfService": "Conditions d'utilisation",
+    "cookiePolicy": "Politique des cookies",
+    "disclaimer": "Il s'agit d'un matériel purement illustratif."
   }
 }

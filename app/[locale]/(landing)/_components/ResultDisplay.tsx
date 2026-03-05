@@ -10,8 +10,10 @@ import {
   TrendingUp,
   Wallet,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function ResultDisplay({ result }: { result: CalculationResult }) {
+  const t = useTranslations("Calculator.Result");
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -25,14 +27,12 @@ export function ResultDisplay({ result }: { result: CalculationResult }) {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 font-bold text-[13px] mb-3 border border-emerald-100/50">
             <CheckCircle2 className="w-4 h-4" />
-            <span>Calculation Complete</span>
+            <span>{t("badge")}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Your Profitability Setup
+            {t("title")}
           </h2>
-          <p className="text-[15px] text-slate-500 mt-1">
-            Based on the information provided, here is your breakdown.
-          </p>
+          <p className="text-[15px] text-slate-500 mt-1">{t("subtitle")}</p>
         </div>
 
         {/* Main Verdict Card */}
@@ -50,7 +50,7 @@ export function ResultDisplay({ result }: { result: CalculationResult }) {
               <TrendingUp className="w-5 h-5 text-emerald-500" />
             )}
             <span className="font-bold text-[14px] uppercase tracking-wider">
-              {result.insuranceGains ? "You Lose" : "You Gain"}
+              {result.insuranceGains ? t("verdictLose") : t("verdictGain")}
             </span>
           </div>
           <div className="text-3xl font-extrabold">
@@ -73,13 +73,12 @@ export function ResultDisplay({ result }: { result: CalculationResult }) {
                 <div>
                   <div className="flex items-center gap-1.5 mb-1">
                     <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
-                      Simulated Premium
+                      {t("simulatedPremium")}
                     </p>
                     <div className="relative group flex items-center">
                       <HelpCircle className="w-[14px] h-[14px] text-blue-400 fill-blue-50/50 cursor-help" />
                       <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none text-center">
-                        The estimated optimal premium based on your selected
-                        canton and model.
+                        {t("simulatedTooltip")}
                         <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                       </div>
                     </div>
@@ -109,13 +108,19 @@ export function ResultDisplay({ result }: { result: CalculationResult }) {
                   )}
                   <div>
                     <div className="font-bold whitespace-nowrap">
-                      {Math.abs(result.diffMonthly)} CHF/month{" "}
-                      {result.diffMonthly > 0 ? "Cheaper" : "More Expensive"}
+                      {Math.abs(result.diffMonthly)} {t("perMonth")}{" "}
+                      {result.diffMonthly > 0
+                        ? t("cheaper")
+                        : t("moreExpensive")}
                     </div>
                     <div className="text-md opacity-80 mt-0.5">
                       {result.diffMonthly > 0
-                        ? `You could save ${Math.abs(result.diffYearly || 0)} CHF per year`
-                        : `${Math.abs(result.diffYearly || 0)} CHF/year`}
+                        ? t("savePerYear", {
+                            amount: Math.abs(result.diffYearly || 0),
+                          })
+                        : t("costPerYear", {
+                            amount: Math.abs(result.diffYearly || 0),
+                          })}
                     </div>
                   </div>
                 </div>
@@ -132,11 +137,13 @@ export function ResultDisplay({ result }: { result: CalculationResult }) {
             <div className="bg-white p-1.5 rounded-lg shadow-sm">
               <PiggyBank className="w-4 h-4 text-blue-500" />
             </div>
-            <span className="font-semibold text-[14px]">Annual Premium</span>
+            <span className="font-semibold text-[14px]">
+              {t("annualPremium")}
+            </span>
             <div className="relative group flex items-center">
               <HelpCircle className="w-[16px] h-[16px] text-blue-400 fill-blue-50/50 cursor-help" />
               <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none text-center">
-                Total premiums paid over 12 months.
+                {t("annualTooltip")}
                 <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
               </div>
             </div>
@@ -156,12 +163,12 @@ export function ResultDisplay({ result }: { result: CalculationResult }) {
               <ShieldAlert className="w-4 h-4 text-orange-500" />
             </div>
             <span className="font-semibold text-[14px]">
-              Total participation
+              {t("totalParticipation")}
             </span>
             <div className="relative group flex items-center">
               <HelpCircle className="w-[16px] h-[16px] text-blue-400 fill-blue-50/50 cursor-help" />
               <div className="absolute bottom-full mb-2.5 right-0 translate-x-1/4 sm:left-1/2 sm:-translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none text-center">
-                Amount paid by you: deductible + 10% of the costs (max 700 CHF).
+                {t("participationTooltip")}
                 <div className="absolute -bottom-1.5 right-6 sm:left-1/2 sm:-translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
               </div>
             </div>
@@ -180,11 +187,11 @@ export function ResultDisplay({ result }: { result: CalculationResult }) {
             <div className="bg-white p-1.5 rounded-lg shadow-sm">
               <HeartPulse className="w-4 h-4 text-rose-500" />
             </div>
-            <span className="font-semibold text-[14px]">Refund</span>
+            <span className="font-semibold text-[14px]">{t("refund")}</span>
             <div className="relative group flex items-center">
               <HelpCircle className="w-[16px] h-[16px] text-blue-400 fill-blue-50/50 cursor-help" />
               <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none text-center">
-                Rebustment Amount by the insurance after participation
+                {t("refundTooltip")}
                 <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
               </div>
             </div>
@@ -203,13 +210,11 @@ export function ResultDisplay({ result }: { result: CalculationResult }) {
             <div className="bg-white p-1.5 rounded-lg shadow-sm">
               <TrendingUp className="w-4 h-4 text-indigo-500" />
             </div>
-            <span className="font-semibold text-[14px]">
-              Reimbursement/premium ratio
-            </span>
+            <span className="font-semibold text-[14px]">{t("ratio")}</span>
             <div className="relative group flex items-center">
               <HelpCircle className="w-[16px] h-[16px] text-blue-400 fill-blue-50/50 cursor-help" />
               <div className="absolute bottom-full mb-2.5 right-0 translate-x-1/4 sm:left-1/2 sm:-translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none text-center">
-                Percentage of your bonus actually recovered through refunds
+                {t("ratioTooltip")}
                 <div className="absolute -bottom-1.5 right-6 sm:left-1/2 sm:-translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
               </div>
             </div>

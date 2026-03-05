@@ -2,6 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
@@ -24,6 +25,7 @@ export default function GoogleAd({
   fallbackImg,
   fallbackText,
 }: GoogleAdProps) {
+  const t = useTranslations("UI.GoogleAd");
   const adRef = useRef<HTMLModElement>(null);
 
   useEffect(() => {
@@ -43,13 +45,13 @@ export default function GoogleAd({
     >
       <div className="flex justify-between items-start p-2 border-b border-border/20">
         <span className="text-[10px] text-muted-foreground uppercase tracking-widest pl-1 font-semibold">
-          Advertisement
+          {t("advertisement")}
         </span>
         <Badge
           variant="secondary"
           className="text-[9px] h-4 font-medium bg-muted text-muted-foreground"
         >
-          Ad
+          {t("adBadge")}
         </Badge>
       </div>
       <div
@@ -81,11 +83,10 @@ export default function GoogleAd({
               />
               <div className="relative z-10 p-4 bg-background/80 backdrop-blur-sm rounded-xl border border-border/50 shadow-xs max-w-[85%]">
                 <p className="font-bold text-sm text-foreground mb-1">
-                  {fallbackText || "Custom Advertisement"}
+                  {fallbackText || t("adFallback")}
                 </p>
                 <p className="text-xs text-muted-foreground leading-tight">
-                  Click here to discover our exclusive partner offers and save
-                  on your insurance today.
+                  {t("adCta")}
                 </p>
               </div>
             </>

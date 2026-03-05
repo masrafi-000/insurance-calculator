@@ -34,16 +34,17 @@ import { Switch } from "@/components/ui/switch";
 import { useCalculatorMutation } from "@/hooks/queries/use-calculator-mutation";
 import { cn } from "@/lib/utils";
 import { useCalculatorStore } from "@/store/use-calculator-store";
-import { CantonOption, FranchiseOption } from "@/types/shared";
+import { FranchiseOption } from "@/types/shared";
 import { calculatorSchema, CalculatorSchema } from "@/validators/zod";
 
+import { useTranslations } from "next-intl";
+
 export function PrimeCalculatorForm({
-  CANTONS,
   FRANCHISES,
 }: {
-  CANTONS: CantonOption[];
   FRANCHISES: FranchiseOption[];
 }) {
+  const t = useTranslations("Calculator.Form");
   const resetCalculator = useCalculatorStore((state) => state.resetCalculator);
   const { mutate, isPending } = useCalculatorMutation();
 
@@ -111,23 +112,22 @@ export function PrimeCalculatorForm({
           >
             <div className="min-w-0 flex-1">
               <h1 className="text-xl sm:text-2xl lg:text-[28px] font-extrabold text-slate-900 tracking-tight mb-1.5 leading-tight">
-                Premium vs. Profitability Calculator
+                {t("title")}
               </h1>
               <p className="text-[14px] sm:text-[15px] text-slate-500">
-                You will receive the result by email, and it will also appear
-                immediately here.
+                {t("subtitle")}
               </p>
             </div>
             <div className="hidden sm:inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-[13px] font-semibold text-slate-700 shadow-sm whitespace-nowrap shrink-0">
               <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-              Leads + Results
+              {t("badge")}
             </div>
           </motion.div>
 
           {/* Section 1 */}
           <motion.div variants={formItemVariants}>
             <p className="text-[15px] font-bold text-slate-800 mb-4">
-              1) Info to receive your results via email
+              {t("section1Title")}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
@@ -138,19 +138,19 @@ export function PrimeCalculatorForm({
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
                     <div className="flex items-center gap-1.5 mb-2.5">
                       <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        First Name *
+                        {t("fields.firstName.label")}
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          Just for personalized summary.
+                          {t("fields.firstName.tooltip")}
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
                     </div>
                     <FormControl>
                       <Input
-                        placeholder="John"
+                        placeholder={t("fields.firstName.placeholder")}
                         className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
                         {...field}
                       />
@@ -166,19 +166,19 @@ export function PrimeCalculatorForm({
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
                     <div className="flex items-center gap-1.5 mb-2.5">
                       <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Last Name *
+                        {t("fields.lastName.label")}
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          Just for personalized summary
+                          {t("fields.lastName.tooltip")}
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
                     </div>
                     <FormControl>
                       <Input
-                        placeholder="Doe"
+                        placeholder={t("fields.lastName.placeholder")}
                         className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
                         {...field}
                       />
@@ -194,20 +194,19 @@ export function PrimeCalculatorForm({
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
                     <div className="flex items-center gap-1.5 mb-2.5">
                       <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Email *
+                        {t("fields.email.label")}
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          We need your email to send your customized calculation
-                          results.
+                          {t("fields.email.tooltip")}
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
                     </div>
                     <FormControl>
                       <Input
-                        placeholder="test@email.ch"
+                        placeholder={t("fields.email.placeholder")}
                         className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
                         {...field}
                       />
@@ -223,19 +222,19 @@ export function PrimeCalculatorForm({
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
                     <div className="flex items-center gap-1.5 mb-2.5">
                       <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Phone Number *
+                        {t("fields.phoneNumber.label")}
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          Just for personalized summary.
+                          {t("fields.phoneNumber.tooltip")}
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
                     </div>
                     <FormControl>
                       <Input
-                        placeholder="123456789"
+                        placeholder={t("fields.phoneNumber.placeholder")}
                         className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
                         {...field}
                       />
@@ -251,12 +250,12 @@ export function PrimeCalculatorForm({
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
                     <div className="flex items-center gap-1.5 mb-2.5">
                       <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Date of Birth *
+                        {t("fields.dateOfBirth.label")}
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3 bg-[#1e2329] text-white text-[13px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          Your birth date helps estimate age-related premiums.
+                          {t("fields.dateOfBirth.tooltip")}
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
@@ -276,7 +275,9 @@ export function PrimeCalculatorForm({
                               {field.value ? (
                                 format(new Date(field.value), "PPP")
                               ) : (
-                                <span>Pick a date</span>
+                                <span>
+                                  {t("fields.dateOfBirth.placeholder")}
+                                </span>
                               )}
                             </span>
                           </Button>
@@ -319,7 +320,7 @@ export function PrimeCalculatorForm({
           {/* Section 2 */}
           <motion.div variants={formItemVariants}>
             <p className="text-[15px] font-bold text-slate-800 mb-4">
-              2) Your numbers (instant calculation + email)
+              {t("section2Title")}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
@@ -331,13 +332,12 @@ export function PrimeCalculatorForm({
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
                     <div className="flex items-center gap-1.5 mb-2.5">
                       <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Canton *
+                        {t("fields2.canton.label")}
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          Allows for customization of offers and comparisons
-                          (premiums vary by canton).
+                          {t("fields2.canton.tooltip")}
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
@@ -351,7 +351,12 @@ export function PrimeCalculatorForm({
                       </FormControl>
                       <SelectContent className="rounded-xl max-h-[300px]">
                         <ScrollArea className="h-60 sm:h-72 w-full">
-                          {CANTONS.map((c: CantonOption) => (
+                          {(
+                            t.raw("fields2.canton.options") as {
+                              value: string;
+                              label: string;
+                            }[]
+                          ).map((c) => (
                             <SelectItem
                               key={c.value}
                               value={c.value}
@@ -376,19 +381,19 @@ export function PrimeCalculatorForm({
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
                     <div className="flex items-center gap-1.5 mb-2.5">
                       <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Monthly Payment (CHF)
+                        {t("fields2.monthlyPremium.label")}
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          Your current health insurance monthly base premium.
+                          {t("fields2.monthlyPremium.tooltip")}
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
                     </div>
                     <FormControl>
                       <Input
-                        placeholder="380"
+                        placeholder={t("fields2.monthlyPremium.placeholder")}
                         className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
                         {...field}
                       />
@@ -406,13 +411,12 @@ export function PrimeCalculatorForm({
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
                     <div className="flex items-center gap-1.5 mb-2.5">
                       <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Annual Deductible (CHF)
+                        {t("fields2.deductible.label")}
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          The amount you pay out-of-pocket before insurance
-                          starts covering costs.
+                          {t("fields2.deductible.tooltip")}
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
@@ -451,20 +455,19 @@ export function PrimeCalculatorForm({
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
                     <div className="flex items-center gap-1.5 mb-2.5">
                       <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Total Medical Expenses (CHF)
+                        {t("fields2.medicalExpenses.label")}
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          Estimate your total yearly doctor visits, medications,
-                          and treatments.
+                          {t("fields2.medicalExpenses.tooltip")}
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
                     </div>
                     <FormControl>
                       <Input
-                        placeholder="1200"
+                        placeholder={t("fields2.medicalExpenses.placeholder")}
                         className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
                         {...field}
                       />
@@ -482,20 +485,19 @@ export function PrimeCalculatorForm({
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
                     <div className="flex items-center gap-1.5 mb-2.5">
                       <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Co-insurance (CHF)
+                        {t("fields2.copayCap.label")}
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          The maximum 10% co-pay you pay per year (usually
-                          capped at 700 CHF for adults).
+                          {t("fields2.copayCap.tooltip")}
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
                     </div>
                     <FormControl>
                       <Input
-                        placeholder="700"
+                        placeholder={t("fields2.copayCap.placeholder")}
                         className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
                         {...field}
                       />
@@ -513,13 +515,12 @@ export function PrimeCalculatorForm({
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
                     <div className="flex items-center gap-1.5 mb-2.5">
                       <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Insurance Model *
+                        {t("fields2.model.label")}
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          Choose your preferred consultation method (Standard,
-                          Telmed, HMO, etc.) to apply discounts.
+                          {t("fields2.model.tooltip")}
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
@@ -527,22 +528,26 @@ export function PrimeCalculatorForm({
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
                         <SelectTrigger className="w-full rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base bg-white">
-                          <SelectValue placeholder="Standard" />
+                          <SelectValue
+                            placeholder={t("fields2.model.placeholder")}
+                          />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="rounded-xl">
-                        {[
-                          "Standard",
-                          "Family Doctor",
-                          "Telmod",
-                          "HMO/Network",
-                        ].map((m) => (
+                        {([0, 1, 2, 3] as const).map((i) => (
                           <SelectItem
-                            key={m}
-                            value={m}
+                            key={i}
+                            value={
+                              [
+                                "Standard",
+                                "Family Doctor",
+                                "Telmod",
+                                "HMO/Network",
+                              ][i]
+                            }
                             className="rounded-lg cursor-pointer"
                           >
-                            {m}
+                            {t(`fields2.model.options.${i}`)}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -560,13 +565,12 @@ export function PrimeCalculatorForm({
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
                     <div className="flex items-center gap-1.5 mb-2.5">
                       <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Number of Adults (18+) *
+                        {t("fields2.adults.label")}
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          Number of people aged 18 and older under this policy
-                          block.
+                          {t("fields2.adults.tooltip")}
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
@@ -574,7 +578,7 @@ export function PrimeCalculatorForm({
                     <FormControl>
                       <Input
                         type="number"
-                        placeholder="1"
+                        placeholder={t("fields2.adults.placeholder")}
                         min="0"
                         className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
                         {...field}
@@ -593,13 +597,12 @@ export function PrimeCalculatorForm({
                   <FormItem className="bg-white rounded-[20px] border border-slate-200 p-4 shadow-sm hover:border-slate-300 transition-colors">
                     <div className="flex items-center gap-1.5 mb-2.5">
                       <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                        Number of Children (0-18) *
+                        {t("fields2.children.label")}
                       </FormLabel>
                       <div className="relative group flex items-center">
                         <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                         <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                          Number of dependents under the age of 18 (applies
-                          child discount factors).
+                          {t("fields2.children.tooltip")}
                           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                         </div>
                       </div>
@@ -607,7 +610,7 @@ export function PrimeCalculatorForm({
                     <FormControl>
                       <Input
                         type="number"
-                        placeholder="0"
+                        placeholder={t("fields2.children.placeholder")}
                         min="0"
                         className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
                         {...field}
@@ -627,20 +630,18 @@ export function PrimeCalculatorForm({
                     <div className="space-y-1 leading-none min-w-0 flex-1">
                       <div className="flex items-center gap-1.5 mb-2.5">
                         <FormLabel className="text-[15px] font-bold text-slate-800 m-0">
-                          Include Accident Coverage?
+                          {t("fields2.accident.label")}
                         </FormLabel>
                         <div className="relative group flex items-center shrink-0">
                           <HelpCircle className="w-[18px] h-[18px] text-blue-400 fill-blue-50/50 cursor-help" />
                           <div className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-56 p-3.5 bg-[#1e2329] text-white text-[13.5px] rounded-xl shadow-xl z-50 font-medium leading-relaxed pointer-events-none">
-                            Accident coverage adds around 7% to your premium.
-                            Select No if covered by an employer.
+                            {t("fields2.accident.tooltip")}
                             <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e2329] rotate-45 rounded-sm"></div>
                           </div>
                         </div>
                       </div>
                       <p className="text-[13px] text-slate-500 leading-relaxed">
-                        Usually covered by employer if you work more than
-                        8h/week.
+                        {t("fields2.accident.description")}
                       </p>
                     </div>
                     <FormControl>
@@ -666,7 +667,7 @@ export function PrimeCalculatorForm({
               disabled={isPending}
               className="w-full sm:w-auto bg-primary hover:bg-primary/80 text-white rounded-full px-8 py-6 text-base font-semibold shadow-md hover:shadow-lg transition-all"
             >
-              Calculate + Send
+              {t("buttons.calculate")}
               {isPending ? (
                 <Loader2 className="ml-2 size-5 animate-spin" />
               ) : (
@@ -705,7 +706,7 @@ export function PrimeCalculatorForm({
                 onSubmit(exampleData);
               }}
             >
-              Example
+              {t("buttons.example")}
             </Button>
 
             <Button
@@ -732,7 +733,7 @@ export function PrimeCalculatorForm({
                 });
               }}
             >
-              Reset
+              {t("buttons.reset")}
             </Button>
           </motion.div>
         </form>

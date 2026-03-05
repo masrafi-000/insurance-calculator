@@ -29,108 +29,6 @@
       "button1": "Calculate Your Policy",
       "button2": "How It Works"
     },
-
-    "ClaculatorSection": {
-      "badge": "",
-      "title": "",
-      "description": "",
-      "Calculateform": {
-        "badge": "",
-        "title": "",
-        "description": "",
-        "formFields": {
-          "leadSection": {
-            "title": "",
-            "form": {
-              "firstName": {
-                "label": "",
-                "placeholder": "",
-                "value": ""
-              },
-              "lastName": {
-                "label": "",
-                "placeholder": "",
-                "value": ""
-              },
-              "email": {
-                "label": "",
-                "placeholder": "",
-                "value": ""
-              },
-              "phone": {
-                "label": "",
-                "placeholder": "",
-                "value": ""
-              },
-              "dateOfBirth": {
-                "label": "",
-                "placeholder": "",
-                "value": ""
-              }
-            }
-          },
-          "claculationSection": {
-            "title": "",
-            "canton": {
-              "label": "",
-              "placeholder": "",
-              "value": ""
-            },
-            "monthlyPayment": {
-              "label": "",
-              "placeholder": "",
-              "value": ""
-            },
-            "annualDeductible": {
-              "label": "",
-              "placeholder": "",
-              "value": ""
-            },
-            "totalMedicalExpenses": {
-              "label": "",
-              "placeholder": "",
-              "value": ""
-            },
-            "coInsurance": {
-              "label": "",
-              "placeholder": "",
-              "value": ""
-            },
-            "insuranceModel": {
-              "label": "",
-              "placeholder": "",
-              "value": ""
-            },
-            "adults": {
-              "label": "",
-              "placeholder": "",
-              "value": ""
-            },
-            "children": {
-              "label": "",
-              "placeholder": "",
-              "value": ""
-            },
-            "accidentCoverage": {
-              "label": "",
-              "placeholder": ""
-            }
-          }
-        },
-        "button1": {
-          "text": ""
-        },
-        "button2": {
-          "text": ""
-        },
-        "button3": {
-          "text": ""
-        }
-      },
-
-      "ResultSection": {}
-    },
-
     "HowItWorksSection": {
       "badge": "Simple & Transparent",
       "title": "How the Calculator Works",
@@ -175,7 +73,6 @@
       ]
     }
   },
-
   "AboutPage": {
     "AboutHero": {
       "badge": "Who We Are",
@@ -190,10 +87,22 @@
       "p2": "We built this platform to bring radical transparency to the industry. By combining advanced data analytics with strict Swiss data protection standards, we provide you with a clear, unbiased view of your current insurance standing versus the market.",
       "p3": "Whether you're looking to save money, improve your coverage, or simply gain peace of mind, our tools are designed to put the power back in your hands.",
       "stats": [
-        { "value": "10K+", "label": "Policies Analyzed" },
-        { "value": "CHF 5M+", "label": "Savings Identified" },
-        { "value": "99%", "label": "Customer Satisfaction" },
-        { "value": "24/7", "label": "Expert Support" }
+        {
+          "value": "10K+",
+          "label": "Policies Analyzed"
+        },
+        {
+          "value": "CHF 5M+",
+          "label": "Savings Identified"
+        },
+        {
+          "value": "99%",
+          "label": "Customer Satisfaction"
+        },
+        {
+          "value": "24/7",
+          "label": "Expert Support"
+        }
       ]
     },
     "OurValues": {
@@ -220,7 +129,6 @@
       ]
     }
   },
-
   "Footer": {
     "logo": "Insurance Check",
     "description": "Empowering individuals with transparent, simple, and profitable insurance decisions through advanced analytics and Swiss-standard security.",
@@ -242,5 +150,527 @@
     "termsOfService": "Terms of Service",
     "cookiePolicy": "Cookie Policy",
     "disclaimer": "This is entirely illustrative material."
+  },
+  "Calculator": {
+    "Section": {
+      "badge": "Interactive Tool",
+      "title": "Estimation & Analysis",
+      "description": "Test your current insurance costs against our profitability algorithms and see instant, real-time results.",
+      "partnersTitle": "Partner Carriers",
+      "viewDetails": "View Details",
+      "adsFeatured": "Featured Ad",
+      "partners": [
+        {
+          "name": "State Farm",
+          "rating": "4.8/5",
+          "quote": "Like a good neighbor, State Farm is there.",
+          "color": "border-red-600",
+          "logo": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=100"
+        },
+        {
+          "name": "Progressive",
+          "rating": "4.7/5",
+          "quote": "Find the best rate with our Name Your Price tool.",
+          "color": "border-blue-700",
+          "logo": "https://images.unsplash.com/photo-1544256718-3bcf237f3974?q=80&w=100"
+        },
+        {
+          "name": "Geico",
+          "rating": "4.9/5",
+          "quote": "15 minutes could save you 15% or more.",
+          "color": "border-blue-400",
+          "logo": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=100"
+        }
+      ]
+    },
+    "Ads": [
+      {
+        "title": "Premium Auto Savings",
+        "desc": "Drivers who switch to our partners save an average of $744/year.",
+        "price": "Up to 30% Off"
+      },
+      {
+        "title": "Homeowners Special",
+        "desc": "Exclusive 2026 rates for new homeowners. Complete coverage.",
+        "price": "From $49/mo"
+      },
+      {
+        "title": "Life Insurance Plus",
+        "desc": "Secure your family's future with our top-rated term life policies.",
+        "price": "Instant Approval"
+      }
+    ],
+    "GoogleAds": {
+      "ad1": "Local Family Plans",
+      "ad2": "Travel Protection",
+      "ad3": "Dental & Vision Care",
+      "ad4": "Exclusive Health Benefits"
+    },
+    "Form": {
+      "title": "Premium vs. Profitability Calculator",
+      "subtitle": "You will receive the result by email, and it will also appear immediately here.",
+      "badge": "Leads + Results",
+      "section1Title": "1) Info to receive your results via email",
+      "fields": {
+        "firstName": {
+          "label": "First Name *",
+          "placeholder": "John",
+          "tooltip": "Just for personalized summary."
+        },
+        "lastName": {
+          "label": "Last Name *",
+          "placeholder": "Doe",
+          "tooltip": "Just for personalized summary"
+        },
+        "email": {
+          "label": "Email *",
+          "placeholder": "test@email.ch",
+          "tooltip": "We need your email to send your customized calculation results."
+        },
+        "phoneNumber": {
+          "label": "Phone Number *",
+          "placeholder": "123456789",
+          "tooltip": "Just for personalized summary."
+        },
+        "dateOfBirth": {
+          "label": "Date of Birth *",
+          "placeholder": "Pick a date",
+          "tooltip": "Your birth date helps estimate age-related premiums."
+        }
+      },
+      "section2Title": "2) Your numbers (instant calculation + email)",
+      "fields2": {
+        "canton": {
+          "label": "Canton *",
+          "placeholder": "Jura (JU)",
+          "tooltip": "Allows for customization of offers and comparisons (premiums vary by canton).",
+          "options": [
+            {
+              "value": "AG",
+              "label": "Aargau (AG)"
+            },
+            {
+              "value": "AI",
+              "label": "Appenzell Inner Rhodes (AI)"
+            },
+            {
+              "value": "AR",
+              "label": "Appenzell Outer Rhodes (AR)"
+            },
+            {
+              "value": "BE",
+              "label": "Bern (BE)"
+            },
+            {
+              "value": "BL",
+              "label": "Basel-Landschaft (BL)"
+            },
+            {
+              "value": "BS",
+              "label": "Basel-City (BS)"
+            },
+            {
+              "value": "FR",
+              "label": "Fribourg (FR)"
+            },
+            {
+              "value": "GE",
+              "label": "Geneva (GE)"
+            },
+            {
+              "value": "GL",
+              "label": "Glarus (GL)"
+            },
+            {
+              "value": "GR",
+              "label": "Graubünden (GR)"
+            },
+            {
+              "value": "JU",
+              "label": "Jura (JU)"
+            },
+            {
+              "value": "LU",
+              "label": "Lucerne (LU)"
+            },
+            {
+              "value": "NE",
+              "label": "Neuchâtel (NE)"
+            },
+            {
+              "value": "NW",
+              "label": "Nidwalden (NW)"
+            },
+            {
+              "value": "OW",
+              "label": "Obwalden (OW)"
+            },
+            {
+              "value": "SG",
+              "label": "St. Gallen (SG)"
+            },
+            {
+              "value": "SH",
+              "label": "Schaffhausen (SH)"
+            },
+            {
+              "value": "SO",
+              "label": "Solothurn (SO)"
+            },
+            {
+              "value": "SZ",
+              "label": "Schwyz (SZ)"
+            },
+            {
+              "value": "TG",
+              "label": "Thurgau (TG)"
+            },
+            {
+              "value": "TI",
+              "label": "Ticino (TI)"
+            },
+            {
+              "value": "UR",
+              "label": "Uri (UR)"
+            },
+            {
+              "value": "VD",
+              "label": "Vaud (VD)"
+            },
+            {
+              "value": "VS",
+              "label": "Valais (VS)"
+            },
+            {
+              "value": "ZG",
+              "label": "Zug (ZG)"
+            },
+            {
+              "value": "ZH",
+              "label": "Zurich (ZH)"
+            }
+          ]
+        },
+        "monthlyPremium": {
+          "label": "Monthly Payment (CHF)",
+          "placeholder": "380",
+          "tooltip": "Your current health insurance monthly base premium."
+        },
+        "deductible": {
+          "label": "Annual Deductible (CHF)",
+          "placeholder": "2'500",
+          "tooltip": "The amount you pay out-of-pocket before insurance starts covering costs."
+        },
+        "medicalExpenses": {
+          "label": "Total Medical Expenses (CHF)",
+          "placeholder": "1200",
+          "tooltip": "Estimate your total yearly doctor visits, medications, and treatments."
+        },
+        "copayCap": {
+          "label": "Co-insurance (CHF)",
+          "placeholder": "700",
+          "tooltip": "The maximum 10% co-pay you pay per year (usually capped at 700 CHF for adults)."
+        },
+        "model": {
+          "label": "Insurance Model *",
+          "placeholder": "Standard",
+          "tooltip": "Choose your preferred consultation method (Standard, Telmed, HMO, etc.) to apply discounts.",
+          "options": [
+            "Standard",
+            "Family Doctor",
+            "Telmod",
+            "HMO/Network"
+          ]
+        },
+        "adults": {
+          "label": "Number of Adults (18+) *",
+          "placeholder": "1",
+          "tooltip": "Number of people aged 18 and older under this policy block."
+        },
+        "children": {
+          "label": "Number of Children (0-18) *",
+          "placeholder": "0",
+          "tooltip": "Number of dependents under the age of 18 (applies child discount factors)."
+        },
+        "accident": {
+          "label": "Include Accident Coverage?",
+          "tooltip": "Accident coverage adds around 7% to your premium. Select No if covered by an employer.",
+          "description": "Usually covered by employer if you work more than 8h/week."
+        }
+      },
+      "buttons": {
+        "calculate": "Calculate + Send",
+        "example": "Example",
+        "reset": "Reset"
+      },
+      "cantons": [
+        {
+          "value": "AG",
+          "label": "Aargau (AG)"
+        },
+        {
+          "value": "AI",
+          "label": "Appenzell Inner Rhodes (AI)"
+        },
+        {
+          "value": "AR",
+          "label": "Appenzell Outer Rhodes (AR)"
+        },
+        {
+          "value": "BE",
+          "label": "Bern (BE)"
+        },
+        {
+          "value": "BL",
+          "label": "Basel-Landschaft (BL)"
+        },
+        {
+          "value": "BS",
+          "label": "Basel-City (BS)"
+        },
+        {
+          "value": "FR",
+          "label": "Fribourg (FR)"
+        },
+        {
+          "value": "GE",
+          "label": "Geneva (GE)"
+        },
+        {
+          "value": "GL",
+          "label": "Glarus (GL)"
+        },
+        {
+          "value": "GR",
+          "label": "Graubünden (GR)"
+        },
+        {
+          "value": "JU",
+          "label": "Jura (JU)"
+        },
+        {
+          "value": "LU",
+          "label": "Lucerne (LU)"
+        },
+        {
+          "value": "NE",
+          "label": "Neuchâtel (NE)"
+        },
+        {
+          "value": "NW",
+          "label": "Nidwalden (NW)"
+        },
+        {
+          "value": "OW",
+          "label": "Obwalden (OW)"
+        },
+        {
+          "value": "SG",
+          "label": "St. Gallen (SG)"
+        },
+        {
+          "value": "SH",
+          "label": "Schaffhausen (SH)"
+        },
+        {
+          "value": "SO",
+          "label": "Solothurn (SO)"
+        },
+        {
+          "value": "SZ",
+          "label": "Schwyz (SZ)"
+        },
+        {
+          "value": "TG",
+          "label": "Thurgau (TG)"
+        },
+        {
+          "value": "TI",
+          "label": "Ticino (TI)"
+        },
+        {
+          "value": "UR",
+          "label": "Uri (UR)"
+        },
+        {
+          "value": "VD",
+          "label": "Vaud (VD)"
+        },
+        {
+          "value": "VS",
+          "label": "Valais (VS)"
+        },
+        {
+          "value": "ZG",
+          "label": "Zug (ZG)"
+        },
+        {
+          "value": "ZH",
+          "label": "Zurich (ZH)"
+        }
+      ]
+    },
+    "EmptyResponse": {
+      "title": "No results yet",
+      "description": "Fill out the form above and click \"Calculate + Send\" to discover your profitability and see the detailed analysis."
+    },
+    "Result": {
+      "badge": "Calculation Complete",
+      "title": "Your Profitability Setup",
+      "subtitle": "Based on the information provided, here is your breakdown.",
+      "verdictLose": "You Lose",
+      "verdictGain": "You Gain",
+      "simulatedPremium": "Simulated Premium",
+      "simulatedTooltip": "The estimated optimal premium based on your selected canton and model.",
+      "cheaper": "Cheaper",
+      "moreExpensive": "More Expensive",
+      "savePerYear": "You could save {amount} CHF per year",
+      "costPerYear": "{amount} CHF/year",
+      "perMonth": "CHF/month",
+      "annualPremium": "Annual Premium",
+      "annualTooltip": "Total premiums paid over 12 months.",
+      "totalParticipation": "Total participation",
+      "participationTooltip": "Amount paid by you: deductible + 10% of the costs (max 700 CHF).",
+      "refund": "Refund",
+      "refundTooltip": "Rebustment Amount by the insurance after participation",
+      "ratio": "Reimbursement/premium ratio",
+      "ratioTooltip": "Percentage of your bonus actually recovered through refunds"
+    }
+  },
+  "UI": {
+    "GoogleAd": {
+      "advertisement": "Advertisement",
+      "adBadge": "Ad",
+      "adCta": "Click here to discover our exclusive partner offers and save on your insurance today.",
+      "adFallback": "Custom Advertisement"
+    }
+  },
+  "PrivacyPolicy": {
+    "badge": "Swiss Privacy Standards",
+    "title": "Privacy Policy",
+    "effectiveDate": "Effective Date",
+    "sections": {
+      "intro": {
+        "heading": "1. Introduction",
+        "body": "At {company}, we take your privacy extremely seriously. We operate under strict Swiss data protection laws to ensure that the information you provide while using our premium calculation algorithms remains secure, confidential, and completely under your control."
+      },
+      "dataCollect": {
+        "heading": "2. Data We Collect",
+        "intro": "When you use our estimation tool, we collect only the necessary information to provide you with accurate insurance profitability results:",
+        "items": [
+          {
+            "label": "Form Data:",
+            "text": "Canton, monthly premium, franchise, estimated medical expenses, and quote-part ceiling."
+          },
+          {
+            "label": "Contact Information:",
+            "text": "Your email address, used strictly to send you your requested detailed PDF analysis."
+          },
+          {
+            "label": "Usage Data:",
+            "text": "Anonymous analytical data on how our website is navigated to improve our services."
+          }
+        ]
+      },
+      "dataUse": {
+        "heading": "3. How We Use Your Data",
+        "intro": "Your data is exclusively used to:",
+        "items": [
+          "Perform real-time calculations against our profitability matrix.",
+          "Deliver your personalized results directly to your inbox.",
+          "Enhance the accuracy and efficiency of our insurance comparison algorithms."
+        ],
+        "noSell": "We do NOT sell your data to third parties.",
+        "noSellNote": "Your email will only be shared with our trusted carrier partners if you explicitly request to connect with them for a final binding quote."
+      },
+      "security": {
+        "heading": "4. Security",
+        "body": "All data transmitted between your browser and our servers is encrypted using industry-standard SSL/TLS protocols. Our databases are secured within highly regulated, Swiss-domiciled server environments."
+      },
+      "rights": {
+        "heading": "5. Your Rights",
+        "body": "You have the full right to request access to, correction of, or deletion of any personal data we hold about you."
+      }
+    }
+  },
+  "CookiePolicy": {
+    "badge": "Cookie Usage",
+    "title": "Cookie Policy",
+    "effectiveDate": "Effective Date",
+    "sections": {
+      "whatAreCookies": {
+        "heading": "1. What Are Cookies?",
+        "body": "Cookies are small text files that are placed on your computer or mobile device by websites that you visit. They are widely used to make websites work, or work more efficiently, as well as to provide reporting information to the site owners."
+      },
+      "howWeUse": {
+        "heading": "2. How We Use Cookies",
+        "intro": "At {company}, we use cookies primarily to ensure our proprietary calculator functions smoothly and securely. Here is a breakdown of the types of cookies we utilize:",
+        "types": [
+          {
+            "name": "Essential Cookies (Strictly Necessary)",
+            "body": "These cookies are required for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you, such as setting your privacy preferences, logging in, or filling out the calculation forms."
+          },
+          {
+            "name": "Performance & Analytics Cookies",
+            "body": "These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us know which pages are the most and least popular. All information these cookies collect is aggregated and therefore completely anonymous."
+          },
+          {
+            "name": "Functional Cookies",
+            "body": "These cookies enable the website to provide enhanced functionality and personalization, such as remembering your selected Canton (region) so you do not have to re-enter it if you revisit the calculator."
+          }
+        ]
+      },
+      "thirdParty": {
+        "heading": "3. Third-Party Cookies",
+        "body": "In some special cases, we also use cookies provided by trusted third parties. For example, our site utilizes Google Analytics to help us understand how you use the site and ways that we can improve your experience. These cookies may track things such as how long you spend on the site."
+      },
+      "managing": {
+        "heading": "4. Managing Preferences",
+        "body": "You can prevent the setting of cookies by adjusting the settings on your browser. Be aware that disabling cookies will affect the functionality of this website, usually disabling certain interactive features of the calculator."
+      },
+      "contact": {
+        "heading": "5. Contact Us",
+        "body": "If you have any questions regarding our Cookie Policy, please contact our data team at"
+      }
+    }
+  },
+  "TermsOfService": {
+    "badge": "Legal Guidelines",
+    "title": "Terms of Service",
+    "effectiveDate": "Effective Date",
+    "sections": {
+      "intro": {
+        "heading": "1. Introduction",
+        "body": "By accessing and using {company}, you accept and agree to be bound by the terms and provisions of this agreement. In addition, when using these particular services, you shall be subject to any posted guidelines or rules applicable to such services."
+      },
+      "nature": {
+        "heading": "2. Nature of Service",
+        "body": "Insurance Check provides algorithmic estimation tools designed to help Swiss residents analyze the potential profitability of their health insurance policies.",
+        "disclaimerTitle": "Important Disclaimer",
+        "disclaimerBody": "The results provided by our calculators are estimates based on the data you provide and historical market averages. They do NOT constitute binding financial advice, nor do they guarantee exact future savings. Always consult with a certified insurance broker before making final coverage changes."
+      },
+      "conduct": {
+        "heading": "3. User Conduct",
+        "intro": "Users agree to use our platform strictly for personal, non-commercial purposes. You may not:",
+        "items": [
+          "Attempt to reverse-engineer our proprietary calculation algorithms.",
+          "Submit false or intentionally misleading data to manipulate system results.",
+          "Use bots, scrapers, or other automated tools to extract data or pricing information from our site."
+        ]
+      },
+      "ip": {
+        "heading": "4. Intellectual Property",
+        "body": "The website and its original content, features, and functionality are owned by Insurance Check and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws."
+      },
+      "liability": {
+        "heading": "5. Limitation of Liability",
+        "body": "Insurance Check, its directors, employees, partners, and agents shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your access to or use of the Service."
+      },
+      "changes": {
+        "heading": "6. Changes & Contact",
+        "body": "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms.",
+        "contactButton": "Contact Legal"
+      }
+    }
   }
 }

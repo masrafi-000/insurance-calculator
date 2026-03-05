@@ -29,108 +29,6 @@
       "button1": "Calculez votre police",
       "button2": "Comment ça marche"
     },
-
-    "ClaculatorSection": {
-      "badge": "",
-      "title": "",
-      "description": "",
-      "Calculateform": {
-        "badge": "",
-        "title": "",
-        "description": "",
-        "formFields": {
-          "leadSection": {
-            "title": "",
-            "form": {
-              "firstName": {
-                "label": "",
-                "placeholder": "",
-                "value": ""
-              },
-              "lastName": {
-                "label": "",
-                "placeholder": "",
-                "value": ""
-              },
-              "email": {
-                "label": "",
-                "placeholder": "",
-                "value": ""
-              },
-              "phone": {
-                "label": "",
-                "placeholder": "",
-                "value": ""
-              },
-              "dateOfBirth": {
-                "label": "",
-                "placeholder": "",
-                "value": ""
-              }
-            }
-          },
-          "claculationSection": {
-            "title": "",
-            "canton": {
-              "label": "",
-              "placeholder": "",
-              "value": ""
-            },
-            "monthlyPayment": {
-              "label": "",
-              "placeholder": "",
-              "value": ""
-            },
-            "annualDeductible": {
-              "label": "",
-              "placeholder": "",
-              "value": ""
-            },
-            "totalMedicalExpenses": {
-              "label": "",
-              "placeholder": "",
-              "value": ""
-            },
-            "coInsurance": {
-              "label": "",
-              "placeholder": "",
-              "value": ""
-            },
-            "insuranceModel": {
-              "label": "",
-              "placeholder": "",
-              "value": ""
-            },
-            "adults": {
-              "label": "",
-              "placeholder": "",
-              "value": ""
-            },
-            "children": {
-              "label": "",
-              "placeholder": "",
-              "value": ""
-            },
-            "accidentCoverage": {
-              "label": "",
-              "placeholder": ""
-            }
-          }
-        },
-        "button1": {
-          "text": ""
-        },
-        "button2": {
-          "text": ""
-        },
-        "button3": {
-          "text": ""
-        }
-      },
-
-      "ResultSection": {}
-    },
-
     "HowItWorksSection": {
       "badge": "Simple et Transparent",
       "title": "Comment fonctionne le calculateur",
@@ -175,7 +73,6 @@
       ]
     }
   },
-
   "AboutPage": {
     "AboutHero": {
       "badge": "Qui sommes-nous",
@@ -190,10 +87,22 @@
       "p2": "Nous avons conçu cette plateforme pour apporter une transparence radicale à ce secteur. En combinant des analyses de données avancées avec des normes strictes de protection des données suisses, nous vous offrons une vision claire et impartiale de votre situation d'assurance actuelle par rapport au marché.",
       "p3": "Que vous cherchiez à économiser de l'argent, à améliorer votre couverture ou simplement à gagner en tranquillité d'esprit, nos outils sont conçus pour vous redonner le pouvoir.",
       "stats": [
-        { "value": "10K+", "label": "Polices Analysées" },
-        { "value": "CHF 5M+", "label": "Économies Identifiées" },
-        { "value": "99%", "label": "Satisfaction Client" },
-        { "value": "24/7", "label": "Assistance Experte" }
+        {
+          "value": "10K+",
+          "label": "Polices Analysées"
+        },
+        {
+          "value": "CHF 5M+",
+          "label": "Économies Identifiées"
+        },
+        {
+          "value": "99%",
+          "label": "Satisfaction Client"
+        },
+        {
+          "value": "24/7",
+          "label": "Assistance Experte"
+        }
       ]
     },
     "OurValues": {
@@ -220,7 +129,6 @@
       ]
     }
   },
-
   "Footer": {
     "logo": "Bilan d'Assurance",
     "description": "Permettre aux individus de prendre des décisions d'assurance transparentes, simples et rentables grâce à des analyses avancées et à la sécurité aux normes suisses.",
@@ -242,5 +150,527 @@
     "termsOfService": "Conditions d'utilisation",
     "cookiePolicy": "Politique des cookies",
     "disclaimer": "Il s'agit d'un matériel purement illustratif."
+  },
+  "Calculator": {
+    "Section": {
+      "badge": "Outil Interactif",
+      "title": "Estimation & Analyse",
+      "description": "Testez vos coûts d'assurance actuels par rapport à nos algorithmes de rentabilité et voyez les résultats instantanés en temps réel.",
+      "partnersTitle": "Entreprises Partenaires",
+      "viewDetails": "Voir les détails",
+      "adsFeatured": "Annonce en vedette",
+      "partners": [
+        {
+          "name": "State Farm",
+          "rating": "4.8/5",
+          "quote": "Comme un bon voisin, State Farm est là.",
+          "color": "border-red-600",
+          "logo": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=100"
+        },
+        {
+          "name": "Progressive",
+          "rating": "4.7/5",
+          "quote": "Trouvez le meilleur tarif avec notre outil Nommez Votre Prix.",
+          "color": "border-blue-700",
+          "logo": "https://images.unsplash.com/photo-1544256718-3bcf237f3974?q=80&w=100"
+        },
+        {
+          "name": "Geico",
+          "rating": "4.9/5",
+          "quote": "15 minutes peuvent vous faire économiser 15% ou plus.",
+          "color": "border-blue-400",
+          "logo": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=100"
+        }
+      ]
+    },
+    "Ads": [
+      {
+        "title": "Économies sur l'Assurance Auto Premium",
+        "desc": "Les conducteurs qui passent à nos partenaires économisent en moyenne 744 $/an.",
+        "price": "Jusqu'à 30% de réduction"
+      },
+      {
+        "title": "Spécial Propriétaires",
+        "desc": "Tarifs exclusifs 2026 pour les nouveaux propriétaires. Couverture complète.",
+        "price": "Dès 49 $/mois"
+      },
+      {
+        "title": "Assurance Vie Plus",
+        "desc": "Assurez l'avenir de votre famille avec nos meilleures polices d'assurance vie temporaire.",
+        "price": "Approbation Instantanée"
+      }
+    ],
+    "GoogleAds": {
+      "ad1": "Plans Familiaux Locaux",
+      "ad2": "Protection de Voyage",
+      "ad3": "Soins Dentaires & Visuels",
+      "ad4": "Avantages Santé Exclusifs"
+    },
+    "Form": {
+      "title": "Calculateur Prime vs. Rentabilité",
+      "subtitle": "Vous recevrez le résultat par email, et il apparaîtra également immédiatement ici.",
+      "badge": "Leads + Résultats",
+      "section1Title": "1) Informations pour recevoir vos résultats par email",
+      "fields": {
+        "firstName": {
+          "label": "Prénom *",
+          "placeholder": "John",
+          "tooltip": "Juste pour un résumé personnalisé."
+        },
+        "lastName": {
+          "label": "Nom de famille *",
+          "placeholder": "Doe",
+          "tooltip": "Juste pour un résumé personnalisé."
+        },
+        "email": {
+          "label": "Email *",
+          "placeholder": "test@email.ch",
+          "tooltip": "Nous avons besoin de votre email pour envoyer vos résultats de calcul personnalisés."
+        },
+        "phoneNumber": {
+          "label": "Numéro de téléphone *",
+          "placeholder": "123456789",
+          "tooltip": "Juste pour un résumé personnalisé."
+        },
+        "dateOfBirth": {
+          "label": "Date de naissance *",
+          "placeholder": "Choisir une date",
+          "tooltip": "Votre date de naissance aide à estimer les primes liées à l'âge."
+        }
+      },
+      "section2Title": "2) Vos chiffres (calcul instantané + email)",
+      "fields2": {
+        "canton": {
+          "label": "Canton *",
+          "placeholder": "Jura (JU)",
+          "tooltip": "Permet de personnaliser les offres et les comparaisons (les primes varient selon le canton).",
+          "options": [
+            {
+              "value": "AG",
+              "label": "Argovie (AG)"
+            },
+            {
+              "value": "AI",
+              "label": "Appenzell Rhodes-Int. (AI)"
+            },
+            {
+              "value": "AR",
+              "label": "Appenzell Rhodes-Ext. (AR)"
+            },
+            {
+              "value": "BE",
+              "label": "Berne (BE)"
+            },
+            {
+              "value": "BL",
+              "label": "Bâle-Campagne (BL)"
+            },
+            {
+              "value": "BS",
+              "label": "Bâle-Ville (BS)"
+            },
+            {
+              "value": "FR",
+              "label": "Fribourg (FR)"
+            },
+            {
+              "value": "GE",
+              "label": "Genève (GE)"
+            },
+            {
+              "value": "GL",
+              "label": "Glaris (GL)"
+            },
+            {
+              "value": "GR",
+              "label": "Grisons (GR)"
+            },
+            {
+              "value": "JU",
+              "label": "Jura (JU)"
+            },
+            {
+              "value": "LU",
+              "label": "Lucerne (LU)"
+            },
+            {
+              "value": "NE",
+              "label": "Neuchâtel (NE)"
+            },
+            {
+              "value": "NW",
+              "label": "Nidwald (NW)"
+            },
+            {
+              "value": "OW",
+              "label": "Obwald (OW)"
+            },
+            {
+              "value": "SG",
+              "label": "St-Gall (SG)"
+            },
+            {
+              "value": "SH",
+              "label": "Schaffhouse (SH)"
+            },
+            {
+              "value": "SO",
+              "label": "Soleure (SO)"
+            },
+            {
+              "value": "SZ",
+              "label": "Schwyz (SZ)"
+            },
+            {
+              "value": "TG",
+              "label": "Thurgovie (TG)"
+            },
+            {
+              "value": "TI",
+              "label": "Tessin (TI)"
+            },
+            {
+              "value": "UR",
+              "label": "Uri (UR)"
+            },
+            {
+              "value": "VD",
+              "label": "Vaud (VD)"
+            },
+            {
+              "value": "VS",
+              "label": "Valais (VS)"
+            },
+            {
+              "value": "ZG",
+              "label": "Zoug (ZG)"
+            },
+            {
+              "value": "ZH",
+              "label": "Zurich (ZH)"
+            }
+          ]
+        },
+        "monthlyPremium": {
+          "label": "Paiement Mensuel (CHF)",
+          "placeholder": "380",
+          "tooltip": "Votre prime de base mensuelle d'assurance maladie actuelle."
+        },
+        "deductible": {
+          "label": "Franchise Annuelle (CHF)",
+          "placeholder": "2'500",
+          "tooltip": "Le montant que vous payez de votre poche avant que l'assurance ne commence à couvrir les coûts."
+        },
+        "medicalExpenses": {
+          "label": "Frais Médicaux Totaux (CHF)",
+          "placeholder": "1200",
+          "tooltip": "Estimez le total de vos visites chez le médecin, médicaments et traitements annuels."
+        },
+        "copayCap": {
+          "label": "Coassurance (CHF)",
+          "placeholder": "700",
+          "tooltip": "La quote-part maximale de 10% que vous payez par an (généralement plafonnée à 700 CHF pour les adultes)."
+        },
+        "model": {
+          "label": "Modèle d'Assurance *",
+          "placeholder": "Standard",
+          "tooltip": "Choisissez votre méthode de consultation préférée (Standard, Telmed, HMO, etc.) pour appliquer les réductions.",
+          "options": [
+            "Standard",
+            "Médecin de Famille",
+            "Telmed",
+            "HMO/Réseau"
+          ]
+        },
+        "adults": {
+          "label": "Nombre d'Adultes (18+) *",
+          "placeholder": "1",
+          "tooltip": "Nombre de personnes âgées de 18 ans et plus sous ce bloc de police."
+        },
+        "children": {
+          "label": "Nombre d'Enfants (0-18) *",
+          "placeholder": "0",
+          "tooltip": "Nombre de personnes à charge de moins de 18 ans (applique les facteurs de réduction pour enfants)."
+        },
+        "accident": {
+          "label": "Inclure la couverture accident?",
+          "tooltip": "La couverture accident ajoute environ 7% à votre prime. Sélectionnez Non si couvert par un employeur.",
+          "description": "Généralement couvert par l'employeur si vous travaillez plus de 8h/semaine."
+        }
+      },
+      "buttons": {
+        "calculate": "Calculer + Envoyer",
+        "example": "Exemple",
+        "reset": "Réinitialiser"
+      },
+      "cantons": [
+        {
+          "value": "AG",
+          "label": "Argovie (AG)"
+        },
+        {
+          "value": "AI",
+          "label": "Appenzell Rhodes-Int. (AI)"
+        },
+        {
+          "value": "AR",
+          "label": "Appenzell Rhodes-Ext. (AR)"
+        },
+        {
+          "value": "BE",
+          "label": "Berne (BE)"
+        },
+        {
+          "value": "BL",
+          "label": "Bâle-Campagne (BL)"
+        },
+        {
+          "value": "BS",
+          "label": "Bâle-Ville (BS)"
+        },
+        {
+          "value": "FR",
+          "label": "Fribourg (FR)"
+        },
+        {
+          "value": "GE",
+          "label": "Genève (GE)"
+        },
+        {
+          "value": "GL",
+          "label": "Glaris (GL)"
+        },
+        {
+          "value": "GR",
+          "label": "Grisons (GR)"
+        },
+        {
+          "value": "JU",
+          "label": "Jura (JU)"
+        },
+        {
+          "value": "LU",
+          "label": "Lucerne (LU)"
+        },
+        {
+          "value": "NE",
+          "label": "Neuchâtel (NE)"
+        },
+        {
+          "value": "NW",
+          "label": "Nidwald (NW)"
+        },
+        {
+          "value": "OW",
+          "label": "Obwald (OW)"
+        },
+        {
+          "value": "SG",
+          "label": "St-Gall (SG)"
+        },
+        {
+          "value": "SH",
+          "label": "Schaffhouse (SH)"
+        },
+        {
+          "value": "SO",
+          "label": "Soleure (SO)"
+        },
+        {
+          "value": "SZ",
+          "label": "Schwyz (SZ)"
+        },
+        {
+          "value": "TG",
+          "label": "Thurgovie (TG)"
+        },
+        {
+          "value": "TI",
+          "label": "Tessin (TI)"
+        },
+        {
+          "value": "UR",
+          "label": "Uri (UR)"
+        },
+        {
+          "value": "VD",
+          "label": "Vaud (VD)"
+        },
+        {
+          "value": "VS",
+          "label": "Valais (VS)"
+        },
+        {
+          "value": "ZG",
+          "label": "Zoug (ZG)"
+        },
+        {
+          "value": "ZH",
+          "label": "Zurich (ZH)"
+        }
+      ]
+    },
+    "EmptyResponse": {
+      "title": "Aucun résultat pour le moment",
+      "description": "Remplissez le formulaire ci-dessus et cliquez sur \"Calculer + Envoyer\" pour découvrir votre rentabilité et voir l'analyse détaillée."
+    },
+    "Result": {
+      "badge": "Calcul Terminé",
+      "title": "Votre Configuration de Rentabilité",
+      "subtitle": "Sur la base des informations fournies, voici votre analyse.",
+      "verdictLose": "Vous Perdez",
+      "verdictGain": "Vous Gagnez",
+      "simulatedPremium": "Prime Simulée",
+      "simulatedTooltip": "La prime optimale estimée en fonction de votre canton et modèle sélectionnés.",
+      "cheaper": "Moins Cher",
+      "moreExpensive": "Plus Cher",
+      "savePerYear": "Vous pourriez économiser {amount} CHF par an",
+      "costPerYear": "{amount} CHF/an",
+      "perMonth": "CHF/mois",
+      "annualPremium": "Prime Annuelle",
+      "annualTooltip": "Total des primes payées sur 18 mois.",
+      "totalParticipation": "Participation totale",
+      "participationTooltip": "Montant payé par vous : franchise + 10% des coûts (max 700 CHF).",
+      "refund": "Remboursement",
+      "refundTooltip": "Montant de remboursement par l'assurance après participation",
+      "ratio": "Ratio remboursement/prime",
+      "ratioTooltip": "Pourcentage de votre bonus réellement récupéré grâce aux remboursements"
+    }
+  },
+  "UI": {
+    "GoogleAd": {
+      "advertisement": "Publicité",
+      "adBadge": "Pub",
+      "adCta": "Cliquez ici pour découvrir nos offres partenaires exclusives et économiser sur votre assurance aujourd'hui.",
+      "adFallback": "Publicité Personnalisée"
+    }
+  },
+  "PrivacyPolicy": {
+    "badge": "Normes de Confidentialité Suisses",
+    "title": "Politique de Confidentialité",
+    "effectiveDate": "Date d'entrée en vigueur",
+    "sections": {
+      "intro": {
+        "heading": "1. Introduction",
+        "body": "Chez {company}, nous prenons votre vie privée très au sérieux. Nous opérons sous les strictes lois suisses de protection des données pour garantir que les informations que vous fournissez lors de l'utilisation de nos algorithmes de calcul de primes restent sécurisées, confidentielles et entièrement sous votre contrôle."
+      },
+      "dataCollect": {
+        "heading": "2. Données Que Nous Collectons",
+        "intro": "Lorsque vous utilisez notre outil d'estimation, nous collectons uniquement les informations nécessaires pour vous fournir des résultats précis sur la rentabilité de votre assurance :",
+        "items": [
+          {
+            "label": "Données du formulaire :",
+            "text": "Canton, prime mensuelle, franchise, frais médicaux estimés et plafond de la quote-part."
+          },
+          {
+            "label": "Informations de contact :",
+            "text": "Votre adresse e-mail, utilisée uniquement pour vous envoyer l'analyse PDF détaillée que vous avez demandée."
+          },
+          {
+            "label": "Données d'utilisation :",
+            "text": "Données analytiques anonymes sur la navigation sur notre site pour améliorer nos services."
+          }
+        ]
+      },
+      "dataUse": {
+        "heading": "3. Comment Nous Utilisons Vos Données",
+        "intro": "Vos données sont exclusivement utilisées pour :",
+        "items": [
+          "Effectuer des calculs en temps réel par rapport à notre matrice de rentabilité.",
+          "Vous livrer vos résultats personnalisés directement dans votre boîte de réception.",
+          "Améliorer la précision et l'efficacité de nos algorithmes de comparaison d'assurances."
+        ],
+        "noSell": "Nous ne vendons PAS vos données à des tiers.",
+        "noSellNote": "Votre e-mail ne sera partagé avec nos partenaires de confiance que si vous demandez explicitement à entrer en contact avec eux pour un devis final."
+      },
+      "security": {
+        "heading": "4. Sécurité",
+        "body": "Toutes les données transmises entre votre navigateur et nos serveurs sont chiffrées à l'aide de protocoles SSL/TLS standard. Nos bases de données sont sécurisées dans des environnements serveurs suisses hautement réglementés."
+      },
+      "rights": {
+        "heading": "5. Vos Droits",
+        "body": "Vous avez le droit de demander l'accès, la correction ou la suppression de toutes les données personnelles que nous détenons à votre sujet."
+      }
+    }
+  },
+  "CookiePolicy": {
+    "badge": "Utilisation des Cookies",
+    "title": "Politique en matière de Cookies",
+    "effectiveDate": "Date d'entrée en vigueur",
+    "sections": {
+      "whatAreCookies": {
+        "heading": "1. Que sont les Cookies ?",
+        "body": "Les cookies sont de petits fichiers texte placés sur votre ordinateur ou appareil mobile par les sites web que vous visitez. Ils sont largement utilisés pour faire fonctionner les sites web, ou les faire fonctionner plus efficacement, ainsi que pour fournir des informations de rapport aux propriétaires du site."
+      },
+      "howWeUse": {
+        "heading": "2. Comment Nous Utilisons les Cookies",
+        "intro": "Chez {company}, nous utilisons les cookies principalement pour assurer que notre calculateur propriétaire fonctionne de manière fluide et sécurisée. Voici une description des types de cookies que nous utilisons :",
+        "types": [
+          {
+            "name": "Cookies Essentiels (Strictement Nécessaires)",
+            "body": "Ces cookies sont nécessaires au bon fonctionnement du site et ne peuvent pas être désactivés dans nos systèmes. Ils sont généralement uniquement définis en réponse à des actions effectuées par vous, comme la définition de vos préférences de confidentialité, la connexion ou le remplissage des formulaires de calcul."
+          },
+          {
+            "name": "Cookies de Performance & Analytiques",
+            "body": "Ces cookies nous permettent de compter les visites et les sources de trafic afin de mesurer et d'améliorer les performances de notre site. Ils nous aident à savoir quelles pages sont les plus et les moins populaires. Toutes les informations collectées par ces cookies sont agrégées et donc totalement anonymes."
+          },
+          {
+            "name": "Cookies Fonctionnels",
+            "body": "Ces cookies permettent au site de fournir des fonctionnalités améliorées et une personnalisation, comme la mémorisation de votre Canton (région) sélectionné afin que vous n'ayez pas à le saisir à nouveau si vous revenez sur le calculateur."
+          }
+        ]
+      },
+      "thirdParty": {
+        "heading": "3. Cookies Tiers",
+        "body": "Dans certains cas particuliers, nous utilisons également des cookies fournis par des tiers de confiance. Par exemple, notre site utilise Google Analytics pour nous aider à comprendre comment vous utilisez le site et les moyens d'améliorer votre expérience. Ces cookies peuvent suivre des éléments tels que le temps que vous passez sur le site."
+      },
+      "managing": {
+        "heading": "4. Gestion des Préférences",
+        "body": "Vous pouvez empêcher la définition de cookies en ajustant les paramètres de votre navigateur. Sachez que la désactivation des cookies affectera les fonctionnalités de ce site, désactivant généralement certaines fonctionnalités interactives du calculateur."
+      },
+      "contact": {
+        "heading": "5. Contactez-nous",
+        "body": "Si vous avez des questions concernant notre Politique en matière de Cookies, veuillez contacter notre équipe de données à"
+      }
+    }
+  },
+  "TermsOfService": {
+    "badge": "Directives Légales",
+    "title": "Conditions d'Utilisation",
+    "effectiveDate": "Date d'entrée en vigueur",
+    "sections": {
+      "intro": {
+        "heading": "1. Introduction",
+        "body": "En accédant et en utilisant {company}, vous acceptez d'être lié par les termes et dispositions de cet accord. De plus, lors de l'utilisation de ces services particuliers, vous serez soumis à toutes les directives ou règles applicables publiées pour ces services."
+      },
+      "nature": {
+        "heading": "2. Nature du Service",
+        "body": "Insurance Check fournit des outils d'estimation algorithmique conçus pour aider les résidents suisses à analyser la rentabilité potentielle de leurs polices d'assurance maladie.",
+        "disclaimerTitle": "Avertissement Important",
+        "disclaimerBody": "Les résultats fournis par nos calculateurs sont des estimations basées sur les données que vous fournissez et les moyennes historiques du marché. Ils ne constituent PAS des conseils financiers contraignants et ne garantissent pas des économies futures exactes. Consultez toujours un courtier en assurances certifié avant de procéder à des modifications de couverture définitives."
+      },
+      "conduct": {
+        "heading": "3. Conduite des Utilisateurs",
+        "intro": "Les utilisateurs acceptent d'utiliser notre plateforme strictement à des fins personnelles et non commerciales. Vous ne pouvez pas :",
+        "items": [
+          "Tenter d'effectuer de la rétro-ingénierie sur nos algorithmes de calcul propriétaires.",
+          "Soumettre des données fausses ou intentionnellement trompeuses pour manipuler les résultats du système.",
+          "Utiliser des robots, des scrapers ou d'autres outils automatisés pour extraire des données ou des informations tarifaires de notre site."
+        ]
+      },
+      "ip": {
+        "heading": "4. Propriété Intellectuelle",
+        "body": "Le site web et son contenu original, ses fonctionnalités et ses caractéristiques sont la propriété d'Insurance Check et sont protégés par le droit international du droit d'auteur, des marques, des brevets, des secrets commerciaux et d'autres lois sur la propriété intellectuelle."
+      },
+      "liability": {
+        "heading": "5. Limitation de Responsabilité",
+        "body": "Insurance Check, ses dirigeants, employés, partenaires et agents ne seront pas responsables des dommages indirects, accessoires, spéciaux, consécutifs ou punitifs résultant de votre accès ou de votre utilisation du Service."
+      },
+      "changes": {
+        "heading": "6. Modifications & Contact",
+        "body": "Nous nous réservons le droit, à notre seule discrétion, de modifier ou de remplacer ces Conditions à tout moment. En continuant à accéder ou à utiliser notre Service après l'entrée en vigueur de ces révisions, vous acceptez d'être lié par les conditions révisées.",
+        "contactButton": "Contacter le Service Juridique"
+      }
+    }
   }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { CANTONS, FRANCHISES } from "@/data/shared";
+import { FRANCHISES } from "@/data/shared";
 import { useCalculatorStore } from "@/store/use-calculator-store";
 import { PrimeCalculatorForm } from "./calcForm";
 import { EmptyResponse } from "./emptyResponse";
@@ -12,7 +12,7 @@ export default function InsuranceCalculator() {
   return (
     <div id="calculator" className="w-full relative rounded-2xl">
       <div className="relative z-10 w-full mb-8">
-        <PrimeCalculatorForm CANTONS={CANTONS} FRANCHISES={FRANCHISES} />
+        <PrimeCalculatorForm FRANCHISES={FRANCHISES} />
       </div>
       <div className="relative z-10 w-full rounded-2xl ">
         {result ? <ResultDisplay result={result} /> : <EmptyResponse />}

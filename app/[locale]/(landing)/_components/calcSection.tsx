@@ -4,6 +4,7 @@ import Container from "@/components/ui/container";
 import GoogleAd from "@/components/ui/google-ad";
 import Section from "@/components/ui/section";
 import { motion, Variants } from "framer-motion";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
 import InsuranceCalculator from "./insurance-calculator";
@@ -15,39 +16,11 @@ interface AdContent {
   img: string;
 }
 
-interface CompanyContent {
-  name: string;
-  rating: string;
-  quote: string;
-  color: string;
-  logo: string;
-}
-
-const partners: CompanyContent[] = [
-  {
-    name: "State Farm",
-    rating: "4.8/5",
-    quote: "Like a good neighbor, State Farm is there.",
-    color: "border-red-600",
-    logo: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=100",
-  },
-  {
-    name: "Progressive",
-    rating: "4.7/5",
-    quote: "Find the best rate with our Name Your Price tool.",
-    color: "border-blue-700",
-    logo: "https://images.unsplash.com/photo-1544256718-3bcf237f3974?q=80&w=100",
-  },
-  {
-    name: "Geico",
-    rating: "4.9/5",
-    quote: "15 minutes could save you 15% or more.",
-    color: "border-blue-400",
-    logo: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=100",
-  },
-];
-
 const FormSection: React.FC = () => {
+  const t = useTranslations("Calculator.Section");
+  const tAd = useTranslations("Calculator.Ads");
+  const tGoogle = useTranslations("Calculator.GoogleAds");
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -89,14 +62,13 @@ const FormSection: React.FC = () => {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 font-medium text-sm mb-6">
               <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
-              <span>Interactive Tool</span>
+              <span>{t("badge")}</span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 text-slate-900">
-              Estimation & Analysis
+              {t("title")}
             </h2>
             <p className="text-lg text-slate-500 leading-relaxed max-w-2xl">
-              Test your current insurance costs against our profitability
-              algorithms and see instant, real-time results.
+              {t("description")}
             </p>
           </motion.div>
 
@@ -107,25 +79,25 @@ const FormSection: React.FC = () => {
           >
             <div>
               <TopAdCard
-                title="Premium Auto Savings"
-                desc="Drivers who switch to our partners save an average of $744/year."
-                price="Up to 30% Off"
+                title={tAd("0.title")}
+                desc={tAd("0.desc")}
+                price={tAd("0.price")}
                 img="https://images.unsplash.com/photo-1494976388531-d1058494cdd8"
               />
             </div>
             <div>
               <TopAdCard
-                title="Homeowners Special"
-                desc="Exclusive 2026 rates for new homeowners. Complete coverage."
-                price="From $49/mo"
+                title={tAd("1.title")}
+                desc={tAd("1.desc")}
+                price={tAd("1.price")}
                 img="https://images.unsplash.com/photo-1568605114967-8130f3a36994"
               />
             </div>
             <div>
               <TopAdCard
-                title="Life Insurance Plus"
-                desc="Secure your family's future with our top-rated term life policies."
-                price="Instant Approval"
+                title={tAd("2.title")}
+                desc={tAd("2.desc")}
+                price={tAd("2.price")}
                 img="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57"
               />
             </div>
@@ -141,7 +113,7 @@ const FormSection: React.FC = () => {
                 <GoogleAd
                   className="rounded-2xl"
                   fallbackImg="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57"
-                  fallbackText="Local Family Plans"
+                  fallbackText={tGoogle("ad1")}
                 />
               </div>
 
@@ -149,7 +121,7 @@ const FormSection: React.FC = () => {
                 <GoogleAd
                   className="rounded-2xl"
                   fallbackImg="https://images.unsplash.com/photo-1556740714-a8395b3bf30f"
-                  fallbackText="Travel Protection"
+                  fallbackText={tGoogle("ad2")}
                 />
               </div>
             </motion.aside>
@@ -168,10 +140,18 @@ const FormSection: React.FC = () => {
               <div>
                 <h3 className="text-[16px] font-black text-slate-800 mb-6 flex items-center gap-2 uppercase tracking-wide">
                   <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-                  Partner Carriers
+                  {t("partnersTitle")}
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                  {partners.map((company, idx) => (
+                  {(
+                    t.raw("partners") as {
+                      name: string;
+                      rating: string;
+                      quote: string;
+                      color: string;
+                      logo: string;
+                    }[]
+                  ).map((company, idx) => (
                     <motion.div
                       key={idx}
                       variants={itemVariants}
@@ -194,14 +174,14 @@ const FormSection: React.FC = () => {
                 <GoogleAd
                   className="rounded-2xl h-[400px]"
                   fallbackImg="https://images.unsplash.com/photo-1606811841689-23dfddce3e95"
-                  fallbackText="Dental & Vision Care"
+                  fallbackText={tGoogle("ad3")}
                 />
               </div>
               <div className="relative w-full">
                 <GoogleAd
                   className="rounded-2xl h-[400px]"
                   fallbackImg="https://images.unsplash.com/photo-1544256718-3bcf237f3974"
-                  fallbackText="Exclusive Health Benefits"
+                  fallbackText={tGoogle("ad4")}
                 />
               </div>
             </motion.aside>
@@ -224,7 +204,7 @@ const TopAdCard: React.FC<AdContent> = ({ title, desc, price, img }) => (
     />
     <div className="absolute inset-0 bg-linear-to-r from-slate-900/90 via-slate-900/40 to-transparent flex flex-col justify-center px-8 sm:px-10">
       <span className="text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-2">
-        Featured Ad
+        <TranslatedAdLabel />
       </span>
       <h4 className="text-white text-xl sm:text-2xl font-extrabold mb-1">
         {title}
@@ -241,13 +221,13 @@ const TopAdCard: React.FC<AdContent> = ({ title, desc, price, img }) => (
   </div>
 );
 
-const CompanyCard: React.FC<CompanyContent> = ({
-  name,
-  rating,
-  quote,
-  color,
-  logo,
-}) => (
+const CompanyCard: React.FC<{
+  name: string;
+  rating: string;
+  quote: string;
+  color: string;
+  logo: string;
+}> = ({ name, rating, quote, color, logo }) => (
   <div
     className={`p-6 bg-[#fcfdfd] rounded-[24px] border border-slate-100 shadow-sm transition-all hover:shadow-md relative overflow-hidden group h-full flex flex-col`}
   >
@@ -266,9 +246,19 @@ const CompanyCard: React.FC<CompanyContent> = ({
     </div>
     <p className="text-[13px] text-slate-500 leading-relaxed mb-6 grow">{`"${quote}"`}</p>
     <button className="w-full mt-auto py-2.5 bg-white border border-slate-200 rounded-xl text-[12px] font-bold text-slate-700 group-hover:bg-slate-50 group-hover:border-slate-300 transition-all active:scale-95">
-      View Details
+      <TranslatedDetailsLabel />
     </button>
   </div>
 );
+
+const TranslatedAdLabel = () => {
+  const t = useTranslations("Calculator.Section");
+  return <>{t("adsFeatured")}</>;
+};
+
+const TranslatedDetailsLabel = () => {
+  const t = useTranslations("Calculator.Section");
+  return <>{t("viewDetails")}</>;
+};
 
 export default FormSection;

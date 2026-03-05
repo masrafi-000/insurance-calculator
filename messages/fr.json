@@ -176,6 +176,51 @@
     }
   },
 
+  "AboutPage": {
+    "AboutHero": {
+      "badge": "Qui sommes-nous",
+      "title": "Vous donner les moyens grâce à des comparaisons d'assurance ",
+      "titleHighlight": "transparentes",
+      "titleEnd": "",
+      "description": "Nous nous engageons à apporter de la clarté sur le marché suisse de l'assurance, en veillant à ce que vous ne payiez jamais trop cher pour votre couverture."
+    },
+    "OurMission": {
+      "title": "Notre Mission",
+      "p1": "Naviguer dans le paysage de l'assurance peut souvent sembler accablant, les polices complexes et les frais cachés rendant difficile de savoir si l'on fait une bonne affaire. Notre mission est de changer cela.",
+      "p2": "Nous avons conçu cette plateforme pour apporter une transparence radicale à ce secteur. En combinant des analyses de données avancées avec des normes strictes de protection des données suisses, nous vous offrons une vision claire et impartiale de votre situation d'assurance actuelle par rapport au marché.",
+      "p3": "Que vous cherchiez à économiser de l'argent, à améliorer votre couverture ou simplement à gagner en tranquillité d'esprit, nos outils sont conçus pour vous redonner le pouvoir.",
+      "stats": [
+        { "value": "10K+", "label": "Polices Analysées" },
+        { "value": "CHF 5M+", "label": "Économies Identifiées" },
+        { "value": "99%", "label": "Satisfaction Client" },
+        { "value": "24/7", "label": "Assistance Experte" }
+      ]
+    },
+    "OurValues": {
+      "badge": "Nos Principes",
+      "title": "Les valeurs qui nous animent",
+      "description": "Tout ce que nous faisons est guidé par un ensemble de principes fondamentaux conçus pour garantir que vous obtenez le service le plus honnête, sécurisé et utile possible.",
+      "values": [
+        {
+          "title": "Transparence",
+          "description": "Nous croyons en des comparaisons claires et impartiales sans complications cachées ni jargon complexe."
+        },
+        {
+          "title": "Sécurité et Confidentialité",
+          "description": "Vos données sont protégées par les strictes lois suisses sur la protection de la vie privée. Nous garantissons une confidentialité totale."
+        },
+        {
+          "title": "Le client d'abord",
+          "description": "Nos recommandations sont strictement adaptées à ce qui vous profite le plus, à vous et à vos objectifs financiers."
+        },
+        {
+          "title": "Innovation",
+          "description": "Nous tirons parti d'algorithmes avancés pour identifier rapidement les meilleures opportunités d'assurance pour vous."
+        }
+      ]
+    }
+  },
+
   "Footer": {
     "logo": "Bilan d'Assurance",
     "description": "Permettre aux individus de prendre des décisions d'assurance transparentes, simples et rentables grâce à des analyses avancées et à la sécurité aux normes suisses.",

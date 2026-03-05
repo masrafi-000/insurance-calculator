@@ -176,6 +176,51 @@
     }
   },
 
+  "AboutPage": {
+    "AboutHero": {
+      "badge": "Wer wir sind",
+      "title": "Stärkung durch ",
+      "titleHighlight": "transparente",
+      "titleEnd": " Versicherungsvergleiche",
+      "description": "Wir setzen uns dafür ein, Klarheit in den Schweizer Versicherungsmarkt zu bringen und sicherzustellen, dass Sie nie zu viel für Ihre Absicherung bezahlen."
+    },
+    "OurMission": {
+      "title": "Unsere Mission",
+      "p1": "Sich in der Versicherungslandschaft zurechtzufinden, kann oft überwältigend sein, da komplexe Policen und versteckte Gebühren es schwer machen zu erkennen, ob man ein faires Angebot erhält. Unsere Mission ist es, dies zu ändern.",
+      "p2": "Wir haben diese Plattform entwickelt, um radikale Transparenz in die Branche zu bringen. Durch die Kombination fortschrittlicher Datenanalysen mit strengen Schweizer Datenschutzstandards bieten wir Ihnen einen klaren, unvoreingenommenen Blick auf Ihren aktuellen Versicherungsstand im Vergleich zum Markt.",
+      "p3": "Egal, ob Sie Geld sparen, Ihren Versicherungsschutz verbessern oder einfach nur Unbesorgtheit erlangen möchten – unsere Tools sind darauf ausgelegt, Ihnen die Kontrolle zurückzugeben.",
+      "stats": [
+        { "value": "10K+", "label": "Analysierte Policen" },
+        { "value": "CHF 5M+", "label": "Identifizierte Einsparungen" },
+        { "value": "99%", "label": "Kundenzufriedenheit" },
+        { "value": "24/7", "label": "Experten-Support" }
+      ]
+    },
+    "OurValues": {
+      "badge": "Unsere Prinzipien",
+      "title": "Werte, die uns antreiben",
+      "description": "Alles, was wir tun, orientiert sich an grundlegenden Prinzipien, die sicherstellen, dass Sie den ehrlichsten, sichersten und hilfreichsten Service erhalten, den es gibt.",
+      "values": [
+        {
+          "title": "Transparenz",
+          "description": "Wir glauben an klare, unvoreingenommene Vergleiche ohne versteckte Komplikationen oder komplexen Fachjargon."
+        },
+        {
+          "title": "Sicherheit & Privatsphäre",
+          "description": "Ihre Daten sind durch strenge Schweizer Datenschutzgesetze geschützt. Wir garantieren absolute Vertraulichkeit."
+        },
+        {
+          "title": "Kunde zuerst",
+          "description": "Unsere Empfehlungen sind streng auf das zugeschnitten, was Ihnen und Ihren finanziellen Zielen am meisten nützt."
+        },
+        {
+          "title": "Innovation",
+          "description": "Wir nutzen fortschrittliche Algorithmen, um schnell die besten Versicherungsmöglichkeiten für Sie zu identifizieren."
+        }
+      ]
+    }
+  },
+
   "Footer": {
     "logo": "Versicherungs-Check",
     "description": "Befähigung von Einzelpersonen zu transparenten, einfachen und rentablen Versicherungsentscheidungen durch fortschrittliche Analysen und Sicherheit auf Schweizer Standard.",

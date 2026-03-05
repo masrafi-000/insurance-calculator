@@ -176,6 +176,51 @@
     }
   },
 
+  "AboutPage": {
+    "AboutHero": {
+      "badge": "Who We Are",
+      "title": "Empowering You Through ",
+      "titleHighlight": "Transparent",
+      "titleEnd": " Insurance Comparisons",
+      "description": "We are dedicated to bringing clarity to the Swiss insurance market, making sure you never overpay for your coverage."
+    },
+    "OurMission": {
+      "title": "Our Mission",
+      "p1": "Navigating the insurance landscape can often feel overwhelming, with complex policies and hidden fees making it difficult to know if you're getting a fair deal. Our mission is to change that.",
+      "p2": "We built this platform to bring radical transparency to the industry. By combining advanced data analytics with strict Swiss data protection standards, we provide you with a clear, unbiased view of your current insurance standing versus the market.",
+      "p3": "Whether you're looking to save money, improve your coverage, or simply gain peace of mind, our tools are designed to put the power back in your hands.",
+      "stats": [
+        { "value": "10K+", "label": "Policies Analyzed" },
+        { "value": "CHF 5M+", "label": "Savings Identified" },
+        { "value": "99%", "label": "Customer Satisfaction" },
+        { "value": "24/7", "label": "Expert Support" }
+      ]
+    },
+    "OurValues": {
+      "badge": "Our Principles",
+      "title": "Values That Drive Us",
+      "description": "Everything we do is guided by a core set of principles designed to ensure you get the most honest, secure, and helpful service possible.",
+      "values": [
+        {
+          "title": "Transparency",
+          "description": "We believe in clear, unbiased comparisons without hidden complications or complex jargon."
+        },
+        {
+          "title": "Security & Privacy",
+          "description": "Your data is protected under strict Swiss privacy laws. We ensure full confidentiality."
+        },
+        {
+          "title": "Customer First",
+          "description": "Our recommendations are tailored strictly to what benefits you and your financial goals the most."
+        },
+        {
+          "title": "Innovation",
+          "description": "We leverage advanced algorithms to quickly identify the best insurance opportunities for you."
+        }
+      ]
+    }
+  },
+
   "Footer": {
     "logo": "Insurance Check",
     "description": "Empowering individuals with transparent, simple, and profitable insurance decisions through advanced analytics and Swiss-standard security.",

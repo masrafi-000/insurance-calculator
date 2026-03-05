@@ -1,8 +1,10 @@
 import Container from "@/components/ui/container";
 import Section from "@/components/ui/section";
 import { Info } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function AboutHero() {
+  const t = useTranslations("AboutPage.AboutHero");
   return (
     <Section className="relative overflow-hidden bg-background pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-24">
       {/* Background decoration */}
@@ -29,18 +31,17 @@ export default function AboutHero() {
         <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">
             <Info className="w-4 h-4" />
-            <span>Who We Are</span>
+            <span>{t("badge")}</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-foreground leading-tight">
-            Empowering You Through{" "}
-            <span className="text-primary">Transparent</span> Insurance
-            Comparisons
+            {t("title")}
+            <span className="text-primary">{t("titleHighlight")}</span>
+            {t("titleEnd")}
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
-            We are dedicated to bringing clarity to the Swiss insurance market,
-            making sure you never overpay for your coverage.
+            {t("description")}
           </p>
         </div>
       </Container>

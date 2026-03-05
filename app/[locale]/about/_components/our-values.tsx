@@ -3,23 +3,23 @@ import Section from "@/components/ui/section";
 import { companyValues } from "@/data/shared";
 import { ITValue } from "@/types/shared";
 import { HeartHandshake } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function OurValues() {
+  const t = useTranslations("AboutPage.OurValues");
   return (
     <Section className="bg-background relative">
       <Container>
         <div className="flex flex-col items-center justify-center text-center max-w-3xl mx-auto mb-16 md:mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">
             <HeartHandshake className="w-4 h-4" />
-            <span>Our Principles</span>
+            <span>{t("badge")}</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-foreground">
-            Values That Drive Us
+            {t("title")}
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Everything we do is guided by a core set of principles designed to
-            ensure you get the most honest, secure, and helpful service
-            possible.
+            {t("description")}
           </p>
         </div>
 
@@ -33,10 +33,10 @@ export default function OurValues() {
                 <value.icon className="w-7 h-7" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-3">
-                {value.title}
+                {t(`values.${index}.title`)}
               </h3>
               <p className="text-muted-foreground leading-relaxed grow">
-                {value.description}
+                {t(`values.${index}.description`)}
               </p>
             </div>
           ))}

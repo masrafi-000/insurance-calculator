@@ -3,7 +3,6 @@ import {
   ITFooterLink,
   ITNavItems,
   ITSocialMedia,
-  ITStat,
   ITSteps,
   ITValue,
 } from "@/types/shared";
@@ -115,13 +114,6 @@ export const companyValues: ITValue[] = [
       "We leverage advanced algorithms to quickly identify the best insurance opportunities for you.",
     icon: Zap,
   },
-];
-
-export const aboutStats: ITStat[] = [
-  { value: "10K+", label: "Policies Analyzed" },
-  { value: "CHF 5M+", label: "Savings Identified" },
-  { value: "99%", label: "Customer Satisfaction" },
-  { value: "24/7", label: "Expert Support" },
 ];
 
 export const CANTONS = [

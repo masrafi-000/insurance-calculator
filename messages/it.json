@@ -176,6 +176,51 @@
     }
   },
 
+  "AboutPage": {
+    "AboutHero": {
+      "badge": "Chi Siamo",
+      "title": "Ti diamo potere attraverso confronti assicurativi ",
+      "titleHighlight": "trasparenti",
+      "titleEnd": "",
+      "description": "Siamo dedicati a portare chiarezza nel mercato assicurativo svizzero, assicurandoci che tu non paghi mai troppo per la tua copertura."
+    },
+    "OurMission": {
+      "title": "La Nostra Missione",
+      "p1": "Navigare nel panorama assicurativo può spesso sembrare opprimente, con polizze complesse e commissioni nascoste che rendono difficile sapere se si sta ottenendo un accordo equo. La nostra missione è cambiare tutto questo.",
+      "p2": "Abbiamo costruito questa piattaforma per portare una trasparenza radicale nel settore. Combinando analisi dei dati avanzate con rigorosi standard svizzeri di protezione dei dati, ti offriamo una visione chiara e imparziale della tua attuale situazione assicurativa rispetto al mercato.",
+      "p3": "Che tu stia cercando di risparmiare denaro, migliorare la tua copertura o semplicemente guadagnare tranquillità, i nostri strumenti sono progettati per rimettere il potere nelle tue mani.",
+      "stats": [
+        { "value": "10K+", "label": "Polizze Analizzate" },
+        { "value": "CHF 5M+", "label": "Risparmi Identificati" },
+        { "value": "99%", "label": "Soddisfazione Cliente" },
+        { "value": "24/7", "label": "Supporto Esperto" }
+      ]
+    },
+    "OurValues": {
+      "badge": "I Nostri Principi",
+      "title": "Valori che ci guidano",
+      "description": "Tutto ciò che facciamo è guidato da un insieme fondamentale di principi progettati per assicurarti di ottenere il servizio più onesto, sicuro e utile possibile.",
+      "values": [
+        {
+          "title": "Trasparenza",
+          "description": "Crediamo in confronti chiari e imparziali senza complicazioni nascoste o raggiri di parole."
+        },
+        {
+          "title": "Sicurezza & Privacy",
+          "description": "I tuoi dati sono protetti dalle severe leggi svizzere sulla privacy. Garantiamo la massima riservatezza."
+        },
+        {
+          "title": "Il Cliente Prima di Tutto",
+          "description": "Le nostre raccomandazioni sono rigorosamente su misura per ciò che avvantaggia maggiormente te e i tuoi obiettivi finanziari."
+        },
+        {
+          "title": "Innovazione",
+          "description": "Utilizziamo algoritmi avanzati per identificare rapidamente le migliori opportunità assicurative per te."
+        }
+      ]
+    }
+  },
+
   "Footer": {
     "logo": "Controllo Assicurativo",
     "description": "Aiutiamo le persone a prendere decisioni trasparenti, semplici e redditizie in materia di assicurazioni attraverso analisi avanzate e standard di sicurezza svizzeri.",

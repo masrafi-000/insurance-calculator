@@ -1,5 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const fs = require("fs");
-const path = require("path");
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const path =   require("path");
 
 const locales = ["en", "fr", "de", "it"];
 const dir = path.join(__dirname, "..", "messages");

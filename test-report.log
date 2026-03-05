@@ -1,0 +1,14 @@
+[2026-03-05T04:37:22.102Z] --- Starting Tests for Insurance Calculator ---
+[2026-03-05T04:37:22.104Z] 
+Running: Test Case 1: Standard model, low deductible, no accident (Adult ZH)
+[2026-03-05T04:37:22.104Z] Premium Result: baseMonthlyTotal = 411, Lowest Monthly = 438
+[2026-03-05T04:37:22.105Z] Outcome Result: Annual Premium = 5256, OutOfPocket = 370, Ratio = 11.99%
+[2026-03-05T04:37:22.105Z] SUCCESS: Test Case 1: Standard model, low deductible, no accident (Adult ZH)
+[2026-03-05T04:37:22.105Z] 
+Running: Test Case 2: HMO model, high deductible, with accident (Child BE)
+[2026-03-05T04:37:22.106Z] Premium Result: baseMonthlyTotal = 221, Lowest Monthly = 172
+[2026-03-05T04:37:22.107Z] Outcome Result: Annual Premium = 2064, OutOfPocket = 500, Ratio = 0.00%
+[2026-03-05T04:37:22.107Z] SUCCESS: Test Case 2: HMO model, high deductible, with accident (Child BE)
+[2026-03-05T04:37:22.107Z] 
+--- Test Run Complete ---
+[2026-03-05T04:37:22.108Z] Total: 2, Passed: 2, Failed: 0

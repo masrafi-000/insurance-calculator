@@ -1,9 +1,13 @@
 import Footer from "@/components/shared/footer";
 import Navbar from "@/components/shared/navbar";
 import { Toaster } from "@/components/ui/sonner";
+import { routing } from "@/i18n/routing";
 import { QueryProvider } from "@/providers/query-provider";
 import type { Metadata } from "next";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 import { Geist, Geist_Mono } from "next/font/google";
+import { notFound } from "next/navigation";
 import Script from "next/script";
 import "./globals.css";
 
@@ -23,13 +27,25 @@ export const metadata: Metadata = {
     "Check if your current insurance is profitable with our advanced calculator.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+type props = {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function RootLayout({
+  children,
+  params,
+}: Readonly<props>) {
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  const messages = await getMessages();
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <Script
           async
@@ -42,9 +58,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <QueryProvider>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+          <NextIntlClientProvider messages={messages}>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+          </NextIntlClientProvider>
         </QueryProvider>
         <Toaster position="top-right" richColors />
       </body>

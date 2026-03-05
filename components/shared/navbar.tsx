@@ -2,6 +2,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import LanguageSwitcher from "@/components/ui/language-switcher";
 import {
   Sheet,
   SheetContent,
@@ -73,6 +74,7 @@ export default function Navbar() {
             })}
           </ul>
           <div className="flex items-center gap-3 border-l pl-6 border-border/60">
+            <LanguageSwitcher />
             <Link
               href="/#calculator"
               onClick={(e) => handleScroll(e, "/#calculator")}
@@ -126,7 +128,10 @@ export default function Navbar() {
                     );
                   })}
 
-                  <div className="pt-8">
+                  <div className="pt-8 flex flex-col gap-4">
+                    <div className="flex justify-start">
+                      <LanguageSwitcher />
+                    </div>
                     <Link
                       href="/#calculator"
                       onClick={(e) => handleScroll(e, "/#calculator")}

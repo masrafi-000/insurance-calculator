@@ -4,8 +4,8 @@ import Section from "@/components/ui/section";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
 import Link from "next/link";
-import { Button } from "../../../components/ui/button";
-import Container from "../../../components/ui/container";
+import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/container";
 
 const Hero = () => {
   const containerVars = {

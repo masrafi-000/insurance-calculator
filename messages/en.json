@@ -1,0 +1,222 @@
+{
+    "Header": {
+        "logo": "",
+        "navLinks": [
+            {
+                "title": "",
+                "href": ""
+            },
+            {
+                "title": "",
+                "href": ""
+            },
+            {
+                "title": "",
+                "href": ""
+            },
+            {
+                "title": "",
+                "href": ""
+            }
+        ],
+        "button": ""
+    },
+    "HomePage": {
+        "HeroSection": {
+            "badge": "Swiss Standard Insurance Checking",
+            "title": "",
+            "description": "",
+            "subDescription": {
+                "text1": "",
+                "text2": "",
+                "text3": ""
+            },
+            "button1": "",
+            "button2": ""
+        },
+
+        "ClaculatorSection": {
+            "badge": "",
+            "title": "",
+            "description": "",
+            "Calculateform": {
+                "badge": "",
+                "title": "",
+                "description": "",
+                "formFields": {
+                    "leadSection": {
+                        "title": "",
+                        "form": {
+                           "firstName":{
+                             "label": "",
+                            "placeholder": "",
+                            "value": ""
+                           },
+                           "lastName": {
+                             "label": "",
+                            "placeholder": "",
+                            "value": ""
+                           },
+                           "email": {
+                             "label": "",
+                            "placeholder": "",
+                            "value": ""
+                           },
+                           "phone": {
+                             "label": "",
+                            "placeholder": "",
+                            "value": ""
+                           },
+                           "dateOfBirth": {
+                             "label": "",
+                            "placeholder": "",
+                            "value": ""
+                           }
+
+                        }
+                    },
+                    "claculationSection":{
+                        "title": "",
+                        "canton": {
+                            "label": "",
+                            "placeholder": "",
+                            "value": ""
+                        },
+                        "monthlyPayment": {
+                            "label": "",
+                            "placeholder": "",
+                            "value": ""
+                        },
+                        "annualDeductible": {
+                            "label": "",
+                            "placeholder": "",
+                            "value": ""
+                        },
+                        "totalMedicalExpenses": {
+                            "label": "",
+                            "placeholder": "",
+                            "value": ""
+                        },
+                        "coInsurance": {
+                            "label": "",
+                            "placeholder": "",
+                            "value": ""
+                        },
+                        "insuranceModel": {
+                            "label": "",
+                            "placeholder": "",
+                            "value": ""
+                        },
+                        "adults": {
+                            "label": "",
+                            "placeholder": "",
+                            "value": ""
+                        },
+                        "children": {
+                            "label": "",
+                            "placeholder": "",
+                            "value": ""
+                        },
+                        "accidentCoverage": {
+                            "label": "",
+                            "placeholder": ""
+                        }
+                    
+
+                    }
+                },
+                "button1": {
+                    "text": ""
+                },
+                "button2": {
+                    "text": ""
+                },
+                "button3": {
+                    "text": ""
+                }
+            },
+
+            "ResultSection": {
+                
+            }
+
+        },
+
+        "HowItWorksSection": {
+            "badge": "",
+            "title": "",
+            "description": "",
+            "steps": [
+                {
+                    "title": "",
+                    "description": ""
+                },
+                {
+                    "title": "",
+                    "description": ""
+                },
+                {
+                    "title": "",
+                    "description": ""
+                }
+            ]
+        }, 
+        "ContactUs": {
+            "badge": "",
+            "title": "",
+            "description": "",
+            "phone": {
+                "title": "",
+                "number": "",
+                "description": ""
+            },
+            "email": {
+                "title": "",
+                "emailAddress": "",
+                "description": ""
+            }, 
+            "location": {
+                "title": "",
+                "address": "",
+                "description": ""
+            }
+        }
+    },
+
+    "Footer": {
+        "logo": "",
+        "description": "",
+        "navigationLinksTitle": "",
+        "navLinks": [
+            {
+                "title": "",
+                "href": ""
+            },
+            {
+                "title": "",
+                "href": ""
+            },
+            {
+                "title": "",
+                "href": ""
+            },
+            {
+                "title": "",
+                "href": ""
+            },
+            {
+                "title": "",
+                "href": ""
+            }
+        ],
+        "protectTitle": "",
+        "protectDescription": "",
+        "subscribeButton": "",
+        "copyright": "",
+
+        "privacyPolicy": "",
+        "termsOfService": "",
+        "cookiePolicy": "",
+        "disclaimer": ""
+    }
+}

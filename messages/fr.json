@@ -233,9 +233,9 @@
           "tooltip": "Juste pour un résumé personnalisé."
         },
         "dateOfBirth": {
-          "label": "Date de naissance *",
-          "placeholder": "Choisir une date",
-          "tooltip": "Votre date de naissance aide à estimer les primes liées à l'âge."
+          "label": "Année de naissance *",
+          "placeholder": "ex. 1990",
+          "tooltip": "Votre année de naissance aide à estimer les primes liées à l'âge."
         }
       },
       "section2Title": "2) Vos chiffres (calcul instantané + email)",
@@ -375,12 +375,7 @@
           "label": "Modèle d'Assurance *",
           "placeholder": "Standard",
           "tooltip": "Choisissez votre méthode de consultation préférée (Standard, Telmed, HMO, etc.) pour appliquer les réductions.",
-          "options": [
-            "Standard",
-            "Médecin de Famille",
-            "Telmed",
-            "HMO/Réseau"
-          ]
+          "options": ["Standard", "Médecin de Famille", "Telmed", "HMO/Réseau"]
         },
         "adults": {
           "label": "Nombre d'Adultes (18+) *",

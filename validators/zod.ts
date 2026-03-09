@@ -12,7 +12,7 @@ export const calculatorSchema = z.object({
   firstName: z.string().min(1, "Field required"),
   lastName: z.string().min(1, "Field required"),
   phoneNumber: z.string().min(1, "Field required"),
-  dateOfBirth: z.string().min(1, "Field required"),
+  dateOfBirth: z.string().regex(/^\d{4}$/, "Must be a 4-digit year"),
   email: z.string().email("Invalid email"),
   canton: z.string().min(1, "Select a canton"),
   monthlyPremium: z

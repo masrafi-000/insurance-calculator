@@ -233,9 +233,9 @@
           "tooltip": "Just for personalized summary."
         },
         "dateOfBirth": {
-          "label": "Date of Birth *",
-          "placeholder": "Pick a date",
-          "tooltip": "Your birth date helps estimate age-related premiums."
+          "label": "Year of Birth *",
+          "placeholder": "e.g. 1990",
+          "tooltip": "Your birth year helps estimate age-related premiums."
         }
       },
       "section2Title": "2) Your numbers (instant calculation + email)",
@@ -375,12 +375,7 @@
           "label": "Insurance Model *",
           "placeholder": "Standard",
           "tooltip": "Choose your preferred consultation method (Standard, Telmed, HMO, etc.) to apply discounts.",
-          "options": [
-            "Standard",
-            "Family Doctor",
-            "Telmod",
-            "HMO/Network"
-          ]
+          "options": ["Standard", "Family Doctor", "Telmod", "HMO/Network"]
         },
         "adults": {
           "label": "Number of Adults (18+) *",

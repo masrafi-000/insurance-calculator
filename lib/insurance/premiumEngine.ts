@@ -55,12 +55,10 @@ export function calculatePremium(form: CalculatorSchema) {
     false: 0.97,
   };
 
-  // Age
-  const dob = new Date(form.dateOfBirth);
-  const today = new Date();
-  let age = today.getFullYear() - dob.getFullYear();
-  const m = today.getMonth() - dob.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
+  // Age — birth year only
+  const birthYear = Number(form.dateOfBirth);
+  const currentYear = new Date().getFullYear();
+  const age = currentYear - birthYear;
 
   let ageGroup: "child" | "young" | "adult" = "adult";
   if (age <= 18) ageGroup = "child";

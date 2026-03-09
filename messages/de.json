@@ -233,9 +233,9 @@
           "tooltip": "Nur für die personalisierte Zusammenfassung."
         },
         "dateOfBirth": {
-          "label": "Geburtsdatum *",
-          "placeholder": "Datum wählen",
-          "tooltip": "Ihr Geburtsdatum hilft bei der Schätzung altersbedingter Prämien."
+          "label": "Geburtsjahr *",
+          "placeholder": "z.B. 1990",
+          "tooltip": "Ihr Geburtsjahr hilft bei der Schätzung altersbedingter Prämien."
         }
       },
       "section2Title": "2) Ihre Zahlen (Sofortberechnung + E-Mail)",
@@ -375,12 +375,7 @@
           "label": "Versicherungsmodell *",
           "placeholder": "Standard",
           "tooltip": "Wählen Sie Ihre bevorzugte Konsultationsmethode (Standard, Telmed, HMO etc.), um Rabatte anzuwenden.",
-          "options": [
-            "Standard",
-            "Hausarzt",
-            "Telmed",
-            "HMO/Netzwerk"
-          ]
+          "options": ["Standard", "Hausarzt", "Telmed", "HMO/Netzwerk"]
         },
         "adults": {
           "label": "Anzahl Erwachsene (18+) *",

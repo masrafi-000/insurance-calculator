@@ -1,13 +1,11 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { format } from "date-fns";
 import { motion, Variants } from "framer-motion";
-import { CalendarIcon, HelpCircle, Loader2, SendHorizonal } from "lucide-react";
+import { HelpCircle, Loader2, SendHorizonal } from "lucide-react";
 import { useForm } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
 import {
   Form,
   FormControl,
@@ -17,11 +15,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Select,
@@ -32,7 +25,6 @@ import {
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { useCalculatorMutation } from "@/hooks/queries/use-calculator-mutation";
-import { cn } from "@/lib/utils";
 import { useCalculatorStore } from "@/store/use-calculator-store";
 import { FranchiseOption } from "@/types/shared";
 import { calculatorSchema, CalculatorSchema } from "@/validators/zod";
@@ -260,51 +252,14 @@ export function PrimeCalculatorForm({
                         </div>
                       </div>
                     </div>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <FormControl>
-                          <Button
-                            variant={"outline"}
-                            className={cn(
-                              "w-full rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base font-normal bg-white justify-start text-left",
-                              !field.value && "text-muted-foreground",
-                            )}
-                          >
-                            <CalendarIcon className="mr-2 h-4 w-4 opacity-70 shrink-0" />
-                            <span className="truncate">
-                              {field.value ? (
-                                format(new Date(field.value), "PPP")
-                              ) : (
-                                <span>
-                                  {t("fields.dateOfBirth.placeholder")}
-                                </span>
-                              )}
-                            </span>
-                          </Button>
-                        </FormControl>
-                      </PopoverTrigger>
-                      <PopoverContent
-                        className="w-auto p-0 rounded-xl"
-                        align="start"
-                        side="bottom"
-                        avoidCollisions={true}
-                      >
-                        <Calendar
-                          mode="single"
-                          selected={
-                            field.value ? new Date(field.value) : undefined
-                          }
-                          onSelect={(date) =>
-                            field.onChange(date ? date.toISOString() : "")
-                          }
-                          disabled={(date) =>
-                            date > new Date() || date < new Date("1900-01-01")
-                          }
-                          captionLayout="dropdown"
-                          className="bg-white rounded-xl w-full"
-                        />
-                      </PopoverContent>
-                    </Popover>
+                    <FormControl>
+                      <Input
+                        placeholder={t("fields.dateOfBirth.placeholder")}
+                        maxLength={4}
+                        className="rounded-xl border-slate-200 h-11 px-4 shadow-none focus-visible:ring-1 focus-visible:ring-blue-500 text-base"
+                        {...field}
+                      />
+                    </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -690,7 +645,7 @@ export function PrimeCalculatorForm({
                   firstName: "John",
                   lastName: "Doe",
                   phoneNumber: "123456789",
-                  dateOfBirth: "1990-01-01T00:00:00.000Z",
+                  dateOfBirth: "1990",
                   model: "Standard" as const,
                   adults: "1",
                   children: "0",

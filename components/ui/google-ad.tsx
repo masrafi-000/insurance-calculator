@@ -3,7 +3,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 interface GoogleAdProps {
@@ -12,18 +11,14 @@ interface GoogleAdProps {
   format?: string;
   responsive?: boolean;
   className?: string;
-  fallbackImg?: string;
-  fallbackText?: string;
 }
 
 export default function GoogleAd({
-  client,
+  client = "ca-pub-2846346770891185",
   slot,
   format = "auto",
   responsive = true,
   className,
-  fallbackImg,
-  fallbackText,
 }: GoogleAdProps) {
   const t = useTranslations("UI.GoogleAd");
   const adRef = useRef<HTMLModElement>(null);
@@ -61,7 +56,7 @@ export default function GoogleAd({
           <ins
             ref={adRef}
             className="adsbygoogle"
-            style={{ display: "block", width: "100%", height: "100%" }}
+            style={{ display: "block" }}
             data-ad-client={client}
             data-ad-slot={slot}
             data-ad-format={format}
@@ -73,26 +68,13 @@ export default function GoogleAd({
         <div
           className={`${client && slot ? "absolute inset-0 -z-10" : "grow min-h-[300px] w-full relative z-10"} flex flex-col items-center justify-center text-center bg-muted/10 pointer-events-none rounded-b-xl border-t-0`}
         >
-          {fallbackImg ? (
-            <>
-              <Image
-                src={fallbackImg}
-                alt="Advertisement"
-                fill
-                className="object-cover opacity-60 mix-blend-overlay"
-              />
-              <div className="relative z-10 p-4 bg-background/80 backdrop-blur-sm rounded-xl border border-border/50 shadow-xs max-w-[85%]">
-                <p className="font-bold text-sm text-foreground mb-1">
-                  {fallbackText || t("adFallback")}
-                </p>
-                <p className="text-xs text-muted-foreground leading-tight">
-                  {t("adCta")}
-                </p>
-              </div>
-            </>
-          ) : (
+          {client && slot ? (
             <span className="text-muted-foreground/30 text-sm font-medium tracking-widest uppercase">
               Ad Space
+            </span>
+          ) : (
+            <span className="text-muted-foreground/30 text-sm font-medium tracking-widest uppercase">
+              No Ad
             </span>
           )}
         </div>

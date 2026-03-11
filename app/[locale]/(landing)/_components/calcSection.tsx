@@ -111,17 +111,15 @@ const FormSection: React.FC = () => {
             >
               <div className="relative w-full">
                 <GoogleAd
+                  slot="6837505817" // leftside-1
                   className="rounded-2xl"
-                  fallbackImg="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57"
-                  fallbackText={tGoogle("ad1")}
                 />
               </div>
 
               <div className="relative w-full">
                 <GoogleAd
+                  slot="6454362434" // leftside-2
                   className="rounded-2xl"
-                  fallbackImg="https://images.unsplash.com/photo-1556740714-a8395b3bf30f"
-                  fallbackText={tGoogle("ad2")}
                 />
               </div>
             </motion.aside>
@@ -172,16 +170,14 @@ const FormSection: React.FC = () => {
             >
               <div className="relative w-full">
                 <GoogleAd
+                  slot="6262790740" // right-site-1
                   className="rounded-2xl h-[400px]"
-                  fallbackImg="https://images.unsplash.com/photo-1606811841689-23dfddce3e95"
-                  fallbackText={tGoogle("ad3")}
                 />
               </div>
               <div className="relative w-full">
                 <GoogleAd
+                  slot="5044243699" // right-site-2
                   className="rounded-2xl h-[400px]"
-                  fallbackImg="https://images.unsplash.com/photo-1544256718-3bcf237f3974"
-                  fallbackText={tGoogle("ad4")}
                 />
               </div>
             </motion.aside>

@@ -79,15 +79,15 @@ validators/zod.ts          # Form schemas
 ```bash
 npm install
 
-or 
+# or 
 
 bun install
 
-or 
+# or 
 
 pnpm install
 
-or
+# or
 
 yarn install
 ```
@@ -116,15 +116,15 @@ Notes:
 ```bash
 npm run dev
 
-or 
+# or 
 
 bun dev
 
-or
+# or
 
 yarn dev
 
-or
+# or
 
 pnpm dev
 ```

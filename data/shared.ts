@@ -69,7 +69,7 @@ export const contactInfo: ITContactInfo[] = [
   {
     icon: Mail,
     title: "Email Support",
-    details: "support@insurancecalc.ch",
+    details: "info@rentabilite-assurance.ch",
     description: "We'll typically reply within 24 hours",
   },
   {

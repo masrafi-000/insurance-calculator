@@ -107,7 +107,7 @@ const FormSection: React.FC = () => {
             {/* LEFT SIDEBAR: Sponsored Picks & Google Ad */}
             <motion.aside
               variants={itemVariants}
-              className="xl:w-[280px]  gap-5 shrink-0 order-2 xl:order-1 flex-col  md:flex md:flex-row xl:flex-col sticky top-24 h-max"
+              className="w-full xl:w-[280px]  gap-5 shrink-0 order-2 xl:order-1 flex-col  md:flex md:flex-row xl:flex-col sticky top-24 h-max"
             >
               <div className="relative w-full">
                 <GoogleAd
@@ -166,7 +166,7 @@ const FormSection: React.FC = () => {
             {/* RIGHT SIDEBAR (Hidden on small screens) */}
             <motion.aside
               variants={itemVariants}
-              className="xl:w-[280px] flex-col gap-5 shrink-0 order-3 hidden xl:flex sticky top-24 h-max"
+              className="w-full xl:w-[280px] flex-col gap-5 shrink-0 order-3 hidden xl:flex sticky top-24 h-max"
             >
               <div className="relative w-full">
                 <GoogleAd

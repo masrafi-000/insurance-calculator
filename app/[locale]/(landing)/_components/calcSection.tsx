@@ -171,13 +171,13 @@ const FormSection: React.FC = () => {
               <div className="relative w-full">
                 <GoogleAd
                   slot="6262790740" // right-site-1
-                  className="rounded-2xl h-[400px]"
+                  className="rounded-2xl"
                 />
               </div>
               <div className="relative w-full">
                 <GoogleAd
                   slot="5044243699" // right-site-2
-                  className="rounded-2xl h-[400px]"
+                  className="rounded-2xl "
                 />
               </div>
             </motion.aside>

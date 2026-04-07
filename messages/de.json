@@ -186,13 +186,13 @@
     "Ads": [
       {
         "title": "Premium Auto Einsparungen",
-        "desc": "Fahrer, die zu unseren Partnern wechseln, sparen im Durchschnitt 744 $/Jahr.",
+        "desc": "Fahrer, die zu unseren Partnern wechseln, sparen im Durchschnitt 744 CHF/Jahr.",
         "price": "Bis zu 30% Rabatt"
       },
       {
         "title": "Spezialangebot für Hausbesitzer",
         "desc": "Exklusive Tarife 2026 für neue Hausbesitzer. Komplette Abdeckung.",
-        "price": "Ab 49 $/Monat"
+        "price": "Ab 49 CHF/Monat"
       },
       {
         "title": "Lebensversicherung Plus",
@@ -227,10 +227,10 @@
           "placeholder": "test@email.ch",
           "tooltip": "Wir benötigen Ihre E-Mail, um Ihre individuellen Berechnungsergebnisse zu senden."
         },
-        "phoneNumber": {
-          "label": "Telefonnummer *",
-          "placeholder": "123456789",
-          "tooltip": "Nur für die personalisierte Zusammenfassung."
+        "privacyPolicy": {
+          "label": "Ich akzeptiere die Datenschutzbestimmungen",
+          "placeholder": "",
+          "tooltip": ""
         },
         "dateOfBirth": {
           "label": "Geburtsjahr *",

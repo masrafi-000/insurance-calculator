@@ -186,13 +186,13 @@
     "Ads": [
       {
         "title": "Premium Auto Savings",
-        "desc": "Drivers who switch to our partners save an average of $744/year.",
+        "desc": "Drivers who switch to our partners save an average of 744 CHF/year.",
         "price": "Up to 30% Off"
       },
       {
         "title": "Homeowners Special",
         "desc": "Exclusive 2026 rates for new homeowners. Complete coverage.",
-        "price": "From $49/mo"
+        "price": "From 49 CHF/mo"
       },
       {
         "title": "Life Insurance Plus",
@@ -227,10 +227,10 @@
           "placeholder": "test@email.ch",
           "tooltip": "We need your email to send your customized calculation results."
         },
-        "phoneNumber": {
-          "label": "Phone Number *",
-          "placeholder": "123456789",
-          "tooltip": "Just for personalized summary."
+        "privacyPolicy": {
+          "label": "I accept the privacy policy",
+          "placeholder": "",
+          "tooltip": ""
         },
         "dateOfBirth": {
           "label": "Year of Birth *",

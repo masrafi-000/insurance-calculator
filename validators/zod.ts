@@ -11,7 +11,7 @@ export type ZTFooter = z.infer<typeof ZCFooter>;
 export const calculatorSchema = z.object({
   firstName: z.string().min(1, "Field required"),
   lastName: z.string().min(1, "Field required"),
-  phoneNumber: z.string().min(1, "Field required"),
+  privacyPolicy: z.boolean().refine((val) => val === true, "You must accept the privacy policy"),
   dateOfBirth: z.string().regex(/^\d{4}$/, "Must be a 4-digit year"),
   email: z.string().email("Invalid email"),
   canton: z.string().min(1, "Select a canton"),

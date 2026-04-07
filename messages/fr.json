@@ -186,13 +186,13 @@
     "Ads": [
       {
         "title": "Économies sur l'Assurance Auto Premium",
-        "desc": "Les conducteurs qui passent à nos partenaires économisent en moyenne 744 $/an.",
+        "desc": "Les conducteurs qui passent à nos partenaires économisent en moyenne 744 CHF/an.",
         "price": "Jusqu'à 30% de réduction"
       },
       {
         "title": "Spécial Propriétaires",
         "desc": "Tarifs exclusifs 2026 pour les nouveaux propriétaires. Couverture complète.",
-        "price": "Dès 49 $/mois"
+        "price": "Dès 49 CHF/mois"
       },
       {
         "title": "Assurance Vie Plus",
@@ -227,10 +227,10 @@
           "placeholder": "test@email.ch",
           "tooltip": "Nous avons besoin de votre email pour envoyer vos résultats de calcul personnalisés."
         },
-        "phoneNumber": {
-          "label": "Numéro de téléphone *",
-          "placeholder": "123456789",
-          "tooltip": "Juste pour un résumé personnalisé."
+        "privacyPolicy": {
+          "label": "J'accepte la politique de confidentialité",
+          "placeholder": "",
+          "tooltip": ""
         },
         "dateOfBirth": {
           "label": "Année de naissance *",

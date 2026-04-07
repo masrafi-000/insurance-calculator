@@ -186,13 +186,13 @@
     "Ads": [
       {
         "title": "Risparmio Assicurazione Auto Premium",
-        "desc": "I conducenti che passano ai nostri partner risparmiano in media 744 $/anno.",
+        "desc": "I conducenti che passano ai nostri partner risparmiano in media 744 CHF/anno.",
         "price": "Fino al 30% di Sconto"
       },
       {
         "title": "Speciale Proprietari di Casa",
         "desc": "Tariffe esclusive 2026 per nuovi proprietari di casa. Copertura completa.",
-        "price": "Da 49 $/mese"
+        "price": "Da 49 CHF/mese"
       },
       {
         "title": "Assicurazione Vita Plus",
@@ -227,10 +227,10 @@
           "placeholder": "test@email.ch",
           "tooltip": "Abbiamo bisogno della tua email per inviare i tuoi risultati di calcolo personalizzati."
         },
-        "phoneNumber": {
-          "label": "Numero di Telefono *",
-          "placeholder": "123456789",
-          "tooltip": "Solo per un riepilogo personalizzato."
+        "privacyPolicy": {
+          "label": "Accetto l'informativa sulla privacy",
+          "placeholder": "",
+          "tooltip": ""
         },
         "dateOfBirth": {
           "label": "Anno di nascita *",
